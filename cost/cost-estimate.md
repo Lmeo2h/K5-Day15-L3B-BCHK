@@ -7,7 +7,7 @@
 ## 1. Đầu vào
 
 - **Persona** (`cost/personas.yaml`): xếp một lần (60%, 1 lượt hỏi) · sửa nhiều lần (30%, 3 lượt) · xếp lại khi đi (10%, 5 lượt), mỗi người 1 phiên / tháng. Nguồn: *(tự ước tính)*, chờ khảo sát và phỏng vấn.
-- **Số người dùng** 3 kịch bản: thấp 500 · cơ sở 2.000 · cao 10.000 người / tháng. Nguồn: *(tự ước tính)*, **chưa có nguồn công khai**.
+- **Số người dùng** 3 kịch bản: thấp 500 · cơ sở 2.000 · cao 10.000 người / tháng *(tự ước tính)*. Đối chiếu quy mô (`spec.md` §2): đường bay Hà Nội và TP.HCM 11,07 triệu ghế năm 2025 ([VnExpress, 24/12/2025, dẫn OAG](https://e.vnexpress.net/news/business/economy/hanoi-hcmc-remains-world-s-4th-busiest-flight-route-4997830.html)), từ đó ước khoảng 4.600 người đi chơi lần đầu, tự túc mỗi tháng *(tỉ lệ 1% là tự ước tính)*. Kịch bản cơ sở bằng khoảng 43% con số này; kịch bản cao giả định mở sang nơi xuất phát khác.
 - **Giá** (USD / 1 triệu token, vào và ra): `gpt-5-nano` 0,05 và 0,40 · `gpt-5.4-mini` 0,75 và 4,50. [Trang giá OpenAI](https://developers.openai.com/api/docs/pricing), BTC xem 25/11/2026.
 - **Tỉ lệ đạt** dùng để tính: 19/23 (83%), lượt `run-2`.
 - Đo token trên model `gpt-5-nano`, tính giá `gpt-5-nano` và `gpt-5.4-mini`.

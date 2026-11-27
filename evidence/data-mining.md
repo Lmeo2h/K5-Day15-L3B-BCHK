@@ -45,6 +45,15 @@ Làm rõ khi gắn nhãn: chỉ tính chuyện thuộc chuyến đến Hà Nội
 | L3 đóng cửa | 0/98 | 0% | |
 | Tài khoản nêu ít nhất 1 lỗi | 8/69 | | chỉ đếm, không lưu tên |
 
+**12 bài `L1_thong_tin` chia theo điều được hỏi** (chia sau khi đọc lại tối 27/11, do Claude Code, không phải nhãn đặt trước):
+
+| Điều được hỏi | Số bài | Bài (thread #số) |
+|---|---|---|
+| Đi lại và thuê xe | 6/98 | 820237 #1, #19 · 866081 #1 · 678405 #1, #6, #16 |
+| Trong đó từ sân bay Nội Bài | 4/98 | 820237 #1, #19 · 866081 #1 · 678405 #1 |
+| Đi đâu, chia ngày, tiền | 5/98 | 1013476 #1, #3, #6 · 948129 #1, #9 |
+| Giờ hàng quán | 1/98 | 678405 #4 |
+
 ## 4. Ví dụ nguyên văn (bỏ tên, tối đa 2 câu, xem ngày 27/11/2026)
 
 1. "Thế là em tốn 350k thì mới được xuống xe, em ko dám làm căng vì mình từ xa đến, có quen biết ai đâu." (VOZ 866081 #1)
@@ -64,3 +73,8 @@ Làm rõ khi gắn nhãn: chỉ tính chuyện thuộc chuyến đến Hà Nội
 - **Nhãn do Claude Code gắn, chưa được người kiểm tay.** TV2 đọc lại 98 bài theo `voz-labels.csv` rồi ghi số dòng khớp: __/98.
 
 Kiểm lại bằng phỏng vấn theo `evidence/interviews/cau-hoi.md`.
+
+## 6. Kiểm lại
+
+- Tối 27/11 tải lại 5 thread bằng `python evidence/verify_quotes.py`: 98/98 bài trong bảng nhãn còn trên trang, đúng ngày đăng; 7/7 trích dẫn khớp nguyên văn. Việc này kiểm trích dẫn và mẫu, **không kiểm nhãn**.
+- Phiếu kiểm tay nhãn: `evidence/voz-kiem-tay.csv` (14 bài có nhãn và 20 bài không nhãn lấy ngẫu nhiên, seed 42, trộn thứ tự, không ghi nhãn). Người chấm đọc bài qua link, điền 1 hoặc 0, rồi chạy `python evidence/verify_quotes.py --so`.
