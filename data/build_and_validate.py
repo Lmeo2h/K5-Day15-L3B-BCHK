@@ -258,7 +258,7 @@ def export_csvs(kb: dict) -> None:
             writer.writerow(row)
 
     with TRANSFERS_CSV.open("w", encoding="utf-8-sig", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=REQUIRED_TRANSFER_FIELDS)
+        writer = csv.DictWriter(f, fieldnames=REQUIRED_TRANSFER_FIELDS, extrasaction="ignore")
         writer.writeheader()
         for item in kb["airport_transfers"]:
             row = dict(item)

@@ -17,17 +17,17 @@
       "district": "Ba Đình",
       "zone": "ba_dinh",
       "address": "Số 2 Hùng Vương, Điện Biên, Ba Đình, Hà Nội",
-      "approx_lat": 21.0368,
-      "approx_lng": 105.8347,
-      "opening_hours_summary": "Mùa hè: 07:30-10:30; Mùa đông: 08:00-11:00 (Thứ 3, 4, 5, 7, CN)",
+      "approx_lat": 21.036783,
+      "approx_lng": 105.834689,
+      "opening_hours_summary": "Mùa lạnh (01/11-31/03): 08:00-11:00, thứ Bảy đến 11:30; nghỉ thứ Hai và thứ Sáu",
       "opening_hours_by_day": {
         "mon": "closed",
-        "tue": ["07:30-11:00"],
-        "wed": ["07:30-11:00"],
-        "thu": ["07:30-11:00"],
+        "tue": ["08:00-11:00"],
+        "wed": ["08:00-11:00"],
+        "thu": ["08:00-11:00"],
         "fri": "closed",
-        "sat": ["07:30-11:00"],
-        "sun": ["07:30-11:00"]
+        "sat": ["08:00-11:30"],
+        "sun": ["08:00-11:00"]
       },
       "closed_days": ["mon", "fri"],
       "lunch_break": null,
@@ -45,10 +45,13 @@
       "tags": ["lich_su", "van_hoa", "mien_phi", "buoi_sang", "trang_phuc_kin_dao"],
       "highlights": ["Viếng Lăng Bác", "Quảng trường Ba Đình", "Lễ chào cờ 06:00 sáng"],
       "notes": "Đóng cửa Thứ 2 và Thứ 6 hàng tuần; thường đóng tu bổ định kỳ ~2 tháng (khoảng tháng 9-11). Bắt buộc mặc trang phục lịch sự (che vai và đầu gối), gửi đồ điện tử/máy ảnh theo quy định.",
-      "source_name": "Vietnam Tourism / VOV",
-      "source_url": "https://www.vietnamtourism.com",
+      "source_name": "Tuổi Trẻ Online (09/08/2026)",
+      "source_url": "https://tuoitre.vn/tam-dung-to-chuc-vao-lang-vieng-chu-tich-ho-chi-minh-tu-ngay-4-9-de-tu-bo-dinh-ky-100260809174846229.htm",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "verification": "bao_chi",
+      "verification_note": "Giờ mùa lạnh 01/11-31/03; mở lại 03/11/2026; nghỉ thứ Hai, thứ Sáu. Trang bqllang.gov.vn không truy cập được",
+      "geo_source": "osm_diem way/37625751"
     },
     {
       "id": "HN-ATTR-02",
@@ -58,17 +61,17 @@
       "district": "Đống Đa",
       "zone": "dong_da",
       "address": "Số 58 Quốc Tử Giám, Văn Miếu, Đống Đa, Hà Nội",
-      "approx_lat": 21.0286,
-      "approx_lng": 105.8357,
-      "opening_hours_summary": "Ban ngày: 08:00-17:00 hàng ngày; Tour đêm: 18:30-22:00 cuối tuần",
+      "approx_lat": 21.02879,
+      "approx_lng": 105.835953,
+      "opening_hours_summary": "08:00-17:00 hàng ngày (tour đêm vé riêng, không tính)",
       "opening_hours_by_day": {
         "mon": ["08:00-17:00"],
         "tue": ["08:00-17:00"],
         "wed": ["08:00-17:00"],
         "thu": ["08:00-17:00"],
         "fri": ["08:00-17:00"],
-        "sat": ["08:00-17:00", "18:30-22:00"],
-        "sun": ["08:00-17:00", "18:30-22:00"]
+        "sat": ["08:00-17:00"],
+        "sun": ["08:00-17:00"]
       },
       "closed_days": [],
       "lunch_break": null,
@@ -86,10 +89,13 @@
       "tags": ["lich_su", "giao_duc", "van_hoa", "chup_anh", "trang_phuc_kin_dao"],
       "highlights": ["Khuê Văn Các", "82 bia Tiến sĩ", "Điện Đại Thành"],
       "notes": "Mở cửa tất cả các ngày. Mặc trang phục lịch sự khi vào khu thờ tự.",
-      "source_name": "VietSense Travel / Cổng thông tin Văn Miếu",
-      "source_url": "https://www.vietsensetravel.com",
+      "source_name": "Trang chính thức Văn Miếu - Quốc Tử Giám",
+      "source_url": "https://vanmieu.gov.vn/",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "verification": "chinh_thuc",
+      "verification_note": "Vé người lớn 70.000đ, 08:00-17:00 mọi ngày. Tour đêm (thứ Tư, thứ Bảy, Chủ nhật) vé riêng, không tính trong dữ liệu",
+      "geo_source": "osm_diem way/1582902103"
     },
     {
       "id": "HN-ATTR-03",
@@ -99,8 +105,8 @@
       "district": "Ba Đình",
       "zone": "ba_dinh",
       "address": "Số 19C Hoàng Diệu, Điện Biên, Ba Đình, Hà Nội",
-      "approx_lat": 21.0352,
-      "approx_lng": 105.8401,
+      "approx_lat": 21.036275,
+      "approx_lng": 105.840302,
       "opening_hours_summary": "08:00-17:00 tất cả các ngày (kể cả Thứ 2)",
       "opening_hours_by_day": {
         "mon": ["08:00-17:00"],
@@ -127,10 +133,13 @@
       "tags": ["di_san_unesco", "lich_su", "van_hoa", "mo_thu_2"],
       "highlights": ["Đoan Môn", "Điện Kính Thiên", "Khu khảo cổ 18 Hoàng Diệu", "Hầm D67"],
       "notes": "Mở cả Thứ 2, rất tiện thay thế khi Lăng Bác hoặc nhiều bảo tàng đóng cửa Thứ 2.",
-      "source_name": "Trung tâm Bảo tồn Di sản Thăng Long - Hà Nội",
-      "source_url": "https://hoangthanhthanglong.vn",
+      "source_name": "Trang chính thức Hoàng thành Thăng Long",
+      "source_url": "https://hoangthanhthanglong.vn/gia-ve-tham-quan-hoang-thanh-thang-long/",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "verification": "chinh_thuc",
+      "verification_note": "Vé 100.000đ từ 01/01/2025; giờ 08:00-17:00 mọi ngày lấy ở trang chủ cùng website",
+      "geo_source": "osm_diem way/1582902152"
     },
     {
       "id": "HN-ATTR-04",
@@ -140,8 +149,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 1 Hỏa Lò, Trần Hưng Đạo, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0253,
-      "approx_lng": 105.8465,
+      "approx_lat": 21.025422,
+      "approx_lng": 105.846509,
       "opening_hours_summary": "08:00-17:00 hàng ngày (Tour đêm cuối tuần cần đặt vé trước)",
       "opening_hours_by_day": {
         "mon": ["08:00-17:00"],
@@ -168,10 +177,13 @@
       "tags": ["lich_su", "trong_nha", "tranh_mua", "mo_thu_2"],
       "highlights": ["Khu giam giữ lịch sử", "Thuyết minh tự động", "Tour đêm Đêm Thiêng Liêng"],
       "notes": "Mở cửa cả Thứ 2 và Lễ Tết. Tour đêm phải đặt vé trước qua fanpage/hotline chính thức.",
-      "source_name": "Vinpearl / MIA",
-      "source_url": "https://vinpearl.com",
+      "source_name": "Trang chính thức Di tích Nhà tù Hỏa Lò",
+      "source_url": "https://hoalo.vn/Home/Ve",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "verification": "chinh_thuc",
+      "verification_note": "Vé 50.000đ; giờ 08:00-17:00 mọi ngày lấy ở trang chủ",
+      "geo_source": "osm_diem way/340128580"
     },
     {
       "id": "HN-ATTR-05",
@@ -181,8 +193,8 @@
       "district": "Cầu Giấy",
       "zone": "cau_giay",
       "address": "Đường Nguyễn Văn Huyên, Quan Hoa, Cầu Giấy, Hà Nội",
-      "approx_lat": 21.0402,
-      "approx_lng": 105.7987,
+      "approx_lat": 21.040077,
+      "approx_lng": 105.79884,
       "opening_hours_summary": "08:30-17:30 (Thứ 3 đến Chủ Nhật); Đóng cửa Thứ 2",
       "opening_hours_by_day": {
         "mon": "closed",
@@ -209,10 +221,13 @@
       "tags": ["bao_tang", "van_hoa", "gia_dinh", "tre_em", "nghi_thu_2"],
       "highlights": ["Tòa Trống Đồng", "Khu Vườn Kiến trúc 54 dân tộc", "Nhà rông Ba Na"],
       "notes": "Đóng cửa Thứ 2 hàng tuần và dịp Tết Nguyên đán.",
-      "source_name": "Viện Hàn lâm KHXH Việt Nam / VASS",
-      "source_url": "https://vass.gov.vn",
+      "source_name": "Trang chính thức Bảo tàng Dân tộc học",
+      "source_url": "https://vme.vass.gov.vn/",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/339936730",
+      "verification": "chinh_thuc",
+      "verification_note": "40.000đ, 08:30-17:30, nghỉ thứ Hai và Tết"
     },
     {
       "id": "HN-ATTR-06",
@@ -222,8 +237,8 @@
       "district": "Nam Từ Liêm",
       "zone": "nam_tu_liem",
       "address": "Km 6+500 Đại lộ Thăng Long, Tây Mỗ - Đại Mỗ, Nam Từ Liêm, Hà Nội",
-      "approx_lat": 21.0052,
-      "approx_lng": 105.7536,
+      "approx_lat": 21.011587,
+      "approx_lng": 105.754706,
       "opening_hours_summary": "08:00-11:30 & 13:00-16:30 (Thứ 3, 4, 5, 7, CN); Khách lẻ đóng cửa Thứ 2 & Thứ 6",
       "opening_hours_by_day": {
         "mon": "closed",
@@ -253,7 +268,8 @@
       "source_name": "Cổng TTĐT Bộ Quốc phòng",
       "source_url": "https://mod.gov.vn",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/1148571536"
     },
     {
       "id": "HN-ATTR-07",
@@ -263,8 +279,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 36 Lý Thường Kiệt, Hàng Bài, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0235,
-      "approx_lng": 105.8511,
+      "approx_lat": 21.023351,
+      "approx_lng": 105.851596,
       "opening_hours_summary": "08:00-17:00 tất cả các ngày (kể cả Thứ 2 và Lễ Tết)",
       "opening_hours_by_day": {
         "mon": ["08:00-17:00"],
@@ -291,10 +307,13 @@
       "tags": ["bao_tang", "van_hoa", "trong_nha", "tranh_mua", "mo_thu_2"],
       "highlights": ["Trưng bày Phụ nữ trong gia đình", "Tín ngưỡng thờ Mẫu", "Trang phục truyền thống"],
       "notes": "Mở cửa cả Thứ 2, nằm ngay trung tâm Hoàn Kiếm.",
-      "source_name": "Vietnam Airlines / Vinpearl",
-      "source_url": "https://www.vietnamairlines.com",
+      "source_name": "Trang chính thức Bảo tàng Phụ nữ",
+      "source_url": "https://baotangphunu.org.vn/tham-quan/",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/704147278",
+      "verification": "chinh_thuc_gio",
+      "verification_note": "Giờ 08:00-17:00 mọi ngày khớp; trang không ghi giá vé"
     },
     {
       "id": "HN-ATTR-08",
@@ -304,8 +323,8 @@
       "district": "Ba Đình",
       "zone": "ba_dinh",
       "address": "Số 66 Nguyễn Thái Học, Điện Biên, Ba Đình, Hà Nội",
-      "approx_lat": 21.0308,
-      "approx_lng": 105.8369,
+      "approx_lat": 21.03069,
+      "approx_lng": 105.837046,
       "opening_hours_summary": "08:30-17:00 tất cả các ngày (kể cả Thứ 2)",
       "opening_hours_by_day": {
         "mon": ["08:30-17:00"],
@@ -335,7 +354,8 @@
       "source_name": "Bảo tàng Mỹ thuật Việt Nam (vnfam.vn)",
       "source_url": "https://vnfam.vn",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/1582902098"
     },
     {
       "id": "HN-ATTR-09",
@@ -345,11 +365,11 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 1 Tràng Tiền (CS1) & 216 Trần Quang Khải (CS2), Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0247,
-      "approx_lng": 105.8597,
-      "opening_hours_summary": "08:00-12:00 & 13:30-17:00 (Nghỉ trưa; thường nghỉ Thứ 2 đầu tháng)",
+      "approx_lat": 21.02414,
+      "approx_lng": 105.85976,
+      "opening_hours_summary": "08:00-12:00 và 13:30-17:00; nghỉ thứ Hai",
       "opening_hours_by_day": {
-        "mon": ["08:00-12:00", "13:30-17:00"],
+        "mon": "closed",
         "tue": ["08:00-12:00", "13:30-17:00"],
         "wed": ["08:00-12:00", "13:30-17:00"],
         "thu": ["08:00-12:00", "13:30-17:00"],
@@ -357,7 +377,7 @@
         "sat": ["08:00-12:00", "13:30-17:00"],
         "sun": ["08:00-12:00", "13:30-17:00"]
       },
-      "closed_days": [],
+      "closed_days": ["mon"],
       "lunch_break": "12:00-13:30",
       "best_time_of_day": "morning",
       "ticket_adult_vnd": 40000,
@@ -373,10 +393,13 @@
       "tags": ["bao_tang", "lich_su", "trong_nha", "nghi_trua"],
       "highlights": ["Trống đồng Đông Sơn", "Kiến trúc Đông Dương Pháp cổ", "Bảo vật quốc gia"],
       "notes": "Có nghỉ trưa 12:00-13:30 và thường đóng cửa Thứ 2 đầu tiên của tháng để bảo dưỡng.",
-      "source_name": "Bảo tàng Lịch sử Quốc gia (baotanglichsu.vn)",
-      "source_url": "https://baotanglichsu.vn",
+      "source_name": "Trang chính thức Bảo tàng Lịch sử Quốc gia",
+      "source_url": "https://baotanglichsu.vn/vi/Articles/3108/ve-va-le-phi",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/37933256",
+      "verification": "chinh_thuc",
+      "verification_note": "40.000đ; đóng mọi thứ Hai (dữ liệu cũ ghi mở)"
     },
     {
       "id": "HN-ATTR-10",
@@ -386,8 +409,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Đảo Ngọc, Hồ Hoàn Kiếm, Đinh Tiên Hoàng, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0307,
-      "approx_lng": 105.8524,
+      "approx_lat": 21.030727,
+      "approx_lng": 105.852376,
       "opening_hours_summary": "07:30-18:00 hàng ngày (cuối tuần có thể mở muộn hơn)",
       "opening_hours_by_day": {
         "mon": ["07:30-18:00"],
@@ -417,7 +440,8 @@
       "source_name": "VietSense Travel / TGroup",
       "source_url": "https://www.vietsensetravel.com",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/178995262"
     },
     {
       "id": "HN-ATTR-11",
@@ -427,8 +451,8 @@
       "district": "Tây Hồ",
       "zone": "tay_ho",
       "address": "Số 46 đường Thanh Niên, Yên Phụ, Tây Hồ, Hà Nội",
-      "approx_lat": 21.0479,
-      "approx_lng": 105.8369,
+      "approx_lat": 21.047884,
+      "approx_lng": 105.836838,
       "opening_hours_summary": "07:30-11:30 & 13:30-18:30 (Mùng 1/Rằm: 06:00-20:00; có nghỉ trưa)",
       "opening_hours_by_day": {
         "mon": ["07:30-11:30", "13:30-18:30"],
@@ -458,7 +482,8 @@
       "source_name": "Vietnam Tourism / A21Tours",
       "source_url": "https://www.vietnamtourism.com",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/220302249"
     },
     {
       "id": "HN-ATTR-12",
@@ -468,8 +493,8 @@
       "district": "Ba Đình",
       "zone": "ba_dinh",
       "address": "Số 19 Ngọc Hà, Đội Cấn, Ba Đình, Hà Nội",
-      "approx_lat": 21.0357,
-      "approx_lng": 105.8325,
+      "approx_lat": 21.035617,
+      "approx_lng": 105.832629,
       "opening_hours_summary": "08:00-12:00 & 14:00-16:30 (Thứ 3, 4, 5, 7, CN); Đóng cửa Thứ 2 & Thứ 6",
       "opening_hours_by_day": {
         "mon": "closed",
@@ -496,10 +521,13 @@
       "tags": ["bao_tang", "lich_su", "trong_nha", "nghi_trua", "nghi_thu_2", "nghi_thu_6"],
       "highlights": ["Không gian trưng bày cuộc đời Chủ tịch Hồ Chí Minh", "Tổ hợp nghệ thuật tạo hình"],
       "notes": "Đóng cửa Thứ 2 & Thứ 6 giống lịch Lăng Bác; nghỉ trưa 12:00-14:00; ngừng bán vé trước giờ đóng 30 phút.",
-      "source_name": "Bảo tàng Hồ Chí Minh (baotanghochiminh.vn)",
-      "source_url": "https://baotanghochiminh.vn",
+      "source_name": "Trang chính thức Bảo tàng Hồ Chí Minh",
+      "source_url": "https://baotanghochiminh.vn/thong-tin-ve-tham-quan.htm",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "verification": "chinh_thuc",
+      "verification_note": "Miễn phí cho khách Việt Nam, 40.000đ khách quốc tế (trang đăng 03/07/2018); giờ và ngày nghỉ lấy ở trang chủ",
+      "geo_source": "osm_diem way/37629143"
     },
     {
       "id": "HN-ATTR-13",
@@ -509,8 +537,8 @@
       "district": "Ba Đình",
       "zone": "ba_dinh",
       "address": "Phố Chùa Một Cột, Đội Cấn, Ba Đình, Hà Nội",
-      "approx_lat": 21.0359,
-      "approx_lng": 105.8336,
+      "approx_lat": 21.035856,
+      "approx_lng": 105.833614,
       "opening_hours_summary": "07:00-18:00 hàng ngày",
       "opening_hours_by_day": {
         "mon": ["07:00-18:00"],
@@ -540,7 +568,8 @@
       "source_name": "Vinpearl",
       "source_url": "https://vinpearl.com",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/697326496"
     },
     {
       "id": "HN-ATTR-14",
@@ -550,19 +579,19 @@
       "district": "Cầu Giấy",
       "zone": "cau_giay",
       "address": "Nhà A20, số 18 Hoàng Quốc Việt, Nghĩa Đô, Cầu Giấy, Hà Nội",
-      "approx_lat": 21.0472,
-      "approx_lng": 105.7989,
-      "opening_hours_summary": "08:30-11:30 & 13:30-16:30; T7-CN mở tự do khách lẻ; T3-T6 chỉ nhận đoàn đăng ký trước; Đóng cửa Thứ 2",
+      "approx_lat": 21.048073,
+      "approx_lng": 105.800537,
+      "opening_hours_summary": "Tạm không xếp: nguồn chính thức mâu thuẫn, gọi xác nhận trước khi dùng",
       "opening_hours_by_day": {
         "mon": "closed",
-        "tue": ["08:30-11:30", "13:30-16:30"],
-        "wed": ["08:30-11:30", "13:30-16:30"],
-        "thu": ["08:30-11:30", "13:30-16:30"],
-        "fri": ["08:30-11:30", "13:30-16:30"],
-        "sat": ["08:30-11:30", "13:30-16:30"],
-        "sun": ["08:30-11:30", "13:30-16:30"]
+        "tue": "closed",
+        "wed": "closed",
+        "thu": "closed",
+        "fri": "closed",
+        "sat": "closed",
+        "sun": "closed"
       },
-      "closed_days": ["mon"],
+      "closed_days": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
       "lunch_break": "11:30-13:30",
       "best_time_of_day": "morning",
       "ticket_adult_vnd": 0,
@@ -578,10 +607,13 @@
       "tags": ["bao_tang", "tre_em", "gia_dinh", "mien_phi", "trong_nha", "cuoi_tuan_khach_le", "nghi_thu_2"],
       "highlights": ["Mẫu hóa thạch & khủng long", "Bộ sưu tập côn trùng và sinh vật biển", "Phòng chiếu phim 3D"],
       "notes": "CẢNH BÁO LỊCH ĐẶC BIỆT: Đóng cửa Thứ 2; từ Thứ 3 đến Thứ 6 chỉ đón khách đoàn có đăng ký trước; Thứ 7 và Chủ nhật mới mở cửa tự do cho khách lẻ và gia đình.",
-      "source_name": "Bảo tàng Thiên nhiên Việt Nam (vnmn.ac.vn)",
-      "source_url": "https://vnmn.ac.vn",
+      "source_name": "Trang chính thức Bảo tàng Thiên nhiên Việt Nam",
+      "source_url": "https://vnmn.ac.vn/",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "verification": "mau_thuan",
+      "verification_note": "Trang chủ ghi đóng thứ Hai, thứ Ba, Chủ nhật; trang tham quan đoàn ghi thứ Ba đến thứ Sáu. Tạm không xếp lịch",
+      "geo_source": "osm_diem node/6801247419"
     },
     {
       "id": "HN-ATTR-15",
@@ -591,17 +623,17 @@
       "district": "Nam Từ Liêm",
       "zone": "nam_tu_liem",
       "address": "Đường Phạm Hùng, Mễ Trì, Nam Từ Liêm, Hà Nội",
-      "approx_lat": 21.0079,
-      "approx_lng": 105.7845,
-      "opening_hours_summary": "08:00-17:00 (Thứ 3 đến Chủ Nhật); Đóng cửa Thứ 2",
+      "approx_lat": 21.010013,
+      "approx_lng": 105.786309,
+      "opening_hours_summary": "09:00-17:00 (thứ Ba đến Chủ nhật); nghỉ thứ Hai",
       "opening_hours_by_day": {
         "mon": "closed",
-        "tue": ["08:00-17:00"],
-        "wed": ["08:00-17:00"],
-        "thu": ["08:00-17:00"],
-        "fri": ["08:00-17:00"],
-        "sat": ["08:00-17:00"],
-        "sun": ["08:00-17:00"]
+        "tue": ["09:00-17:00"],
+        "wed": ["09:00-17:00"],
+        "thu": ["09:00-17:00"],
+        "fri": ["09:00-17:00"],
+        "sat": ["09:00-17:00"],
+        "sun": ["09:00-17:00"]
       },
       "closed_days": ["mon"],
       "lunch_break": null,
@@ -619,10 +651,13 @@
       "tags": ["bao_tang", "trong_nha", "mien_phi", "nghi_thu_2"],
       "highlights": ["Kiến trúc kim tự tháp ngược", "Cổ vật Thăng Long - Hà Nội", "Không gian triển lãm chuyên đề"],
       "notes": "Đóng cửa Thứ 2 hàng tuần.",
-      "source_name": "Bảo tàng Hà Nội (baotanghanoi.com.vn)",
-      "source_url": "https://baotanghanoi.com.vn",
+      "source_name": "Trang chính thức Bảo tàng Hà Nội",
+      "source_url": "https://baotanghanoi.com.vn/dang-ky-tham-quan/",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/208255133",
+      "verification": "chinh_thuc_gio",
+      "verification_note": "09:00-17:00, nghỉ thứ Hai (dữ liệu cũ ghi 08:00); trang không ghi giá"
     },
     {
       "id": "HN-ATTR-16",
@@ -632,8 +667,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 57B Đinh Tiên Hoàng, Hàng Bạc, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0315,
-      "approx_lng": 105.8533,
+      "approx_lat": 21.031704,
+      "approx_lng": 105.853455,
       "opening_hours_summary": "Biểu diễn hàng ngày theo suất: 15:00, 16:10, 17:20, 18:30, 20:00 (CN thêm 09:30 & 21:15)",
       "opening_hours_by_day": {
         "mon": ["15:00-21:00"],
@@ -663,7 +698,8 @@
       "source_name": "Vietnam Tourism / Ngoisao",
       "source_url": "https://www.vietnamtourism.com",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/1190941789"
     },
     {
       "id": "HN-ATTR-17",
@@ -673,8 +709,8 @@
       "district": "Hai Bà Trưng",
       "zone": "hai_ba_trung",
       "address": "Tầng hầm B1, TTTM Vincom Mega Mall Times City, 458 Minh Khai, Hai Bà Trưng, Hà Nội",
-      "approx_lat": 20.9951,
-      "approx_lng": 105.8682,
+      "approx_lat": 20.994815,
+      "approx_lng": 105.868565,
       "opening_hours_summary": "T2-T6: 10:00-22:00; T7-CN & Lễ: 09:30-22:00",
       "opening_hours_by_day": {
         "mon": ["10:00-22:00"],
@@ -701,10 +737,13 @@
       "tags": ["tre_em", "gia_dinh", "trong_nha", "tranh_mua", "buoi_toi"],
       "highlights": ["Đường hầm thủy cung 90m", "Show Nàng tiên cá", "Khu chim cánh cụt & bò sát"],
       "notes": "Giá vé cuối tuần cao hơn ngày thường. Có combo VinKE + Thủy cung (~300.000-380.000đ).",
-      "source_name": "Vinpearl",
-      "source_url": "https://vinpearl.com",
+      "source_name": "VinWonders",
+      "source_url": "https://vinwonders.com/vi/vinke-vinpearl-aquarium/",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/11176709229",
+      "verification": "chinh_thuc_gio",
+      "verification_note": "Giờ khớp; giá vé chưa kiểm"
     },
     {
       "id": "HN-ATTR-18",
@@ -714,8 +753,8 @@
       "district": "Tây Hồ",
       "zone": "tay_ho",
       "address": "Tầng B1-B2, Lotte Mall West Lake, 272 Võ Chí Công, Tây Hồ, Hà Nội",
-      "approx_lat": 21.0762,
-      "approx_lng": 105.8118,
+      "approx_lat": 21.076019,
+      "approx_lng": 105.81255,
       "opening_hours_summary": "09:30-22:00 hàng ngày (Nhận khách lượt cuối lúc 21:00)",
       "opening_hours_by_day": {
         "mon": ["09:30-22:00"],
@@ -745,7 +784,8 @@
       "source_name": "Lotte World Aquarium / Klook",
       "source_url": "https://lotteworld.vn",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/1192928626"
     },
     {
       "id": "HN-ATTR-19",
@@ -755,17 +795,17 @@
       "district": "Ba Đình",
       "zone": "ba_dinh",
       "address": "Đường Bưởi, Ngọc Khánh, Ba Đình, Hà Nội",
-      "approx_lat": 21.0295,
-      "approx_lng": 105.8054,
-      "opening_hours_summary": "07:00-22:00 (Khu chuồng thú mở 08:00-16:00)",
+      "approx_lat": 21.030541,
+      "approx_lng": 105.806702,
+      "opening_hours_summary": "Khu trưng bày thú 08:00-16:00 (cổng mùa đông 07:30-22:00)",
       "opening_hours_by_day": {
-        "mon": ["07:00-22:00"],
-        "tue": ["07:00-22:00"],
-        "wed": ["07:00-22:00"],
-        "thu": ["07:00-22:00"],
-        "fri": ["07:00-22:00"],
-        "sat": ["07:00-22:00"],
-        "sun": ["07:00-22:00"]
+        "mon": ["08:00-16:00"],
+        "tue": ["08:00-16:00"],
+        "wed": ["08:00-16:00"],
+        "thu": ["08:00-16:00"],
+        "fri": ["08:00-16:00"],
+        "sat": ["08:00-16:00"],
+        "sun": ["08:00-16:00"]
       },
       "closed_days": [],
       "lunch_break": null,
@@ -783,10 +823,13 @@
       "tags": ["cong_vien", "tre_em", "gia_dinh", "ngoai_troi"],
       "highlights": ["Khu động vật (voi, hổ, hươu cao cổ)", "Hồ Thủ Lệ đạp vịt", "Trò chơi thiếu nhi"],
       "notes": "Nên đi trước 16:00 để xem được các khu trưng bày động vật; ngoài trời hoàn toàn nên tránh đi khi trời mưa.",
-      "source_name": "Vườn thú Hà Nội / MIA",
-      "source_url": "https://vuonthuhanoi.com",
+      "source_name": "Trang chính thức Vườn thú Hà Nội",
+      "source_url": "https://vuonthuhanoi.com/",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/28945667",
+      "verification": "chinh_thuc",
+      "verification_note": "50.000đ; cổng mùa đông 07:30-22:00, khu trưng bày 08:00-16:00; lịch dùng giờ khu trưng bày"
     },
     {
       "id": "HN-ATTR-20",
@@ -796,8 +839,8 @@
       "district": "Gia Lâm",
       "zone": "gia_lam_bat_trang",
       "address": "Xã Bát Tràng, Gia Lâm, Hà Nội (Bảo tàng gốm: số 28 thôn 5)",
-      "approx_lat": 20.9765,
-      "approx_lng": 105.9154,
+      "approx_lat": 20.973884,
+      "approx_lng": 105.91295,
       "opening_hours_summary": "Làng nghề mở cả ngày; Bảo tàng gốm: T2-T6 08:00-17:30, T7-CN 08:00-18:00",
       "opening_hours_by_day": {
         "mon": ["08:00-17:30"],
@@ -827,7 +870,8 @@
       "source_name": "Trung tâm Tinh hoa Làng nghề Việt",
       "source_url": "https://tinhhoalangnghe.vn",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/244393297"
     },
     {
       "id": "HN-ATTR-21",
@@ -837,19 +881,19 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Quanh Hồ Hoàn Kiếm (Đinh Tiên Hoàng, Lê Thái Tổ, Hàng Khay), Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0288,
-      "approx_lng": 105.8525,
+      "approx_lat": 21.028831,
+      "approx_lng": 105.852536,
       "opening_hours_summary": "Phố đi bộ CHỈ hoạt động từ 19:00 Thứ 6 đến 24:00 Chủ nhật (hồ mở dạo bộ hàng ngày)",
       "opening_hours_by_day": {
-        "mon": ["00:00-23:59"],
-        "tue": ["00:00-23:59"],
-        "wed": ["00:00-23:59"],
-        "thu": ["00:00-23:59"],
+        "mon": "closed",
+        "tue": "closed",
+        "wed": "closed",
+        "thu": "closed",
         "fri": ["19:00-23:59"],
         "sat": ["00:00-23:59"],
         "sun": ["00:00-23:59"]
       },
-      "closed_days": [],
+      "closed_days": ["mon", "tue", "wed", "thu"],
       "lunch_break": null,
       "best_time_of_day": "weekend_evening",
       "ticket_adult_vnd": 0,
@@ -865,10 +909,13 @@
       "tags": ["pho_di_bo", "cuoi_tuan", "mien_phi", "ngoai_troi", "gia_dinh"],
       "highlights": ["Dạo quanh Hồ Gươm", "Trò chơi dân gian & nhạc đường phố", "Tháp Rùa"],
       "notes": "Lưu ý: Cấm xe và tổ chức sự kiện phố đi bộ chỉ diễn ra từ 19:00 Thứ 6 đến 24:00 Chủ nhật hàng tuần; Thứ 2-Thứ 5 xe cộ lưu thông bình thường.",
-      "source_name": "Vietnam Airlines / Ngọc Hà Travel",
-      "source_url": "https://www.vietnamairlines.com",
+      "source_name": "Vietnam Airlines, cẩm nang phố đi bộ",
+      "source_url": "https://www.vietnamairlines.com/vn/vi/plan-book/travel/travel-guide/pho-di-bo-ha-noi",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "verification": "thu_cap",
+      "verification_note": "19:00 thứ Sáu đến 24:00 Chủ nhật; chưa có nguồn chính quyền",
+      "geo_source": "osm_diem relation/198437"
     },
     {
       "id": "HN-ATTR-22",
@@ -878,8 +925,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Tuyến phố Hàng Đào - Hàng Ngang - Hàng Đường - Đồng Xuân, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0363,
-      "approx_lng": 105.8498,
+      "approx_lat": 21.033516,
+      "approx_lng": 105.850933,
       "opening_hours_summary": "CHỈ mở 18:00-23:00 các tối Thứ 6, Thứ 7 và Chủ nhật",
       "opening_hours_by_day": {
         "mon": "closed",
@@ -909,7 +956,8 @@
       "source_name": "iVIVU / Senstay",
       "source_url": "https://www.ivivu.com",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/399590843"
     },
     {
       "id": "HN-ATTR-23",
@@ -919,8 +967,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 40 Nhà Chung, Hàng Trống, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0287,
-      "approx_lng": 105.8489,
+      "approx_lat": 21.027364,
+      "approx_lng": 105.850144,
       "opening_hours_summary": "T2-T7: 08:00-11:00 & 14:00-17:00; CN: 07:00-11:30 & 15:00-21:00 (cửa phụ)",
       "opening_hours_by_day": {
         "mon": ["08:00-11:00", "14:00-17:00"],
@@ -950,7 +998,8 @@
       "source_name": "Giáo xứ Chính tòa Hà Nội / Vietnam Tourism",
       "source_url": "https://giaoxuchinhtoahanoi.org",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_duong way/1564017490"
     },
     {
       "id": "HN-ATTR-24",
@@ -960,8 +1009,8 @@
       "district": "Tây Hồ",
       "zone": "tay_ho",
       "address": "Số 52 Đặng Thai Mai, Quảng An, Tây Hồ, Hà Nội",
-      "approx_lat": 21.0575,
-      "approx_lng": 105.8195,
+      "approx_lat": 21.055728,
+      "approx_lng": 105.819642,
       "opening_hours_summary": "05:00-19:00 hàng ngày (Mùng 1/Rằm và dịp lễ mở muộn hơn)",
       "opening_hours_by_day": {
         "mon": ["05:00-19:00"],
@@ -991,7 +1040,8 @@
       "source_name": "Vinpearl",
       "source_url": "https://vinpearl.com",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/941901613"
     },
     {
       "id": "HN-ATTR-25",
@@ -1001,8 +1051,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 1 Tràng Tiền, Phan Chu Trinh, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0243,
-      "approx_lng": 105.8576,
+      "approx_lat": 21.024202,
+      "approx_lng": 105.857834,
       "opening_hours_summary": "Bên ngoài chụp ảnh 24/7; bên trong mở theo lịch tour tham quan và suất diễn nghệ thuật",
       "opening_hours_by_day": {
         "mon": ["08:00-22:00"],
@@ -1032,7 +1082,8 @@
       "source_name": "Vietnam Airlines / VNGuide",
       "source_url": "https://www.vietnamairlines.com",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/37933050"
     },
     {
       "id": "HN-ATTR-26",
@@ -1042,8 +1093,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 15 Cầu Đông, Đồng Xuân, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0382,
-      "approx_lng": 105.8495,
+      "approx_lat": 21.038256,
+      "approx_lng": 105.849671,
       "opening_hours_summary": "Chợ trong nhà: 06:00-18:00 hàng ngày; Ngõ ẩm thực & chợ đêm T6-CN mở đến 22:30",
       "opening_hours_by_day": {
         "mon": ["06:00-18:00"],
@@ -1073,7 +1124,8 @@
       "source_name": "Klook / Travel.com.vn",
       "source_url": "https://www.klook.com",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/1212230635"
     },
     {
       "id": "HN-ATTR-27",
@@ -1083,8 +1135,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Phố 19 tháng 12, Trần Hưng Đạo, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0238,
-      "approx_lng": 105.8495,
+      "approx_lat": 21.02489,
+      "approx_lng": 105.847848,
       "opening_hours_summary": "08:00-22:00 hàng ngày",
       "opening_hours_by_day": {
         "mon": ["08:00-22:00"],
@@ -1114,7 +1166,8 @@
       "source_name": "Vinpearl / JustFly",
       "source_url": "https://vinpearl.com",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/1510802054"
     },
     {
       "id": "HN-ATTR-28",
@@ -1124,8 +1177,8 @@
       "district": "Hoàn Kiếm - Long Biên",
       "zone": "long_bien",
       "address": "Bắc qua sông Hồng nối Hoàn Kiếm (Trần Nhật Duật) và Long Biên",
-      "approx_lat": 21.0434,
-      "approx_lng": 105.8594,
+      "approx_lat": 21.043214,
+      "approx_lng": 105.858414,
       "opening_hours_summary": "Mở tự do 24/7 hàng ngày",
       "opening_hours_by_day": {
         "mon": ["00:00-23:59"],
@@ -1155,7 +1208,8 @@
       "source_name": "Vietnam Tourism / Dulich9",
       "source_url": "https://www.vietnamtourism.com",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/163049860"
     },
     {
       "id": "HN-ATTR-29",
@@ -1165,8 +1219,8 @@
       "district": "Sơn Tây",
       "zone": "son_tay",
       "address": "Xã Đường Lâm, thị xã Sơn Tây, Hà Nội",
-      "approx_lat": 21.1583,
-      "approx_lng": 105.4754,
+      "approx_lat": 21.158514,
+      "approx_lng": 105.470442,
       "opening_hours_summary": "08:00-17:00 tất cả các ngày (kể cả Lễ Tết)",
       "opening_hours_by_day": {
         "mon": ["08:00-17:00"],
@@ -1196,7 +1250,8 @@
       "source_name": "Vinpearl / Traveloka",
       "source_url": "https://vinpearl.com",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/1193800376"
     },
     {
       "id": "HN-ATTR-30",
@@ -1206,8 +1261,8 @@
       "district": "Hai Bà Trưng",
       "zone": "hai_ba_trung",
       "address": "Số 354A Lê Duẩn, Phương Liên, Hai Bà Trưng, Hà Nội",
-      "approx_lat": 21.0114,
-      "approx_lng": 105.8442,
+      "approx_lat": 21.012329,
+      "approx_lng": 105.84379,
       "opening_hours_summary": "05:00-22:00 hàng ngày",
       "opening_hours_by_day": {
         "mon": ["05:00-22:00"],
@@ -1237,7 +1292,8 @@
       "source_name": "Vietnam Airlines / MIA",
       "source_url": "https://www.vietnamairlines.com",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem way/37933849"
     },
     {
       "id": "HN-FOOD-01",
@@ -1247,17 +1303,17 @@
       "district": "Hai Bà Trưng",
       "zone": "hai_ba_trung",
       "address": "Số 13 Lò Đúc, Phạm Đình Hổ, Hai Bà Trưng, Hà Nội",
-      "approx_lat": 21.0185,
-      "approx_lng": 105.8559,
-      "opening_hours_summary": "06:00-22:00 hàng ngày",
+      "approx_lat": 21.017035,
+      "approx_lng": 105.855996,
+      "opening_hours_summary": "06:00-20:30 (khoảng giao các nguồn, chưa kiểm tại quán)",
       "opening_hours_by_day": {
-        "mon": ["06:00-22:00"],
-        "tue": ["06:00-22:00"],
-        "wed": ["06:00-22:00"],
-        "thu": ["06:00-22:00"],
-        "fri": ["06:00-22:00"],
-        "sat": ["06:00-22:00"],
-        "sun": ["06:00-22:00"]
+        "mon": ["06:00-20:30"],
+        "tue": ["06:00-20:30"],
+        "wed": ["06:00-20:30"],
+        "thu": ["06:00-20:30"],
+        "fri": ["06:00-20:30"],
+        "sat": ["06:00-20:30"],
+        "sun": ["06:00-20:30"]
       },
       "closed_days": [],
       "lunch_break": null,
@@ -1275,10 +1331,13 @@
       "tags": ["pho", "am_thuc", "an_sang", "an_trua", "an_toi", "dac_san_ha_noi"],
       "highlights": ["Phở bò tái lăn xào tỏi gừng", "Nước dùng béo đậm nhiều hành"],
       "notes": "Khách đông giờ sáng và trưa; có thể có nhiều hành lá đặc trưng.",
-      "source_name": "Kamereo / MIA",
-      "source_url": "https://kamereo.vn",
+      "source_name": "Kết quả tìm kiếm web 27/11/2026",
+      "source_url": "https://kamereo.vn/blog/vi/pho-thin-ha-noi/",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/4186819465",
+      "verification": "nguon_phu_chua_doc_trang",
+      "verification_note": "Các nguồn phụ khác nhau; giờ lấy khoảng hẹp để tránh đến lúc đóng cửa. Chưa mở trang xác nhận"
     },
     {
       "id": "HN-FOOD-02",
@@ -1288,17 +1347,17 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 49 Bát Đàn, Cửa Đông, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0334,
-      "approx_lng": 105.8461,
-      "opening_hours_summary": "Sáng: 06:00-10:00; Tối: 18:00-21:30 (KHÔNG bán buổi trưa)",
+      "approx_lat": 21.033638,
+      "approx_lng": 105.846379,
+      "opening_hours_summary": "06:00-10:00 và 18:00-20:30 (khoảng giao các nguồn, chưa kiểm tại quán)",
       "opening_hours_by_day": {
-        "mon": ["06:00-10:00", "18:00-21:30"],
-        "tue": ["06:00-10:00", "18:00-21:30"],
-        "wed": ["06:00-10:00", "18:00-21:30"],
-        "thu": ["06:00-10:00", "18:00-21:30"],
-        "fri": ["06:00-10:00", "18:00-21:30"],
-        "sat": ["06:00-10:00", "18:00-21:30"],
-        "sun": ["06:00-10:00", "18:00-21:30"]
+        "mon": ["06:00-10:00", "18:00-20:30"],
+        "tue": ["06:00-10:00", "18:00-20:30"],
+        "wed": ["06:00-10:00", "18:00-20:30"],
+        "thu": ["06:00-10:00", "18:00-20:30"],
+        "fri": ["06:00-10:00", "18:00-20:30"],
+        "sat": ["06:00-10:00", "18:00-20:30"],
+        "sun": ["06:00-10:00", "18:00-20:30"]
       },
       "closed_days": [],
       "lunch_break": "10:00-18:00",
@@ -1316,10 +1375,13 @@
       "tags": ["pho", "am_thuc", "pho_co", "ban_theo_ca", "an_sang", "an_toi"],
       "highlights": ["Phở bò truyền thống nước dùng thanh", "Văn hóa xếp hàng tự phục vụ"],
       "notes": "Chỉ bán 2 ca sáng (06:00-10:00) và tối (18:00-21:30), đóng cửa nghỉ giữa trưa và chiều. Thường hết sớm trước giờ đóng.",
-      "source_name": "Kamereo / Hanoi Boutique Hotel",
+      "source_name": "Kết quả tìm kiếm web 27/11/2026",
       "source_url": "https://kamereo.vn",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/5116302421",
+      "verification": "nguon_phu_chua_doc_trang",
+      "verification_note": "Các nguồn phụ khác nhau; giờ lấy khoảng hẹp để tránh đến lúc đóng cửa. Chưa mở trang xác nhận"
     },
     {
       "id": "HN-FOOD-03",
@@ -1329,8 +1391,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 10 Lý Quốc Sư, Hàng Trống, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0294,
-      "approx_lng": 105.8482,
+      "approx_lat": 21.030472,
+      "approx_lng": 105.848847,
       "opening_hours_summary": "06:00-14:00 & 17:00-22:00 hàng ngày",
       "opening_hours_by_day": {
         "mon": ["06:00-14:00", "17:00-22:00"],
@@ -1360,7 +1422,8 @@
       "source_name": "Foody / MenuQR",
       "source_url": "https://www.foody.vn",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/773601261"
     },
     {
       "id": "HN-FOOD-04",
@@ -1370,17 +1433,17 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 5B Phủ Doãn, Hàng Trống, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0281,
-      "approx_lng": 105.8458,
-      "opening_hours_summary": "Sáng: 06:00-10:00; Tối-Đêm: 17:00-01:00 (Đóng buổi trưa)",
+      "approx_lat": 21.030291,
+      "approx_lng": 105.847648,
+      "opening_hours_summary": "06:30-10:00 và 17:00-23:59 (khoảng giao các nguồn, chưa kiểm tại quán)",
       "opening_hours_by_day": {
-        "mon": ["06:00-10:00", "17:00-01:00"],
-        "tue": ["06:00-10:00", "17:00-01:00"],
-        "wed": ["06:00-10:00", "17:00-01:00"],
-        "thu": ["06:00-10:00", "17:00-01:00"],
-        "fri": ["06:00-10:00", "17:00-01:00"],
-        "sat": ["06:00-10:00", "17:00-01:00"],
-        "sun": ["06:00-10:00", "17:00-01:00"]
+        "mon": ["06:30-10:00", "17:00-23:59"],
+        "tue": ["06:30-10:00", "17:00-23:59"],
+        "wed": ["06:30-10:00", "17:00-23:59"],
+        "thu": ["06:30-10:00", "17:00-23:59"],
+        "fri": ["06:30-10:00", "17:00-23:59"],
+        "sat": ["06:30-10:00", "17:00-23:59"],
+        "sun": ["06:30-10:00", "17:00-23:59"]
       },
       "closed_days": [],
       "lunch_break": "10:00-17:00",
@@ -1398,10 +1461,13 @@
       "tags": ["pho_ga", "michelin_bib_gourmand", "an_dem", "ban_theo_ca", "pho_co"],
       "highlights": ["Phở gà trộn đùi cánh", "Michelin Bib Gourmand", "Mở đến 1h sáng"],
       "notes": "Không mở buổi trưa (10:00-17:00). Rất đông vào khung ăn đêm.",
-      "source_name": "MIA / Foody",
-      "source_url": "https://mia.vn",
+      "source_name": "Kết quả tìm kiếm web 27/11/2026",
+      "source_url": "https://guide.michelin.com/my/en/ha-noi/ha-noi_2974158/restaurant/pho-ga-nguyet",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/5920353327",
+      "verification": "nguon_phu_chua_doc_trang",
+      "verification_note": "Các nguồn phụ khác nhau; giờ lấy khoảng hẹp để tránh đến lúc đóng cửa. Chưa mở trang xác nhận"
     },
     {
       "id": "HN-FOOD-05",
@@ -1411,17 +1477,17 @@
       "district": "Hai Bà Trưng",
       "zone": "hai_ba_trung",
       "address": "Số 24 Lê Văn Hưu, Phan Chu Trinh, Hai Bà Trưng, Hà Nội",
-      "approx_lat": 21.0182,
-      "approx_lng": 105.8539,
-      "opening_hours_summary": "08:30-20:30 hàng ngày",
+      "approx_lat": 21.01805,
+      "approx_lng": 105.853884,
+      "opening_hours_summary": "10:00-19:00 (khoảng giao các nguồn, chưa kiểm tại quán)",
       "opening_hours_by_day": {
-        "mon": ["08:30-20:30"],
-        "tue": ["08:30-20:30"],
-        "wed": ["08:30-20:30"],
-        "thu": ["08:30-20:30"],
-        "fri": ["08:30-20:30"],
-        "sat": ["08:30-20:30"],
-        "sun": ["08:30-20:30"]
+        "mon": ["10:00-19:00"],
+        "tue": ["10:00-19:00"],
+        "wed": ["10:00-19:00"],
+        "thu": ["10:00-19:00"],
+        "fri": ["10:00-19:00"],
+        "sat": ["10:00-19:00"],
+        "sun": ["10:00-19:00"]
       },
       "closed_days": [],
       "lunch_break": null,
@@ -1439,10 +1505,13 @@
       "tags": ["bun_cha", "am_thuc", "an_trua", "an_toi", "gia_dinh"],
       "highlights": ["Combo Obama", "Nem hải sản chiên giòn", "Bún chả truyền thống"],
       "notes": "Đóng cửa lúc 20:30, không phục vụ ăn khuya.",
-      "source_name": "MIA / Trip.com",
-      "source_url": "https://mia.vn",
+      "source_name": "Kết quả tìm kiếm web 27/11/2026",
+      "source_url": "https://mia.vn/cam-nang-du-lich/bun-cha-pho-co-ha-noi-20906",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/4272727197",
+      "verification": "nguon_phu_chua_doc_trang",
+      "verification_note": "Các nguồn phụ khác nhau; giờ lấy khoảng hẹp để tránh đến lúc đóng cửa. Chưa mở trang xác nhận"
     },
     {
       "id": "HN-FOOD-06",
@@ -1452,8 +1521,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 1 Hàng Mành, Hàng Gai, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0327,
-      "approx_lng": 105.8473,
+      "approx_lat": 21.032325,
+      "approx_lng": 105.84807,
       "opening_hours_summary": "09:00-21:00 hàng ngày",
       "opening_hours_by_day": {
         "mon": ["09:00-21:00"],
@@ -1483,7 +1552,8 @@
       "source_name": "MenuQR / HanoiReview",
       "source_url": "https://menuqr.vn",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/6957667188"
     },
     {
       "id": "HN-FOOD-07",
@@ -1493,8 +1563,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 6B Đường Thành (và 2D/19-21 Đường Thành), Cửa Đông, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0329,
-      "approx_lng": 105.8454,
+      "approx_lat": 21.032947,
+      "approx_lng": 105.846019,
       "opening_hours_summary": "10:30-21:00 hàng ngày",
       "opening_hours_by_day": {
         "mon": ["10:30-21:00"],
@@ -1524,7 +1594,8 @@
       "source_name": "MIA / Michelin Guide Bib Gourmand",
       "source_url": "https://mia.vn",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/11609621388"
     },
     {
       "id": "HN-FOOD-08",
@@ -1534,8 +1605,8 @@
       "district": "Hai Bà Trưng",
       "zone": "hai_ba_trung",
       "address": "Số 66 Tô Hiến Thành, Bùi Thị Xuân, Hai Bà Trưng, Hà Nội",
-      "approx_lat": 21.0124,
-      "approx_lng": 105.8501,
+      "approx_lat": 21.013543,
+      "approx_lng": 105.849564,
       "opening_hours_summary": "06:00-20:00 hàng ngày",
       "opening_hours_by_day": {
         "mon": ["06:00-20:00"],
@@ -1565,7 +1636,8 @@
       "source_name": "Bách Hóa Xanh / Holdall",
       "source_url": "https://www.bachhoaxanh.com",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/5384962122"
     },
     {
       "id": "HN-FOOD-09",
@@ -1575,8 +1647,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Ngõ 39 Nguyễn Hữu Huân, Lý Thái Tổ, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0332,
-      "approx_lng": 105.8548,
+      "approx_lat": 21.034271,
+      "approx_lng": 105.854499,
       "opening_hours_summary": "07:00-22:00 hàng ngày",
       "opening_hours_by_day": {
         "mon": ["07:00-22:00"],
@@ -1606,7 +1678,8 @@
       "source_name": "Cà Phê Giảng (cafegiang.vn)",
       "source_url": "https://cafegiang.vn",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/4306911795"
     },
     {
       "id": "HN-FOOD-10",
@@ -1616,8 +1689,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Tầng 2, số 13 Đinh Tiên Hoàng, Hàng Trống, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0319,
-      "approx_lng": 105.8523,
+      "approx_lat": 21.031999,
+      "approx_lng": 105.852386,
       "opening_hours_summary": "07:00-22:30 hàng ngày",
       "opening_hours_by_day": {
         "mon": ["07:00-22:30"],
@@ -1647,7 +1720,8 @@
       "source_name": "Foody / Trip.com",
       "source_url": "https://www.foody.vn",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/4486828192"
     },
     {
       "id": "HN-FOOD-11",
@@ -1657,8 +1731,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 48 Cầu Gỗ, Hàng Bạc, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0326,
-      "approx_lng": 105.8529,
+      "approx_lat": 21.032634,
+      "approx_lng": 105.852978,
       "opening_hours_summary": "18:00-22:00 hàng ngày (Chủ yếu phục vụ chiều tối)",
       "opening_hours_by_day": {
         "mon": ["18:00-22:00"],
@@ -1688,7 +1762,8 @@
       "source_name": "Lao Động / Green SM",
       "source_url": "https://laodong.vn",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_duong way/28912784"
     },
     {
       "id": "HN-FOOD-12",
@@ -1698,17 +1773,17 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 35B Nguyễn Hữu Huân, Lý Thái Tổ, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0334,
-      "approx_lng": 105.8549,
-      "opening_hours_summary": "05:00-22:00 hàng ngày",
+      "approx_lat": 21.033767,
+      "approx_lng": 105.854536,
+      "opening_hours_summary": "06:30-22:00 (khoảng giao các nguồn, chưa kiểm tại quán)",
       "opening_hours_by_day": {
-        "mon": ["05:00-22:00"],
-        "tue": ["05:00-22:00"],
-        "wed": ["05:00-22:00"],
-        "thu": ["05:00-22:00"],
-        "fri": ["05:00-22:00"],
-        "sat": ["05:00-22:00"],
-        "sun": ["05:00-22:00"]
+        "mon": ["06:30-22:00"],
+        "tue": ["06:30-22:00"],
+        "wed": ["06:30-22:00"],
+        "thu": ["06:30-22:00"],
+        "fri": ["06:30-22:00"],
+        "sat": ["06:30-22:00"],
+        "sun": ["06:30-22:00"]
       },
       "closed_days": [],
       "lunch_break": null,
@@ -1726,10 +1801,13 @@
       "tags": ["xoi", "pho_co", "an_sang", "an_toi", "mo_som"],
       "highlights": ["Xôi xéo hành phi", "Xôi gà xào nấm", "Thịt kho trứng"],
       "notes": "Mở sớm từ 05:00 sáng, tiện cho khách vừa xuống sân bay chuyến sáng sớm.",
-      "source_name": "MenuQR",
-      "source_url": "https://menuqr.vn",
+      "source_name": "Kết quả tìm kiếm web 27/11/2026",
+      "source_url": "https://www.foody.vn/ha-noi/xoi-yen-nguyen-huu-huan",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/4210706604",
+      "verification": "nguon_phu_chua_doc_trang",
+      "verification_note": "Các nguồn phụ khác nhau; giờ lấy khoảng hẹp để tránh đến lúc đóng cửa. Chưa mở trang xác nhận"
     },
     {
       "id": "HN-FOOD-13",
@@ -1739,8 +1817,8 @@
       "district": "Ba Đình",
       "zone": "ba_dinh",
       "address": "Số 25-27 Ngũ Xã, Trúc Bạch, Ba Đình, Hà Nội",
-      "approx_lat": 21.0454,
-      "approx_lng": 105.8414,
+      "approx_lat": 21.046055,
+      "approx_lng": 105.841306,
       "opening_hours_summary": "09:00-22:00 hàng ngày",
       "opening_hours_by_day": {
         "mon": ["09:00-22:00"],
@@ -1770,7 +1848,8 @@
       "source_name": "Foody / Phở cuốn Hương Mai",
       "source_url": "https://phocuon.vn",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/5384986723"
     },
     {
       "id": "HN-FOOD-14",
@@ -1780,8 +1859,8 @@
       "district": "Tây Hồ",
       "zone": "tay_ho",
       "address": "Số 1 đường Thanh Niên, Yên Phụ, Tây Hồ, Hà Nội",
-      "approx_lat": 21.0457,
-      "approx_lng": 105.8384,
+      "approx_lat": 21.047321,
+      "approx_lng": 105.837626,
       "opening_hours_summary": "09:00-22:00 hàng ngày",
       "opening_hours_by_day": {
         "mon": ["09:00-22:00"],
@@ -1811,7 +1890,8 @@
       "source_name": "Mixivivu / Bách Hóa Xanh",
       "source_url": "https://mixivivu.com",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/310727632"
     },
     {
       "id": "HN-FOOD-15",
@@ -1821,8 +1901,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 87 Hàng Điếu, Cửa Đông, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0318,
-      "approx_lng": 105.8459,
+      "approx_lat": 21.031853,
+      "approx_lng": 105.846905,
       "opening_hours_summary": "06:30-22:00 hàng ngày",
       "opening_hours_by_day": {
         "mon": ["06:30-22:00"],
@@ -1852,7 +1932,8 @@
       "source_name": "MIA / Thanh Niên",
       "source_url": "https://mia.vn",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/4381924889"
     },
     {
       "id": "HN-FOOD-16",
@@ -1862,8 +1943,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Kem Tràng Tiền: 44 Tràng Tiền / 18 Hàng Bài (cơ sở gốc 35 Tràng Tiền đã dừng hoạt động); Chè Bốn Mùa: 4 Hàng Cân, Hoàn Kiếm",
-      "approx_lat": 21.0249,
-      "approx_lng": 105.8548,
+      "approx_lat": 21.024908,
+      "approx_lng": 105.854649,
       "opening_hours_summary": "08:00-23:00 hàng ngày",
       "opening_hours_by_day": {
         "mon": ["08:00-23:00"],
@@ -1893,7 +1974,8 @@
       "source_name": "CafeF / AI-Hay",
       "source_url": "https://cafef.vn",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/6647917258"
     },
     {
       "id": "HN-FOOD-17",
@@ -1903,8 +1985,8 @@
       "district": "Ba Đình",
       "zone": "ba_dinh",
       "address": "Số 34 Hàng Than, Nguyễn Trung Trực, Ba Đình, Hà Nội",
-      "approx_lat": 21.0419,
-      "approx_lng": 105.8476,
+      "approx_lat": 21.041312,
+      "approx_lng": 105.84723,
       "opening_hours_summary": "08:30-17:30 hàng ngày (KHÔNG mở buổi tối)",
       "opening_hours_by_day": {
         "mon": ["08:30-17:30"],
@@ -1934,7 +2016,8 @@
       "source_name": "VNGuide / Lao Động / MenuQR",
       "source_url": "https://laodong.vn",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_duong node/5609443523"
     },
     {
       "id": "HN-FOOD-18",
@@ -1944,17 +2027,17 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 25 Hàng Cá, Hàng Đào, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0358,
-      "approx_lng": 105.8478,
-      "opening_hours_summary": "07:00-21:00 hàng ngày",
+      "approx_lat": 21.03608,
+      "approx_lng": 105.848693,
+      "opening_hours_summary": "07:00-20:15 (khoảng giao các nguồn, chưa kiểm tại quán)",
       "opening_hours_by_day": {
-        "mon": ["07:00-21:00"],
-        "tue": ["07:00-21:00"],
-        "wed": ["07:00-21:00"],
-        "thu": ["07:00-21:00"],
-        "fri": ["07:00-21:00"],
-        "sat": ["07:00-21:00"],
-        "sun": ["07:00-21:00"]
+        "mon": ["07:00-20:15"],
+        "tue": ["07:00-20:15"],
+        "wed": ["07:00-20:15"],
+        "thu": ["07:00-20:15"],
+        "fri": ["07:00-20:15"],
+        "sat": ["07:00-20:15"],
+        "sun": ["07:00-20:15"]
       },
       "closed_days": [],
       "lunch_break": null,
@@ -1972,10 +2055,13 @@
       "tags": ["banh_mi", "pho_co", "an_sang", "an_trua", "an_chay", "gia_re"],
       "highlights": ["Bánh mì pate thịt nướng", "Bánh mì chảo", "Có lựa chọn cho người ăn chay"],
       "notes": "Quán phố cổ nổi tiếng với du khách, có chỗ ngồi trong nhà đối diện.",
-      "source_name": "VNGuide / Foody",
-      "source_url": "https://www.foody.vn",
+      "source_name": "Kết quả tìm kiếm web 27/11/2026",
+      "source_url": "https://www.foody.vn/ha-noi/banh-mi-25-hang-ca",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/3514125539",
+      "verification": "nguon_phu_chua_doc_trang",
+      "verification_note": "Các nguồn phụ khác nhau; giờ lấy khoảng hẹp để tránh đến lúc đóng cửa. Chưa mở trang xác nhận"
     },
     {
       "id": "HN-FOOD-19",
@@ -1985,8 +2071,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 6 Hàng Chai, Hàng Mã, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0365,
-      "approx_lng": 105.8471,
+      "approx_lat": 21.037485,
+      "approx_lng": 105.847543,
       "opening_hours_summary": "07:00-14:00 hàng ngày (Quán gánh sáng-trưa, thường hết sớm; KHÔNG mở chiều tối)",
       "opening_hours_by_day": {
         "mon": ["07:00-14:00"],
@@ -2016,7 +2102,8 @@
       "source_name": "Báo QĐND / Sơn Hải Limousine",
       "source_url": "https://www.qdnd.vn",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_duong way/399595302"
     },
     {
       "id": "HN-FOOD-20",
@@ -2026,8 +2113,8 @@
       "district": "Hoàn Kiếm",
       "zone": "hoan_kiem_old_quarter",
       "address": "Số 11 Hàng Bạc, Hoàn Kiếm, Hà Nội",
-      "approx_lat": 21.0342,
-      "approx_lng": 105.8515,
+      "approx_lat": 21.033734,
+      "approx_lng": 105.853476,
       "opening_hours_summary": "06:00-20:00 hàng ngày",
       "opening_hours_by_day": {
         "mon": ["06:00-20:00"],
@@ -2057,7 +2144,8 @@
       "source_name": "Foody / Quán Ăn Ngon Hà Nội",
       "source_url": "https://www.foody.vn",
       "verified_date": "2026-11-27",
-      "data_label": "mixed_verified_synthetic_estimates"
+      "data_label": "mixed_verified_synthetic_estimates",
+      "geo_source": "osm_diem node/14376669001"
     }
   ],
   "airport_transfers": [
@@ -2067,7 +2155,7 @@
       "name": "Xe buýt nhanh chất lượng cao số 86 (Nội Bài - Ga Hà Nội - Bờ Hồ)",
       "route_summary": "Sân bay Nội Bài (T1/T2) ↔ Cầu Nhật Tân ↔ Yên Phụ ↔ Long Biên ↔ Bờ Hồ ↔ Ga Hà Nội",
       "target_zones": ["hoan_kiem_old_quarter", "ba_dinh", "tay_ho"],
-      "operating_hours": "05:05-22:30 (từ Ga Hà Nội) / ~06:25-23:30 (từ Nội Bài)",
+      "operating_hours": "06:40-22:15 (theo trang sân bay)",
       "frequency_min": 30,
       "duration_min_min": 45,
       "duration_min_max": 60,
@@ -2078,9 +2166,11 @@
       "luggage_kid_friendly": true,
       "booking_method": "Mua vé trực tiếp trên xe (tiền mặt/QR tùy xe)",
       "notes": "Có khoang chứa hành lý rộng, wifi, đi thẳng vào trung tâm Phố cổ / Bờ Hồ.",
-      "source_name": "BestPrice / Vexere / Transerco",
-      "source_url": "https://www.bestprice.vn",
-      "verified_date": "2026-11-27"
+      "source_name": "Cảng hàng không Nội Bài",
+      "source_url": "https://noibaiairport.vn/vi/transportation?tab=international",
+      "verified_date": "2026-11-27",
+      "verification": "chinh_thuc_khong_ngay",
+      "verification_note": "Giá và giờ theo bảng của sân bay (trang không ghi ngày, đang cập nhật); các trang thương mại ghi khác"
     },
     {
       "id": "HN-NBA-02",
@@ -2088,7 +2178,7 @@
       "name": "Xe buýt nhanh chất lượng cao số 68 (Nội Bài - Hà Đông / Yên Nghĩa)",
       "route_summary": "Sân bay Nội Bài ↔ Cầu Nhật Tân ↔ Võ Chí Công ↔ Bưởi ↔ Láng ↔ Nguyễn Trãi ↔ Bến xe Yên Nghĩa",
       "target_zones": ["tay_ho", "cau_giay", "dong_da"],
-      "operating_hours": "05:15-22:20 hàng ngày",
+      "operating_hours": "07:25-22:20 (theo trang sân bay)",
       "frequency_min": 45,
       "duration_min_min": 60,
       "duration_min_max": 75,
@@ -2099,9 +2189,11 @@
       "luggage_kid_friendly": true,
       "booking_method": "Mua vé trên xe, hỗ trợ thanh toán QR/VNPAY",
       "notes": "Phù hợp khách về khu vực Tây Hồ, Cầu Giấy, Đống Đa, Thanh Xuân, Hà Đông.",
-      "source_name": "Transerco / AI-Hay",
-      "source_url": "https://transerco.com.vn",
-      "verified_date": "2026-11-27"
+      "source_name": "Cảng hàng không Nội Bài",
+      "source_url": "https://noibaiairport.vn/vi/transportation?tab=international",
+      "verified_date": "2026-11-27",
+      "verification": "chinh_thuc_khong_ngay",
+      "verification_note": "Giá và giờ theo bảng của sân bay (trang không ghi ngày, đang cập nhật); các trang thương mại ghi khác"
     },
     {
       "id": "HN-NBA-03",
@@ -2109,20 +2201,22 @@
       "name": "Xe buýt công cộng trợ giá tuyến 07 (Nội Bài - Bến xe Cầu Giấy)",
       "route_summary": "Sân bay Nội Bài ↔ Võ Văn Kiệt ↔ Cầu Thăng Long ↔ Hoàng Quốc Việt ↔ Bến xe Cầu Giấy",
       "target_zones": ["cau_giay", "ba_dinh"],
-      "operating_hours": "05:00-22:35 hàng ngày",
+      "operating_hours": "05:00-22:00 (theo trang sân bay)",
       "frequency_min": 15,
       "duration_min_min": 55,
       "duration_min_max": 75,
-      "fare_min_vnd": 8000,
-      "fare_max_vnd": 12000,
+      "fare_min_vnd": 15000,
+      "fare_max_vnd": 15000,
       "fare_unit": "per_person",
       "night_surcharge_note": "Không chạy đêm muộn.",
       "luggage_kid_friendly": false,
       "booking_method": "Mua vé trực tiếp trên xe",
       "notes": "Giá rẻ nhất, nhiều điểm dừng; không có khoang hành lý lớn, bất tiện nếu mang nhiều vali hoặc đi cùng trẻ nhỏ.",
-      "source_name": "Vinpearl / Vexere",
-      "source_url": "https://vinpearl.com",
-      "verified_date": "2026-11-27"
+      "source_name": "Cảng hàng không Nội Bài",
+      "source_url": "https://noibaiairport.vn/vi/transportation?tab=international",
+      "verified_date": "2026-11-27",
+      "verification": "chinh_thuc_khong_ngay",
+      "verification_note": "Giá và giờ theo bảng của sân bay (trang không ghi ngày, đang cập nhật); các trang thương mại ghi khác"
     },
     {
       "id": "HN-NBA-04",
@@ -2130,20 +2224,22 @@
       "name": "Xe buýt công cộng trợ giá tuyến 17 (Nội Bài - Long Biên)",
       "route_summary": "Sân bay Nội Bài ↔ Đông Anh ↔ Cầu Chương Dương ↔ Bến trung chuyển Long Biên",
       "target_zones": ["long_bien", "hoan_kiem_old_quarter"],
-      "operating_hours": "05:00-22:00 hàng ngày",
+      "operating_hours": "04:50-22:00 (theo trang sân bay)",
       "frequency_min": 20,
       "duration_min_min": 65,
       "duration_min_max": 85,
-      "fare_min_vnd": 9000,
-      "fare_max_vnd": 15000,
+      "fare_min_vnd": 19000,
+      "fare_max_vnd": 19000,
       "fare_unit": "per_person",
       "night_surcharge_note": "Không chạy đêm muộn.",
       "luggage_kid_friendly": false,
       "booking_method": "Mua vé trực tiếp trên xe",
       "notes": "Đi vòng qua Đông Anh nên thời gian di chuyển lâu hơn tuyến 86; ít chỗ để vali lớn.",
-      "source_name": "Vinpearl / Vexere",
-      "source_url": "https://vinpearl.com",
-      "verified_date": "2026-11-27"
+      "source_name": "Cảng hàng không Nội Bài",
+      "source_url": "https://noibaiairport.vn/vi/transportation?tab=international",
+      "verified_date": "2026-11-27",
+      "verification": "chinh_thuc_khong_ngay",
+      "verification_note": "Giá và giờ theo bảng của sân bay (trang không ghi ngày, đang cập nhật); các trang thương mại ghi khác"
     },
     {
       "id": "HN-NBA-05",
@@ -2151,20 +2247,22 @@
       "name": "Xe buýt công cộng trợ giá tuyến 90 (Nội Bài - Kim Mã / Hào Nam)",
       "route_summary": "Sân bay Nội Bài ↔ Cầu Nhật Tân ↔ Lạc Long Quân ↔ Văn Cao ↔ Kim Mã ↔ Hào Nam",
       "target_zones": ["tay_ho", "ba_dinh", "dong_da"],
-      "operating_hours": "05:30-22:30 hàng ngày",
+      "operating_hours": "06:40-22:30 (theo trang sân bay)",
       "frequency_min": 25,
       "duration_min_min": 55,
       "duration_min_max": 75,
-      "fare_min_vnd": 9000,
+      "fare_min_vnd": 15000,
       "fare_max_vnd": 15000,
       "fare_unit": "per_person",
       "night_surcharge_note": "Không chạy đêm muộn.",
       "luggage_kid_friendly": false,
       "booking_method": "Mua vé trực tiếp trên xe",
       "notes": "Tiện về khu vực Ba Đình/Đống Đa giá tiết kiệm; hành khách mang nhiều vali lớn nên cân nhắc tuyến 86 hoặc taxi.",
-      "source_name": "Vinpearl / Dichung",
-      "source_url": "https://vinpearl.com",
-      "verified_date": "2026-11-27"
+      "source_name": "Cảng hàng không Nội Bài",
+      "source_url": "https://noibaiairport.vn/vi/transportation?tab=international",
+      "verified_date": "2026-11-27",
+      "verification": "chinh_thuc_khong_ngay",
+      "verification_note": "Giá và giờ theo bảng của sân bay (trang không ghi ngày, đang cập nhật); các trang thương mại ghi khác"
     },
     {
       "id": "HN-NBA-06",
@@ -2185,7 +2283,9 @@
       "notes": "Đón đúng điểm quy định tại sân bay (T1 Làn 3 sảnh E; T2 bãi đỗ P1/P7). Phù hợp nhóm 1-3 người + hành lý vừa.",
       "source_name": "Grab / ViettelStore / Travelcar",
       "source_url": "https://www.grab.com",
-      "verified_date": "2026-11-27"
+      "verified_date": "2026-11-27",
+      "verification": "chua_kiem",
+      "verification_note": "noibai.vn ghi 4 chỗ từ 260.000đ (trang đặt xe thương mại)"
     },
     {
       "id": "HN-NBA-07",
@@ -2206,7 +2306,9 @@
       "notes": "Lựa chọn tối ưu cho gia đình có trẻ nhỏ, xe đẩy và từ 3 vali trở lên.",
       "source_name": "Travelcar / AI-Hay (ước tính dải giá 7 chỗ trên cước 4 chỗ)",
       "source_url": "https://travelcar.vn",
-      "verified_date": "2026-11-27"
+      "verified_date": "2026-11-27",
+      "verification": "chua_kiem",
+      "verification_note": "noibai.vn ghi 7 chỗ từ 305.000đ (trang đặt xe thương mại)"
     },
     {
       "id": "HN-NBA-08",
@@ -2227,7 +2329,29 @@
       "notes": "Chiều từ trung tâm đi Nội Bài thường rẻ hơn nhẹ (~220.000-280.000đ) so với chiều đón tại sân bay.",
       "source_name": "Travelcar / Vexere",
       "source_url": "https://travelcar.vn",
-      "verified_date": "2026-11-27"
+      "verified_date": "2026-11-27",
+      "verification": "chua_kiem",
+      "verification_note": "không tìm thấy giá trọn gói trong khoảng này (trang đặt xe thương mại)"
     }
-  ]
+  ],
+  "city_transport": {
+    "source_name": "Grab Việt Nam, bảng thông tin các dịch vụ (cập nhật 08/07/2026)",
+    "source_url": "https://www.grab.com/vn/en/blog/bang-thong-tin-cac-dich-vu-tren-ung-dung-grab/",
+    "verified_date": "2026-11-27",
+    "note": "Giá Hà Nội. Đơn vị cột thời gian không ghi trên trang, hiểu là đồng/phút. Chưa gồm phí nền tảng và phụ phí giờ cao điểm.",
+    "GRAB-BIKE": {
+      "name": "GrabBike",
+      "first_2km_vnd": 13255,
+      "per_km_vnd": 4222,
+      "per_min_vnd": 344,
+      "seats": 1
+    },
+    "GRAB-CAR4": {
+      "name": "GrabCar 4 chỗ",
+      "first_2km_vnd": 28473,
+      "per_km_vnd": 9818,
+      "per_min_vnd": 442,
+      "seats": 4
+    }
+  }
 }
