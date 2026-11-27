@@ -1,4 +1,4 @@
-# AI SPEC: Lịch trình Hà Nội trong ngân sách · Nhóm BCHK · Phòng ____ · Zone ____
+# AI SPEC: Lịch trình Hà Nội trong ngân sách · Nhóm BCHK · Phòng D304 · Zone 1
 
 > Mốc nộp: §7 chốt chuẩn "đạt" tại **CP2 19:30 Thứ Sáu 27/11** · §0–§7 nộp **CP3 10:00 Thứ Bảy 28/11** · đủ §0–§10 **CP4 14:30 Thứ Bảy 28/11** · §10 changelog ghi tiếp đến **23:59 Thứ Bảy 28/11**.
 
@@ -30,10 +30,10 @@ Data BTC cấp đã dùng: không (Track C không được cấp data)
 - Số lần / tháng theo kiểu người dùng (cho §8): [chờ phỏng vấn].
 
 ## §3. Giải pháp tương tự *(guide 2.1)*
-Chưa ai trong nhóm dùng thử nên mọi nhận xét dưới đây ghi **chưa kiểm**. Mỗi người thử một sản phẩm 10 phút rồi sửa.
-- Bài hướng dẫn "Hà Nội 3 ngày 2 đêm" của các trang du lịch: đáng học cách chia theo ngày; đáng né việc không theo ngân sách và ngày đi của người đọc *(chưa kiểm)*. Mình khác: kiểm ngày đóng cửa và trần tiền bằng code.
-- Ứng dụng lập lịch có bản đồ (như Wanderlog): đáng học cách gom điểm gần nhau; mình khác: chỉ Hà Nội, có tổng chi và từ chối khi bất khả thi *(chưa kiểm)*.
-- Hỏi chatbot chung: đáng học việc nhận yêu cầu bằng lời thường; đáng né giá và giờ không có nguồn *(chưa kiểm)*.
+Nhận xét dưới đây đọc từ trang công khai ngày 27/11/2026, **nhóm chưa dùng thử**.
+- [Wanderlog](https://wanderlog.com): xem lịch và bản đồ cùng chỗ, tính thời gian và khoảng cách giữa các điểm, theo dõi chi tiêu. Đáng học: gom điểm theo tuyến. Kết quả tìm kiếm không thấy nói về kiểm giờ mở cửa *(chưa kiểm trong ứng dụng)*. Mình khác: chặn lịch trùng ngày đóng cửa hoặc vượt trần bằng code.
+- [Gemini lập kế hoạch chuyến đi](https://gemini.google/vn/discover/ai-trip-planner/?hl=vi): nhận yêu cầu bằng lời thường, tính đến ràng buộc người dùng nêu. Trang giới thiệu không nói giá chính xác đến đâu *(chưa kiểm)*. Mình khác: mỗi mục có mã nguồn, không có dữ liệu thì nói không có.
+- Bài hướng dẫn "Hà Nội 3 ngày 2 đêm" của các trang du lịch: đáng học cách chia theo ngày; không theo ngân sách và ngày đi của người đọc *(chưa kiểm)*.
 
 ## §4. Thiết kế *(guide 2.2, 3.2)*
 - **Lát cắt MỘT CÂU:** Một người từ TP.HCM lần đầu ra Hà Nội tự túc 1-3 ngày · nhập ngày đi, trần ngân sách, nơi ở và sở thích · AI chọn điểm và thứ tự đi từ dữ liệu giá, giờ có nguồn, hoặc kết luận không xếp được · người đó nhận lịch theo buổi kèm tổng chi trong ngân sách, hoặc biết cần nới điều gì.
@@ -69,7 +69,7 @@ flowchart TD
 ```
 
 - **Hình dạng:** [x] workflow cố định · [ ] một agent · [ ] nhiều agent. Các bước luôn theo một thứ tự nên workflow rẻ và dễ đo. Agent tự chọn bước hoặc nhiều vai chỉ thêm lượt gọi model mà không thêm quyết định nào cho lát cắt.
-- **AI quyết gì:** đọc yêu cầu và chọn điểm, thứ tự. JSON schema chỉ cho model chọn mã mở cửa kịp trong ô. Giờ, giá, phép cộng và kiểm luật do code làm. Code còn: coi là 1 người khi tin nhắn không nhắc ai đi cùng; chỉ giữ điểm "muốn đi" được gọi tên; đổi ô để hạ tiền khi lịch chỉ vượt ngân sách và báo cho người dùng.
+- **AI quyết gì:** đọc yêu cầu và chọn điểm, thứ tự. JSON schema chỉ cho model chọn mã mở cửa kịp trong ô. Giờ, giá, phép cộng và kiểm luật do code làm. `codebase/kiem_yeu_cau.py` đối chiếu kết quả đọc của model với tin nhắn (phạm vi, sân bay, nơi ở, điểm được gọi tên, sở thích, đòi phá quy tắc). Code còn vá điểm trùng, chèn điểm người dùng gọi tên và điểm hợp sở thích, hạ tiền khi vượt trần.
 - **AI dựa vào đâu** (`codebase/tools.py`, dữ liệu `data/hanoi_travel_kb.json`):
 
 | Công cụ | Input | Output | Tác động ra ngoài? |
@@ -77,6 +77,9 @@ flowchart TD
 | `tra_dia_diem` | thứ đi, sở thích | điểm và quán đang mở, giờ, giá, mã | Không |
 | `loc_theo_o` | ràng buộc | mã mở cửa kịp trong từng ô của từng ngày, kèm mô tả ngắn | Không |
 | `ha_chi_phi` | lịch chỉ vượt ngân sách | lịch đã đổi ô để giảm tiền, số ô đổi | Không |
+| `va_lich` | lịch có điểm trùng, quán lặp, ngày trống | lịch đã vá | Không |
+| `chen_diem_muon_di` | lịch bỏ sót điểm được gọi tên | lịch đã chèn | Không |
+| `chen_so_thich` | lịch chưa đáp ứng sở thích | lịch đã đổi một điểm | Không |
 | `kiem_tra_mo_cua` | mã điểm, thứ | mở hay đóng, giờ, lưu ý | Không |
 | `chi_phi_toi_thieu` | ràng buộc | mức tiền thấp nhất khả thi | Không |
 | `kiem_lich_trinh` | lịch nháp, ràng buộc | lịch có giờ, các khoản chi, vi phạm | Không |
@@ -129,10 +132,10 @@ Kịch bản đáng sợ nhất khi demo: giá và giờ trong dữ liệu sai n
 ## §7. Đánh giá & chuẩn "đạt" *(guide 2.4, 4.1)*
 - Data card: `data/DATA_CARD.md` · bộ câu thử: `eval/benchmark.csv`, 23 câu (thuong 4 · kho 14 · tu_choi 5, trong đó 2 câu tấn công) · ràng buộc để chấm code: `eval/rang_buoc.csv` · metric: `eval/metric_spec.yaml` (4 metric)
 - **Chuẩn "đạt"** (chốt trước 19:30 Thứ Sáu 27/11, giữ nguyên đến 23:59 Thứ Bảy 28/11): **"Đạt khi ≥ 85% số câu qua, và 100% câu tu_choi qua, và 0 output có lịch vi phạm giờ mở cửa hoặc vượt trần ngân sách."**
-- Kết quả: lượt 1 **15/23 (65%)**, chưa đạt · lượt 2 __/__ (__%) — run ID: run-1@20261127-171520 / __ → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
+- Kết quả: lượt 1 15/23 (65%) · lượt 2 19/23 (83%) · lượt 3 20/23 (87%) · lượt 4 23/23 (100%, tối ưu trên chính bộ này; bộ giữ riêng 8/10 (trượt H02, H08)) — run ID: run-1@20261127-171520 / run-2@20261127-183652 → chi tiết `eval/report.md`, hồ sơ `eval/README.md`
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
-*Bản nộp điền ở CP4.* Chạy thử 10 phiên ngày 27/11 (số người dùng và persona là *(tự ước tính)*, tỉ lệ đạt lượt 1): `gpt-5-nano` $0,0011 / phiên, $0,0017 / task thành công; nếu tính giá `gpt-5.4-mini`: $0,0140 và $0,0214. Giá BTC xem 25/11/2026.
+Mô phỏng 50 phiên (`cost/simulate-1.csv`, seed 42, tỉ lệ đạt lượt 2): `gpt-5-nano` $0,0011 / phiên, $0,0013 / task thành công; `gpt-5.4-mini` $0,0141 và $0,0171. Chi phí tháng với `gpt-5-nano`: $0,55 (500 người) · $2,21 (2.000) · $11,06 (10.000). Số người dùng và persona là *(tự ước tính)*. Chi tiết `cost/cost-estimate.md`.
 
 ## §9. Rủi ro & an toàn
 - Dữ liệu: bằng chứng chỉ giữ số bài, nhãn và trích tối đa 2 câu, không lưu tên người viết. Không thu số thẻ, OTP, giấy tờ.

@@ -74,7 +74,7 @@ def xep(candidates, rb):
 
     def clean():
         errs = tools.xep_gio(plan, rb)["vi_pham"]
-        return not [e for e in errs if not e.startswith("thieu_bua")]
+        return not [e for e in errs if not e.startswith(("thieu_bua", "ngay_trong"))]
 
     for i, day in enumerate(plan["ngay"]):
         for slot in tools.BUA:

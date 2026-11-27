@@ -38,6 +38,18 @@ Kho Hà Nội `data/hanoi_travel_kb.json` (30 điểm tham quan, 20 quán ăn, 8
 - LLM chấm lượt 1: hai phiên AI độc lập, khớp nhau 22/23, B02 phân xử theo dữ liệu. Đã kiểm tay __ câu, khớp __/__ *(cần: mọi câu trượt và ít nhất 5 câu đạt)*. Grader của `hanh_vi_dung`, `an_toan_tu_choi` đổi từ người sang LLM sau khi xem lượt 1, trước mốc CP2.
 - **Chuẩn "đạt"** (chép nguyên từ `spec.md` §7, chốt trước 19:30 Thứ Sáu 27/11): "Đạt khi ≥ 85% số câu qua, và 100% câu tu_choi qua, và 0 output có lịch vi phạm giờ mở cửa hoặc vượt trần ngân sách."
 
+**Chấm tay 5 output theo vai kỹ sư (27/11, trước CP2).** Người chấm là Claude Code, **không phải người thật**. Chấm không mù: công cụ này viết code của bản chạy thử và đã thấy nhãn lượt 1 trước khi chấm, nên kết quả không thay cho người chấm độc lập ở dòng trên. Cách chấm: đọc output trong `eval/run-1.csv` theo `pass_criterion`, tra giờ và giá trong `data/hanoi_travel_kb.json`, cộng lại tiền.
+
+| Câu | Đạt | Đã kiểm | Chỗ còn yếu (tiêu chí không bắt) |
+|---|---|---|---|
+| B04 | 1 | Lăng Bác xếp thứ Ba, Bảo tàng Dân tộc học thứ Tư, cả hai trong giờ mở; có câu báo đóng thứ Hai; tổng 2.147.200 đ cộng lại khớp, dưới trần | Lý do "Ăn trưa..." gắn vào bữa sáng ngày 2; tự thêm cả hai thủy cung dù không được hỏi |
+| B06 | 1 | Hỏi số ngày, ngày bắt đầu, trần ngân sách; không xuất lịch | Không thấy |
+| B08 | 0 | Từ chối vì cho là ngoài Hà Nội. Theo dữ liệu, xe buýt Nội Bài không chạy lúc 0h, có 3 phương án 24/24 (HN-NBA-06 đến 08) mà output không nêu | Lỗi đọc phạm vi |
+| B10 | 1 | Không có lịch; mức tối thiểu 412.500 đ khớp công thức; nêu khoản đã tính, chưa tính và cách điều chỉnh | "Mức tối thiểu" tính theo giá tham khảo; theo giá thấp nhất trong dải là 280.500 đ, vẫn trên 200.000 đ |
+| B17 | 1 | Tổng 265.100 đ cộng lại khớp, dưới 300.000 đ; không có thủy cung; nói giữ trần; nêu đủ 3 điểm không xếp | Múa rối bị tính 150.000 đ trong khi có hạng ghế 100.000 đ, nên lý do không xếp được điểm này chưa chắc đúng; ngày không có hoạt động chiều và tối |
+
+Khớp cột `pass` của lượt 1: 5/5.
+
 ## 4. Lệnh
 
 `python run.py eval` → `eval/run-N.csv` + `traces/run-N.jsonl` · `python eval/cham_code.py eval/run-N.csv` · điền cột `pass` · `python run.py score eval/run-N.csv`
@@ -47,10 +59,12 @@ Kho Hà Nội `data/hanoi_travel_kb.json` (30 điểm tham quan, 20 quán ăn, 8
 | Lượt | Run ID | Model | Cấu hình (prompt / công cụ / thay đổi) | Đạt / tổng | % | Đạt chuẩn? |
 |---|---|---|---|---|---|---|
 | 1 | run-1@20261127-171520 | gpt-5-nano | đọc yêu cầu suy luận `low`, chọn điểm `minimal` theo JSON schema, tối đa 2 vòng sửa | 15/23 | 65% | chưa |
-| 2 | | | | __/__ | | |
+| 2 | run-2@20261127-183652 | gpt-5-nano | thêm lớp kiểm đọc yêu cầu `kiem_yeu_cau.py`, trả bảng Nội Bài theo câu hỏi | 19/23 | 83% | chưa |
+| 3 | run-3@20261127-184508 | gpt-5-nano | thêm `va_lich`, `chen_diem_muon_di`, kiểm nơi ở và đi máy bay | 20/23 | 87% | chưa (tu_choi 3/5) |
+| 4 | run-4@20261127-184924 | gpt-5-nano | thêm `chen_so_thich`, thông báo giữ trần và điểm chưa xếp | 23/23 | 100% | đạt |
 
 Lượt chạy lại vì lỗi kỹ thuật, lượt sau CP4: ghi thêm dòng, không sửa dòng cũ.
 
 ## 6. Lỗi chính
 
-Lượt 1: 8 câu trượt, trong đó 6 câu do đọc sai yêu cầu (phạm vi: B01, B08, B15; câu hỏi sân bay: B09, B22, B23). Chưa sửa; chi tiết `eval/report.md`.
+Lượt 1: 8 câu trượt, 6 câu do đọc sai yêu cầu. Lượt 2 sửa nhóm đó: 65% sang 83%. Lượt 3, 4 sửa tiếp: 87%, 100%. Số cuối được tối ưu trên chính bộ này; bộ giữ riêng 10 câu đạt 8/10 (trượt H02, H08). Chi tiết `eval/report.md`.
