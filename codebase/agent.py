@@ -1,6 +1,9 @@
 """Luồng chính: workflow cố định (spec.md §4).
 
-    answer(text) -> {"output": str}
+    answer(text) -> {"output": str, "loai": str, "du_lieu": dict}
+
+"output" là câu trả lời dạng chữ; bộ chấm và mô phỏng chỉ đọc khoá này. "loai" và "du_lieu" cho giao diện web
+(codebase/web.py): lich · hoi_lai · khong_du_tien · khong_xep_duoc · thong_tin · tu_choi · chua_doc_duoc.
 
   1. Model đọc yêu cầu → ràng buộc JSON
   2. Code chặn: ngoài phạm vi, thiếu thông tin, quá số ngày, điểm đóng cửa / không có dữ liệu
@@ -173,14 +176,17 @@ def _money(v):
     return "{:,.0f} đ".format(v).replace(",", ".")
 
 
-def _transfer_lines(text):
-    """Phương án Nội Bài - trung tâm, lọc theo câu hỏi (taxi, giờ hỏi, thuê xe)."""
+KHONG_CO_THUE_XE = "Mình không có dữ liệu thuê xe nên không đoán giá thuê."
+
+
+def _chon_chuyen(text):
+    """Phương án Nội Bài lọc theo câu hỏi (taxi, giờ hỏi). → (danh sách, câu báo hết xe buýt hoặc None)."""
     t = text.lower()
-    rows, lines = list(tools.TRANSFERS), []
+    rows = list(tools.TRANSFERS)
     car = [x for x in rows if "bus" not in x["mode"]]
     if re.search(r"taxi|grab|xe công nghệ", t) and not re.search(r"buýt|\bbus\b", t):
         rows = car
-    when = kiem_yeu_cau.gio_hoi(text)
+    when, het_buyt = kiem_yeu_cau.gio_hoi(text), None
     if when is not None:
         def runs(x):
             if x["operating_hours"].startswith("24/24"):
@@ -188,8 +194,15 @@ def _transfer_lines(text):
             m = re.match(r"(\d\d):(\d\d)-(\d\d):(\d\d)", x["operating_hours"])
             return bool(m) and int(m.group(1)) * 60 + int(m.group(2)) <= when <= int(m.group(3)) * 60 + int(m.group(4))
         if not any(runs(x) for x in tools.TRANSFERS if "bus" in x["mode"]):
-            lines.append("Lúc %s không có xe buýt Nội Bài nào chạy theo dữ liệu." % tools.hhmm(when))
+            het_buyt = "Lúc %s không có xe buýt Nội Bài nào chạy theo dữ liệu." % tools.hhmm(when)
         rows = [x for x in rows if runs(x)] or [x for x in car if runs(x)]
+    return rows, het_buyt
+
+
+def _transfer_lines(text):
+    """Phương án Nội Bài - trung tâm dạng chữ."""
+    rows, het_buyt = _chon_chuyen(text)
+    lines = [het_buyt] if het_buyt else []
     lines.append("Phương án Nội Bài - trung tâm theo dữ liệu (giá tham khảo; xe buýt chỉ chạy trong khung giờ ghi):")
     for x in rows:
         unit = "người" if x["fare_unit"] == "per_person" else "xe"
@@ -197,9 +210,23 @@ def _transfer_lines(text):
             _money(x["fare_min_vnd"]), _money(x["fare_max_vnd"]))
         check = "" if x.get("verification", "chua_kiem") != "chua_kiem" else " (giá chưa kiểm nguồn chính thức)"
         lines.append("- %s [%s]: %s / %s, giờ chạy %s%s" % (x["name"], x["id"], fare, unit, x["operating_hours"], check))
-    if "thuê xe" in t:
-        lines.append("Mình không có dữ liệu thuê xe nên không đoán giá thuê.")
+    if "thuê xe" in text.lower():
+        lines.append(KHONG_CO_THUE_XE)
     return lines
+
+
+def _info_data(r, text):
+    """Cùng nội dung với _info_answer nhưng dạng cấu trúc cho giao diện."""
+    chuyen, canh_bao = [], []
+    if r.get("di_may_bay") or r.get("hoi_di_lai"):
+        rows, het_buyt = _chon_chuyen(text)
+        chuyen = [x["id"] for x in rows]
+        canh_bao = [het_buyt] if het_buyt else []
+        if "thuê xe" in text.lower():
+            canh_bao.append(KHONG_CO_THUE_XE)
+    return {"chuyen": chuyen, "canh_bao": canh_bao,
+            "diem": [p for p in r.get("diem_muon_di") or [] if p in tools.PLACES],
+            "khong_co": list(r.get("diem_khong_co") or [])}
 
 
 def _info_answer(r, text=""):
@@ -268,14 +295,16 @@ def answer(text: str) -> dict:
         r, fake = _extract(text)
     except ValueError as e:
         note("dừng: không đọc được ràng buộc (%s)" % e)
-        return {"output": "Mình chưa đọc được yêu cầu. Bạn cho mình số ngày, ngày bắt đầu và trần ngân sách nhé?"}
+        return {"output": "Mình chưa đọc được yêu cầu. Bạn cho mình số ngày, ngày bắt đầu và trần ngân sách nhé?",
+                "loai": "chua_doc_duoc", "du_lieu": {}}
     head = "[CHẾ ĐỘ GIẢ: chưa gọi model, kết quả chỉ để kiểm luồng]\n" if fake else ""
 
-    def done(msg, why):
-        note("dừng: " + why)
-        return {"output": head + msg}
-
     notes = []
+
+    def done(msg, why, loai, **du_lieu):
+        note("dừng: " + why)
+        return {"output": head + msg, "loai": loai, "du_lieu": dict(du_lieu, ghi_chu=list(notes))}
+
     oos = set(r.get("ngoai_pham_vi") or [])
     if r.get("yeu_cau_pha_quy_tac"):
         notes.append("Mình giữ nguyên trần ngân sách và giá trong dữ liệu, không đổi quy tắc theo yêu cầu trong tin nhắn.")
@@ -284,28 +313,31 @@ def answer(text: str) -> dict:
     if "ngoai_ha_noi" in oos:
         notes.append("Phần ngoài Hà Nội mình không hỗ trợ. " + SCOPE)
     if not r.get("co_phan_ha_noi", True) and oos:
-        return done("\n".join(notes) if notes else "Việc này ngoài phạm vi. " + SCOPE, "ngoài phạm vi")
+        return done("\n".join(notes) if notes else "Việc này ngoài phạm vi. " + SCOPE, "ngoài phạm vi", "tu_choi")
     if r.get("loai") == "hoi_thong_tin":
-        return done("\n".join(notes + [_info_answer(r, text)]), "trả lời thông tin")
+        return done("\n".join(notes + [_info_answer(r, text)]), "trả lời thông tin", "thong_tin", **_info_data(r, text))
     if r.get("loai") == "khac":
-        return done("\n".join(notes + ["Việc này ngoài phạm vi. " + SCOPE]), "ngoài phạm vi")
+        return done("\n".join(notes + ["Việc này ngoài phạm vi. " + SCOPE]), "ngoài phạm vi", "tu_choi")
 
-    missing = []
+    missing = {}
     if not r.get("so_ngay"):
-        missing.append("số ngày (1-3)")
+        missing["so_ngay"] = "số ngày (1-3)"
     if not r.get("ngay_bat_dau") and not r.get("thu_bat_dau"):
-        missing.append("ngày hoặc thứ bắt đầu")
+        missing["ngay"] = "ngày hoặc thứ bắt đầu"
     if not r.get("ngan_sach_vnd"):
-        missing.append("trần ngân sách (số tiền)")
+        missing["ngan_sach"] = "trần ngân sách (số tiền)"
     if r.get("so_nguoi") is None:
-        missing.append("số người đi")
+        missing["so_nguoi"] = "số người đi"
     if missing:
-        return done("\n".join(notes + ["Bạn cho mình thêm %s được không?" % ", ".join(missing)]), "hỏi lại")
+        return done("\n".join(notes + ["Bạn cho mình thêm %s được không?" % ", ".join(missing.values())]), "hỏi lại",
+                    "hoi_lai", thieu=list(missing))
     if not 1 <= r["so_ngay"] <= 3:
-        return done("\n".join(notes + [SCOPE + " Bạn muốn mình xếp 3 ngày đầu hay ngày nào?"]), "quá số ngày")
+        return done("\n".join(notes + [SCOPE + " Bạn muốn mình xếp 3 ngày đầu hay ngày nào?"]), "quá số ngày",
+                    "hoi_lai", thieu=["so_ngay"], qua_so_ngay=True)
     thu = _weekdays(r)
     if thu is None:
-        return done("Bạn cho mình ngày bắt đầu dạng ngày/tháng hoặc thứ được không?", "hỏi lại ngày")
+        return done("Bạn cho mình ngày bắt đầu dạng ngày/tháng hoặc thứ được không?", "hỏi lại ngày",
+                    "hoi_lai", thieu=["ngay"])
 
     khu = r.get("khu_o") if r.get("khu_o") in tools.CUM else None
     if not khu:
@@ -341,7 +373,8 @@ def answer(text: str) -> dict:
             "vé máy bay và chỗ ở, nên chi phí thật sẽ cao hơn."
             % (_money(rb["ngan_sach_vnd"]), rb["so_ngay"], rb["so_nguoi"], _money(floor),
                ", Nội Bài khứ hồi" if rb["di_may_bay"] else ""),
-            "Bạn có thể tăng ngân sách, giảm số ngày hoặc cho mình biết khoản nào đã được lo sẵn."]), "ngân sách bất khả thi")
+            "Bạn có thể tăng ngân sách, giảm số ngày hoặc cho mình biết khoản nào đã được lo sẵn."]), "ngân sách bất khả thi",
+            "khong_du_tien", toi_thieu=floor, rang_buoc=rb)
 
     candidates = tools.tra_dia_diem(thu, rb["so_thich"])
     allowed = tools.loc_theo_o(rb)
@@ -386,7 +419,9 @@ def answer(text: str) -> dict:
             if skipped:
                 notes.append("Không xếp vừa thời gian hoặc ngân sách: %s." % ", ".join(skipped))
             note("dừng: lịch sạch sau %d lượt xếp" % (attempt + 1))
-            return {"output": head + _render(res, rb, plan.get("ly_do") or {}, notes)}
+            reasons = plan.get("ly_do") or {}
+            return {"output": head + _render(res, rb, reasons, notes), "loai": "lich",
+                    "du_lieu": {"rang_buoc": rb, "lich": res, "ly_do": reasons, "ghi_chu": list(notes)}}
         note("vi phạm lượt %d: %s" % (attempt + 1, "; ".join(res["vi_pham"][:5])))
         feedback = "\nLịch trước: %s\nVi phạm cần sửa: %s" % (json.dumps(plan, ensure_ascii=False), "; ".join(res["vi_pham"]))
     why = [_loi_de_hieu(e) for e in res["vi_pham"][:5]] if res else ["model không trả đúng định dạng"]
@@ -395,4 +430,5 @@ def answer(text: str) -> dict:
         notes.append("Chưa xếp được: %s. Bạn có thể bớt các điểm này hoặc tăng ngân sách."
                      % ", ".join(tools.PLACES[p]["name"] for p in wanted))
     return done("\n".join(notes + ["Mình chưa xếp được lịch đạt mọi ràng buộc nên không đưa lịch. Vướng ở:"]
-                          + ["- " + w for w in why] + ["Bạn thử tăng ngân sách hoặc bớt điểm muốn đi."]), "hết vòng sửa")
+                          + ["- " + w for w in why] + ["Bạn thử tăng ngân sách hoặc bớt điểm muốn đi."]), "hết vòng sửa",
+                "khong_xep_duoc", vuong=why, rang_buoc=rb)

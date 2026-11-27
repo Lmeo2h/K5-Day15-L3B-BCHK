@@ -15,6 +15,7 @@ README của nhóm có mục "Dùng AI vào việc gì" (2–3 dòng, bắt bu�
 | Cải tiến sau lượt 1, chạy lượt 2 đến 4, bộ giữ riêng | Claude Code | Viết code sửa, viết 10 câu giữ riêng, hai subagent chấm | Chờ kiểm | Mai Xuân Khang |
 | Chấm tay 5 output theo vai kỹ sư (`eval/README.md` §3) | Claude Code | Đọc 5 output lượt 1, tra dữ liệu, cộng lại tiền; khớp 5/5, không mù | Chờ người thật chấm | Mai Xuân Khang |
 | Mô phỏng chi phí 50 phiên | Claude Code | Chạy `run.py simulate`, điền `cost/cost-estimate.md` và `spec.md` §8 | Chờ kiểm | Nguyễn Văn Hậu |
+| Giao diện web (`codebase/web.py`, `view.py`, `ui/`) | Claude Code | Thiết kế, viết code, tự thử bằng Edge không màn hình | Chờ kiểm | Mai Xuân Khang |
 | Soạn câu hỏi phỏng vấn | Claude Code | Soạn 6 câu | Chờ kiểm | Lê Quân Bảo |
 | Viết câu thử (benchmark) | Claude Code | Viết 23 câu, gồm 7 câu trích từ bài VOZ | Chờ kiểm; cột `source` ghi nguồn | Mai Xuân Khang |
 | Sinh data `synthetic` (nếu có) | | | Seed __ · kiểm tay __ dòng | |

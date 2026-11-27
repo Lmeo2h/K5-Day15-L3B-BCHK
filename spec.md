@@ -152,7 +152,7 @@ Mô phỏng 50 phiên (`cost/simulate-1.csv`, seed 42, tỉ lệ đạt lượt 
 
 | Thời điểm | Đổi gì | Vì sao |
 |---|---|---|
-|  |  |  |
+| Tối 27/11 | Thêm giao diện web; `python run.py` mở web, bản dòng lệnh chuyển sang `--cli`; `answer()` trả thêm `loai` và `du_lieu`, chữ `output` giữ nguyên | Người dùng đọc lịch theo ngày, thấy nguồn từng mục, và quay video CP3 |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)**
 

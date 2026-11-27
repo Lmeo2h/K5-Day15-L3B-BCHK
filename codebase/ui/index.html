@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hà Nội trong ngân sách · BCHK</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/app.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#yeu-cau">Tới ô nhập yêu cầu</a>
+
+  <header class="topbar">
+    <div class="wrap topbar-in">
+      <div class="brand">
+        <img src="/favicon.svg" alt="" width="38" height="38">
+        <div><strong>Hà Nội trong ngân sách</strong><span>Nhóm BCHK</span></div>
+      </div>
+      <div class="top-actions">
+        <span id="mode" class="mode">Đang kết nối…</span>
+        <button type="button" id="theme" class="icon-btn" aria-label="Đổi giao diện sáng hoặc tối"></button>
+      </div>
+    </div>
+  </header>
+
+  <div id="fake-banner" class="fake-banner" hidden>Đang chạy chế độ giả: chưa gọi model, kết quả chỉ để thử luồng.</div>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Lịch tham quan 1 đến 3 ngày</p>
+        <h1>Đi Hà Nội vừa túi&nbsp;tiền, đúng giờ mở&nbsp;cửa</h1>
+        <p class="lead">AI chọn điểm và thứ tự đi. Giờ mở cửa, tiền vé và tiền xe do code tính rồi kiểm lại.</p>
+      </div>
+      <svg class="scene" viewBox="0 0 360 200" aria-hidden="true">
+        <circle class="sc-sun" cx="276" cy="52" r="30"/>
+        <path class="sc-far" d="M0 142c30-30 56-34 86-14 22-34 62-40 92-10 28-26 66-26 90 0 24-18 60-16 92 12v20H0z"/>
+        <path class="sc-water" d="M0 146h360v40a14 14 0 0 1-14 14H14a14 14 0 0 1-14-14z"/>
+        <g class="sc-tower">
+          <path d="M180 62l20 14h-40z"/>
+          <path d="M166 77h28v18h-28z"/>
+          <path d="M154 95h52l-5 8h-42z"/>
+          <path d="M158 104h44v22h-44z"/>
+          <path d="M144 126h72l-6 8h-60z"/>
+          <path d="M148 134h64v14h-64z"/>
+          <path d="M130 148c18-8 82-8 100 0z"/>
+        </g>
+        <g class="sc-holes">
+          <path d="M173 90v-6a3 3 0 0 1 6 0v6zm8 0v-6a3 3 0 0 1 6 0v6z"/>
+          <path d="M165 121v-8a4 4 0 0 1 8 0v8zm11 0v-8a4 4 0 0 1 8 0v8zm11 0v-8a4 4 0 0 1 8 0v8z"/>
+        </g>
+        <path class="sc-bridge" d="M236 150c24-26 62-26 92 0M252 139v11M268 133v17M284 131v19M300 134v16M314 141v9"/>
+        <path class="sc-ripple" d="M24 166h54M104 178h78M214 170h46M276 184h58M54 188h34M160 160h42"/>
+      </svg>
+    </section>
+
+    <form id="form" class="card composer" novalidate>
+      <label for="yeu-cau">Bạn muốn đi thế nào?</label>
+      <textarea id="yeu-cau" rows="3" maxlength="1000"
+        placeholder="Ví dụ: Mình đi 2 ngày từ thứ Bảy, 2 triệu, ở phố cổ, thích di tích"></textarea>
+      <p id="form-error" class="form-error" role="alert" hidden></p>
+
+      <div class="samples-row">
+        <span class="samples-label">Thử nhanh</span>
+        <div class="samples" id="samples"></div>
+      </div>
+
+      <details id="quick" class="quick">
+        <summary>Điền nhanh theo từng mục</summary>
+        <div class="quick-grid">
+          <label class="field">Ngày bắt đầu<input type="date" id="q-date"></label>
+          <fieldset class="field"><legend>Số ngày</legend>
+            <div class="seg">
+              <label><input type="radio" name="q-days" value="1"><span>1</span></label>
+              <label><input type="radio" name="q-days" value="2" checked><span>2</span></label>
+              <label><input type="radio" name="q-days" value="3"><span>3</span></label>
+            </div>
+          </fieldset>
+          <label class="field">Số người<input type="number" id="q-people" min="1" max="20" value="1" inputmode="numeric"></label>
+          <label class="field">Ngân sách cả chuyến (đồng)<input type="number" id="q-budget" min="0" step="50000" value="2000000" inputmode="numeric"></label>
+          <label class="field">Nơi ở<select id="q-area"><option value="">Chưa biết</option></select></label>
+          <label class="field check"><input type="checkbox" id="q-flight"><span>Đến Hà Nội bằng máy bay</span></label>
+          <fieldset class="field wide"><legend>Sở thích</legend><div class="pills" id="q-prefs"></div></fieldset>
+        </div>
+        <button type="button" id="q-apply" class="btn ghost">Ghép thành câu ở ô trên</button>
+      </details>
+
+      <div class="composer-foot">
+        <span class="hint"><kbd>Ctrl</kbd> + <kbd>Enter</kbd> để gửi</span>
+        <span id="count" class="count">0/1000</span>
+        <button id="submit" class="btn primary" type="submit">Lên lịch</button>
+      </div>
+    </form>
+
+    <section id="how" class="how" aria-label="Cách hoạt động">
+      <article><span>1</span><h2>Bạn nói bằng lời thường</h2><p>Số ngày, ngày đi, trần tiền, nơi ở, chỗ muốn đến. Thiếu gì mình hỏi lại.</p></article>
+      <article><span>2</span><h2>AI chọn điểm và thứ tự</h2><p>Model chỉ được chọn trong những nơi mở cửa kịp giờ, lấy từ dữ liệu có mã nguồn.</p></article>
+      <article><span>3</span><h2>Code kiểm trước khi đưa ra</h2><p>Lịch trùng ngày đóng cửa hoặc vượt trần tiền thì không được hiển thị.</p></article>
+    </section>
+
+    <section id="output" aria-live="polite"></section>
+  </main>
+
+  <footer class="wrap foot">
+    <p>Không đặt vé, không đặt phòng, không thanh toán. Ngân sách không gồm vé máy bay và chỗ ở.</p>
+    <p id="data-date"></p>
+  </footer>
+
+  <div id="tip" class="tip" role="tooltip" hidden></div>
+  <noscript><p class="wrap">Giao diện cần JavaScript. Bản dòng lệnh: python codebase/app.py --cli</p></noscript>
+</body>
+</html>
