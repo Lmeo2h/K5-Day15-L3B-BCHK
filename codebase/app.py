@@ -1,8 +1,9 @@
-"""Khung chạy bản chạy thử tối thiểu (dòng lệnh): gõ đầu vào → answer() trong agent.py → in kết quả.
+"""Bản chạy thử: giao diện web (mặc định) hoặc dòng lệnh. Cả hai đều gọi answer() trong agent.py.
 
-Chạy bằng: python run.py   (macOS/Linux có thể là python3, Windows có thể là py)
-Nhóm thay bằng giao diện của mình (web, bot…) nhưng giữ `python run.py` là lệnh duy nhất
-để chạy bản chạy thử (sửa hàm run_app() trong run.py nếu cần).
+    python run.py                    mở giao diện web ở http://127.0.0.1:8000 (xem web.py)
+    python codebase/app.py --cli     bản dòng lệnh: gõ đầu vào → in kết quả
+
+Khi đầu vào được đưa qua ống (vd: echo "..." | python run.py) thì tự dùng bản dòng lệnh; thêm --web để ép mở web.
 """
 import os
 import sys
@@ -26,7 +27,19 @@ def _where(e):
     base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     return os.path.relpath(p, base).replace(os.sep, "/") if p.startswith(base) else path
 
-def main() -> int:
+def main(argv=()) -> int:
+    if "--cli" in argv or ("--web" not in argv and not (sys.stdin and sys.stdin.isatty())):
+        return cli()
+    try:
+        import web
+    except Exception as e:  # lỗi trong codebase/: báo rõ chỗ, bản dòng lệnh vẫn thử được
+        print("Không mở được giao diện web — lỗi ở %s: %s: %s" % (_where(e), type(e).__name__, e))
+        print("Thử bản dòng lệnh: python codebase/app.py --cli")
+        return 1
+    return web.main([a for a in argv if a != "--web"])
+
+
+def cli() -> int:
     try:
         import tracing
         from agent import answer
@@ -66,4 +79,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(main(sys.argv[1:]))
