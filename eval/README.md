@@ -50,6 +50,8 @@ Kho Hà Nội `data/hanoi_travel_kb.json` (30 điểm tham quan, 20 quán ăn, 8
 
 Khớp cột `pass` của lượt 1: 5/5.
 
+**Phiếu chấm tay lượt 1:** `python eval/kiem_tay.py` tạo `eval/kiem_tay_run1.csv` (14 câu: 8 câu trượt, 6 câu đạt gồm 5 câu hiệu chuẩn, không ghi điểm AI) và bản đọc `eval/kiem_tay_run1.md`. Điền xong chạy `python eval/kiem_tay.py so` để lấy hai số khớp cho các dòng trên.
+
 ## 4. Lệnh
 
 `python run.py eval` → `eval/run-N.csv` + `traces/run-N.jsonl` · `python eval/cham_code.py eval/run-N.csv` · điền cột `pass` · `python run.py score eval/run-N.csv`

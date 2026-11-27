@@ -11,7 +11,7 @@ users:              # số người dùng thật nếu đưa vào dùng — 3 k�
   low: 500
   base: 2000
   high: 10000
-  source: "(tự ước tính) số người dùng mỗi tháng; cần nguồn công khai về lượng khách tự túc từ TP.HCM đến Hà Nội trước CP4"
+  source: "(tự ước tính) 500 / 2000 / 10000 người dùng mỗi tháng. Đối chiếu spec.md §2: khoảng 4600 người đi chơi lần đầu, tự túc, từ TP.HCM mỗi tháng (từ 11,07 triệu ghế/năm, OAG 2025, nhân tỉ lệ tự ước tính 1%). Kịch bản cao giả định mở sang nơi xuất phát khác."
 
 personas:           # ≥3 kiểu người dùng; share cộng lại = 1
   - name: xep_mot_lan
