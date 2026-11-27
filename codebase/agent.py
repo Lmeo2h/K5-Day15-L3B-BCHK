@@ -17,6 +17,7 @@ import json
 import re
 
 import fake_model
+import kiem_yeu_cau
 import tools
 from ai import call_model
 from tracing import note
@@ -126,22 +127,6 @@ def _to_plan(d):
 
 
 GROUP = re.compile(r"nhóm|gia đình|cả nhà|bạn bè|tụi|bọn|vợ|chồng|đi (cùng|chung)|mấy (người|đứa|bạn)|\d+\s*(người|đứa|bạn)")
-CHUNG_CHUNG = {"bảo tàng", "hà nội", "việt nam", "lịch sử", "quốc gia", "phố cổ", "chợ đêm", "đi bộ", "công viên",
-               "di tích", "nhà hát", "không gian", "hoàn kiếm", "tây hồ", "hồ tây", "làng cổ", "phụ cận", "ăn vặt",
-               "cơ sở", "bún chả", "phở cuốn", "bánh tôm", "cà phê", "bánh mì", "bún riêu", "bún thang", "bánh cuốn"}
-TEN_GOI_KHAC = {"HN-ATTR-01": ["lăng bác", "lăng chủ tịch"]}
-
-
-def _duoc_nhac(pid, text):
-    """Điểm có thật sự được gọi tên trong tin nhắn không (chặn model biến sở thích chung thành điểm cụ thể)."""
-    t = " " + text.lower() + " "
-    if any(a in t for a in TEN_GOI_KHAC.get(pid, [])):
-        return True
-    words = re.findall(r"\w+", tools.PLACES[pid]["name"].lower())
-    grams = (" ".join(words[i:i + 2]) for i in range(len(words) - 1))
-    return any(g not in CHUNG_CHUNG and g in t for g in grams)
-
-
 def _extract(text):
     system = SYSTEM_TRICH % {
         "zones": ", ".join(tools.CUM), "today": datetime.date(2026, 11, 27).isoformat(),
@@ -153,8 +138,7 @@ def _extract(text):
     r = _clean(_json(reply["text"]))
     if r["so_nguoi"] is None and not GROUP.search(text.lower()):
         r["so_nguoi"] = 1
-    r["diem_muon_di"] = [p for p in r["diem_muon_di"] if p in tools.PLACES and _duoc_nhac(p, text)]
-    return r, False
+    return kiem_yeu_cau.sua(r, text), False
 
 
 def _clean(r):
@@ -189,14 +173,37 @@ def _money(v):
     return "{:,.0f} đ".format(v).replace(",", ".")
 
 
-def _info_answer(r):
-    lines = []
-    if r.get("di_may_bay"):
-        lines.append("Phương án Nội Bài - trung tâm theo dữ liệu (xe buýt chỉ chạy trong khung giờ ghi bên dưới):")
-        for t in tools.TRANSFERS:
-            unit = "người" if t["fare_unit"] == "per_person" else "xe"
-            lines.append("- %s [%s]: %s - %s / %s, giờ chạy %s" % (t["name"], t["id"], _money(t["fare_min_vnd"]),
-                         _money(t["fare_max_vnd"]), unit, t["operating_hours"]))
+def _transfer_lines(text):
+    """Phương án Nội Bài - trung tâm, lọc theo câu hỏi (taxi, giờ hỏi, thuê xe)."""
+    t = text.lower()
+    rows, lines = list(tools.TRANSFERS), []
+    car = [x for x in rows if "bus" not in x["mode"]]
+    if re.search(r"taxi|grab|xe công nghệ", t) and not re.search(r"buýt|\bbus\b", t):
+        rows = car
+    when = kiem_yeu_cau.gio_hoi(text)
+    if when is not None:
+        def runs(x):
+            if x["operating_hours"].startswith("24/24"):
+                return True
+            m = re.match(r"(\d\d):(\d\d)-(\d\d):(\d\d)", x["operating_hours"])
+            return bool(m) and int(m.group(1)) * 60 + int(m.group(2)) <= when <= int(m.group(3)) * 60 + int(m.group(4))
+        if not any(runs(x) for x in tools.TRANSFERS if "bus" in x["mode"]):
+            lines.append("Lúc %s không có xe buýt Nội Bài nào chạy theo dữ liệu." % tools.hhmm(when))
+        rows = [x for x in rows if runs(x)] or [x for x in car if runs(x)]
+    lines.append("Phương án Nội Bài - trung tâm theo dữ liệu (giá tham khảo; xe buýt chỉ chạy trong khung giờ ghi):")
+    for x in rows:
+        unit = "người" if x["fare_unit"] == "per_person" else "xe"
+        fare = _money(x["fare_min_vnd"]) if x["fare_min_vnd"] == x["fare_max_vnd"] else "%s - %s" % (
+            _money(x["fare_min_vnd"]), _money(x["fare_max_vnd"]))
+        check = "" if x.get("verification", "chua_kiem") != "chua_kiem" else " (giá chưa kiểm nguồn chính thức)"
+        lines.append("- %s [%s]: %s / %s, giờ chạy %s%s" % (x["name"], x["id"], fare, unit, x["operating_hours"], check))
+    if "thuê xe" in t:
+        lines.append("Mình không có dữ liệu thuê xe nên không đoán giá thuê.")
+    return lines
+
+
+def _info_answer(r, text=""):
+    lines = _transfer_lines(text) if r.get("di_may_bay") or r.get("hoi_di_lai") else []
     for pid in r.get("diem_muon_di") or []:
         p = tools.PLACES.get(pid)
         if not p:
@@ -211,6 +218,16 @@ def _info_answer(r):
     return "\n".join(lines) + "\n(Dữ liệu đối chiếu ngày %s, nên kiểm lại trước khi đi.)" % tools.DATA_DATE
 
 
+def _loi_de_hieu(e):
+    ten = {"dong_cua": "đóng cửa", "ngoai_gio": "không vừa giờ mở cửa", "trung_diem": "điểm bị xếp hai lần",
+           "lap_quan": "một quán bị xếp hai bữa", "thieu_bua": "thiếu bữa ăn", "ngay_trong": "ngày chưa có điểm tham quan",
+           "trai_tuyen": "các điểm cùng buổi ở xa nhau", "vuot_ngan_sach": "vượt ngân sách"}
+    code, _, detail = e.partition(": ")
+    detail = re.sub(r"HN-(ATTR|FOOD)-\d+\s*", "", detail)
+    detail = re.sub(r"(\d{4,}) đ", lambda m: _money(int(m.group(1))), detail)
+    return "%s: %s" % (ten.get(code, "chưa đạt ràng buộc"), detail)
+
+
 def _render(res, rb, reasons, notes):
     out = list(notes)
     out.append("LỊCH %d NGÀY cho %d người, trần %s" % (rb["so_ngay"], rb["so_nguoi"], _money(rb["ngan_sach_vnd"])))
@@ -221,7 +238,8 @@ def _render(res, rb, reasons, notes):
         for m in day["muc"]:
             d = m["di"]
             out.append("    đi lại %.1f km [%s] %s" % (d["km"], d["ma"], _money(d["tien"])))
-            why = reasons.get(m["id"]) if isinstance(reasons, dict) else None
+            sight = tools.PLACES[m["id"]]["category"] == "attraction"
+            why = reasons.get(m["id"]) if sight and isinstance(reasons, dict) else None
             out.append("  %s-%s %s: %s [%s] %s%s" % (m["tu"], m["den"], ten_o[m["o"]], m["ten"], m["id"], _money(m["tien"]),
                                                    (" · " + str(why)) if why else ""))
             if tools.PLACES[m["id"]]["category"] == "attraction":
@@ -268,7 +286,7 @@ def answer(text: str) -> dict:
     if not r.get("co_phan_ha_noi", True) and oos:
         return done("\n".join(notes) if notes else "Việc này ngoài phạm vi. " + SCOPE, "ngoài phạm vi")
     if r.get("loai") == "hoi_thong_tin":
-        return done("\n".join(notes + [_info_answer(r)]), "trả lời thông tin")
+        return done("\n".join(notes + [_info_answer(r, text)]), "trả lời thông tin")
     if r.get("loai") == "khac":
         return done("\n".join(notes + ["Việc này ngoài phạm vi. " + SCOPE]), "ngoài phạm vi")
 
@@ -337,6 +355,24 @@ def answer(text: str) -> dict:
             feedback = "\nLần trước không trả đúng JSON. Chỉ trả JSON."
             continue
         res = tools.kiem_lich_trinh(plan, rb)
+        if any(e.startswith(("trung_diem", "lap_quan", "ngay_trong")) for e in res["vi_pham"]):
+            patched = tools.va_lich(plan, rb, allowed["o_hop_le"])
+            if patched["sua"]:
+                note("code vá %d ô trùng hoặc trống" % patched["sua"])
+                plan = patched["lich"]
+                res = tools.kiem_lich_trinh(plan, rb)
+        if wanted and res["ngay"]:
+            more = tools.chen_diem_muon_di(plan, rb, allowed["o_hop_le"])
+            if more["chen"]:
+                note("code chèn %d điểm được yêu cầu" % more["chen"])
+                plan = more["lich"]
+                res = tools.kiem_lich_trinh(plan, rb)
+        if rb["so_thich"] and res["ngay"]:
+            liked = tools.chen_so_thich(plan, rb, allowed["o_hop_le"])
+            if liked["chen"]:
+                note("code đưa thêm %d điểm hợp sở thích" % liked["chen"])
+                plan = liked["lich"]
+                res = tools.kiem_lich_trinh(plan, rb)
         if res["vi_pham"] and all(e.startswith("vuot_ngan_sach") for e in res["vi_pham"]):
             cheaper = tools.ha_chi_phi(plan, rb, allowed["o_hop_le"])
             if cheaper["dat"]:
@@ -353,6 +389,10 @@ def answer(text: str) -> dict:
             return {"output": head + _render(res, rb, plan.get("ly_do") or {}, notes)}
         note("vi phạm lượt %d: %s" % (attempt + 1, "; ".join(res["vi_pham"][:5])))
         feedback = "\nLịch trước: %s\nVi phạm cần sửa: %s" % (json.dumps(plan, ensure_ascii=False), "; ".join(res["vi_pham"]))
-    why = res["vi_pham"][:5] if res else ["model không trả đúng định dạng"]
+    why = [_loi_de_hieu(e) for e in res["vi_pham"][:5]] if res else ["model không trả đúng định dạng"]
+    notes.append("Mình giữ trần ngân sách %s và chỉ dùng giá trong dữ liệu." % _money(rb["ngan_sach_vnd"]))
+    if wanted:
+        notes.append("Chưa xếp được: %s. Bạn có thể bớt các điểm này hoặc tăng ngân sách."
+                     % ", ".join(tools.PLACES[p]["name"] for p in wanted))
     return done("\n".join(notes + ["Mình chưa xếp được lịch đạt mọi ràng buộc nên không đưa lịch. Vướng ở:"]
                           + ["- " + w for w in why] + ["Bạn thử tăng ngân sách hoặc bớt điểm muốn đi."]), "hết vòng sửa")

@@ -224,6 +224,121 @@ def loc_theo_o(rang_buoc: dict) -> dict:
 
 
 @tool
+def va_lich(lich: dict, rang_buoc: dict, o_hop_le: list) -> dict:
+    """va_lich · Input: lịch nháp, ràng buộc, mã hợp lệ theo ô. Output: {"lich", "sua": số ô đã vá}. Vá lỗi cấu trúc:
+    bỏ điểm xếp trùng, đổi quán lặp trong ngày, thêm một điểm cho ngày trống. Không tác động ra ngoài."""
+    plan = json.loads(json.dumps(lich))
+    days = plan.get("ngay") if isinstance(plan, dict) else None
+    if not isinstance(days, list) or len(days) != len(o_hop_le):
+        return {"lich": lich, "sua": 0}
+    used, fixed = set(), 0
+    home = nha(rang_buoc["khu_o"])
+
+    def gan_nhat(ids):
+        return sorted(ids, key=lambda i: (PLACES[i]["ticket_adult_vnd"], chang(home, i, rang_buoc["so_nguoi"])["km"]))
+
+    for day in days:
+        for slot in THU_TU:
+            if slot in BUA:
+                continue
+            keep = [i for i in (day.get(slot) or []) if i not in used]
+            fixed += len(day.get(slot) or []) - len(keep)
+            day[slot] = keep
+            used.update(keep)
+    for i, day in enumerate(days):
+        eaten = set()
+        for slot in BUA:
+            pid = day.get(slot)
+            if pid in eaten:
+                pick = next((x for x in gan_nhat(o_hop_le[i][slot]) if x not in eaten), None)
+                if pick:
+                    day[slot], pid, fixed = pick, pick, fixed + 1
+            eaten.add(pid)
+        if not any(day.get(s) for s in BUOI):
+            for slot in BUOI:
+                pick = next((x for x in gan_nhat(o_hop_le[i][slot]) if x not in used), None)
+                if pick:
+                    day[slot] = [pick]
+                    used.add(pick)
+                    fixed += 1
+                    break
+    return {"lich": plan, "sua": fixed}
+
+
+@tool
+def chen_diem_muon_di(lich: dict, rang_buoc: dict, o_hop_le: list) -> dict:
+    """chen_diem_muon_di · Input: lịch, ràng buộc, mã hợp lệ theo ô. Output: {"lich", "chen": số điểm chèn thêm}.
+    Điểm người dùng gọi tên mà lịch bỏ sót được đưa vào ô trống, hoặc thay điểm không được yêu cầu, nếu không sinh
+    vi phạm mới ngoài ngân sách. Không tác động ra ngoài."""
+    plan = json.loads(json.dumps(lich))
+    wanted = rang_buoc.get("diem_muon_di") or []
+    days = plan.get("ngay") if isinstance(plan, dict) else None
+    if not isinstance(days, list) or len(days) != len(o_hop_le):
+        return {"lich": lich, "chen": 0}
+
+    def loi(p):
+        return {e for e in xep_gio(p, rang_buoc)["vi_pham"] if not e.startswith("vuot_ngan_sach")}
+
+    added = 0
+    for pid in wanted:
+        if any(pid in (d.get(s) or []) for d in days for s in BUOI):
+            continue
+        slots = [(i, s) for i in range(len(o_hop_le)) for s in BUOI if pid in o_hop_le[i][s]
+                 and not set(plan["ngay"][i].get(s) or []) & set(wanted)]
+        slots.sort(key=lambda x: bool(plan["ngay"][x[0]].get(x[1])))  # ô trống trước
+        base = loi(plan)
+        for i, s in slots:
+            trial = json.loads(json.dumps(plan))
+            trial["ngay"][i][s] = [pid]
+            if loi(trial) <= base:
+                plan, added = trial, added + 1
+                break
+    return {"lich": plan, "chen": added}
+
+
+@tool
+def chen_so_thich(lich: dict, rang_buoc: dict, o_hop_le: list) -> dict:
+    """chen_so_thich · Input: lịch, ràng buộc, mã hợp lệ theo ô. Output: {"lich", "chen": số điểm đổi}. Sở thích tham
+    quan nào chưa có điểm đáp ứng thì đưa một điểm hợp vào ô trống hoặc thay điểm không được gọi tên, nếu không sinh
+    vi phạm mới ngoài ngân sách. Không tác động ra ngoài."""
+    nhom = {"chup_anh": {"chup_anh", "kien_truc"}, "di_tich": {"di_tich", "lich_su", "bao_tang"},
+            "mua_dac_san": {"mua_sam", "cho_dem", "lang_nghe"}}
+    plan = json.loads(json.dumps(lich))
+    days = plan.get("ngay") if isinstance(plan, dict) else None
+    if not isinstance(days, list) or len(days) != len(o_hop_le):
+        return {"lich": lich, "chen": 0}
+    wanted = set(rang_buoc.get("diem_muon_di") or [])
+    home = nha(rang_buoc["khu_o"])
+
+    def loi(p):
+        return {e for e in xep_gio(p, rang_buoc)["vi_pham"] if not e.startswith("vuot_ngan_sach")}
+
+    added, protected = 0, set(wanted)
+    for like in rang_buoc.get("so_thich") or []:
+        tags = nhom.get(like)
+        if not tags:
+            continue
+        chosen = [i for d in plan["ngay"] for s in BUOI for i in (d.get(s) or [])]
+        have = [i for i in chosen if i in PLACES and tags & set(PLACES[i]["tags"])]
+        if have:
+            protected.add(have[0])
+            continue
+        options = [(chang(home, pid, rang_buoc["so_nguoi"])["km"], PLACES[pid]["ticket_adult_vnd"], pid, i, s)
+                   for i in range(len(o_hop_le)) for s in BUOI for pid in o_hop_le[i][s]
+                   if tags & set(PLACES[pid]["tags"]) and pid not in chosen
+                   and not set(plan["ngay"][i].get(s) or []) & protected]
+        base = loi(plan)
+        for _, _, pid, i, s in sorted(options):
+            trial = json.loads(json.dumps(plan))
+            trial["ngay"][i][s] = [pid]
+            if loi(trial) <= base:
+                plan, added = trial, added + 1
+                protected.add(pid)
+                break
+    return {"lich": plan, "chen": added}
+
+
+@tool
 def ha_chi_phi(lich: dict, rang_buoc: dict, o_hop_le: list) -> dict:
     """ha_chi_phi · Input: lịch chỉ còn lỗi vượt ngân sách. Output: {"lich", "doi": số ô đã đổi, "dat": bool}. Đổi dần
     từng ô (quán ăn, điểm không được yêu cầu) sang lựa chọn hợp lệ làm tổng giảm nhiều nhất. Không tác động ra ngoài."""
