@@ -27,5 +27,6 @@ README của nhóm có mục "Dùng AI vào việc gì" (2–3 dòng, bắt bu�
 | Sinh data `synthetic` | Không dùng | | | |
 | Chấm cột `pass` bằng LLM (nếu có) | Claude Code, hai subagent | Chấm độc lập 23 câu lượt 1, khớp 22/23 | Chưa người kiểm tay | Mai Xuân Khang |
 | Slide, văn bản | Claude Code | Soạn `spec.md`, `canvas.md`, giả thuyết, tổng hợp bằng chứng | Chờ kiểm | Cả nhóm |
+| Reflection cá nhân (`reflection/`) | Claude Code | Soạn nháp cả bốn file từ lịch sử git, trace và tài liệu trong repo | Chờ từng người đọc và sửa | Cả nhóm |
 
 **Không dùng AI để:** tạo người được phỏng vấn, trích dẫn, câu trả lời khảo sát; sửa kết quả các lượt đã chạy (`eval/run-*.csv`, `cost/simulate-*.csv`, `traces/`).

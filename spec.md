@@ -174,4 +174,4 @@ Mô phỏng 50 phiên (`cost/simulate-1.csv`, seed 42, tỉ lệ đạt lượt 
 
 | Thời điểm | Đổi gì | Vì sao |
 |---|---|---|
-|  |  |  |
+| 14:41 Thứ Bảy 28/11 | Thêm `reflection/le-quan-bao.md`; ghi việc soạn nháp reflection bằng AI vào `docs/ai-usage.md` | Reflection cá nhân theo guide 5.3 |
