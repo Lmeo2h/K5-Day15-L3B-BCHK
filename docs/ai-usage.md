@@ -8,7 +8,7 @@ README của nhóm có mục "Dùng AI vào việc gì" (2–3 dòng, bắt bu�
 |---|---|---|---|---|
 | Code bản chạy thử | Claude Code | Viết `agent.py`, `tools.py`, `fake_model.py`, `eval/cham_code.py` | Chờ kiểm | Mai Xuân Khang |
 | Prompt / thiết kế lời gọi mô hình | Claude Code | Soạn hai system prompt trong `agent.py`, sơ đồ `spec.md` §4 | Chờ kiểm | Mai Xuân Khang |
-| Đào data (viết script đếm, gợi ý nhãn) | Claude Code | Tìm thread, viết cách đếm, gắn nhãn 98 bài, viết `count.py` | Kiểm tay __ dòng, khớp __ | Lê Quân Bảo |
+| Đào data (viết script đếm, gợi ý nhãn) | Claude Code | Tìm thread, viết cách đếm, gắn nhãn 98 bài, viết `count.py` | Kiểm tay 34 dòng, khớp 100% | Lê Quân Bảo |
 | Đối chiếu dữ liệu | Claude Code | Đọc nguồn công khai, sửa giờ và giá, thêm đơn giá Grab, tọa độ OpenStreetMap, quãng đường OSRM | Chờ kiểm | Nguyễn Văn Hậu |
 | Chấm thử 5 output (hiệu chỉnh tiêu chí) | Claude Code, hai subagent | Chấm độc lập, khớp 5/5, nêu chỗ mơ hồ | Kiểm tay 0 câu, chờ người chấm | Mai Xuân Khang |
 | Chạy thử 10 input trên model thật, sửa prompt | Claude Code | Gom lỗi, sửa prompt, schema, công cụ | Chờ kiểm | Mai Xuân Khang |
