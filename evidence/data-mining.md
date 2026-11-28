@@ -72,7 +72,7 @@ Làm rõ khi gắn nhãn: chỉ tính chuyện thuộc chuyến đến Hà Nội
 - Phần lớn không biết người viết đến từ đâu; thread 866081 tự nói từ Sài Gòn. Có người đi công tác, không phải du lịch.
 - **Nhãn do Claude Code gắn, chưa được người kiểm tay.** TV2 đọc lại 98 bài theo `voz-labels.csv` rồi ghi số dòng khớp: __/98.
 
-Kiểm lại bằng phỏng vấn theo `evidence/interviews/cau-hoi.md`.
+Kiểm lại bằng khảo sát (`evidence/survey/summary.md`, mẫu chính 24 người) và phỏng vấn theo `evidence/interviews/cau-hoi.md`.
 
 ## 6. Kiểm lại
 

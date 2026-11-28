@@ -6,7 +6,7 @@
 
 ## 1. Đầu vào
 
-- **Persona** (`cost/personas.yaml`): xếp một lần (60%, 1 lượt hỏi) · sửa nhiều lần (30%, 3 lượt) · xếp lại khi đi (10%, 5 lượt), mỗi người 1 phiên / tháng. Nguồn: *(tự ước tính)*, chờ khảo sát và phỏng vấn.
+- **Persona** (`cost/personas.yaml`): xếp một lần (60%, 1 lượt hỏi) · sửa nhiều lần (30%, 3 lượt) · xếp lại khi đi (10%, 5 lượt), mỗi người 1 phiên / tháng. Nguồn: *(tự ước tính)*, chưa kiểm bằng phỏng vấn; khảo sát không hỏi số lượt dùng.
 - **Số người dùng** 3 kịch bản: thấp 500 · cơ sở 2.000 · cao 10.000 người / tháng *(tự ước tính)*. Đối chiếu quy mô (`spec.md` §2): đường bay Hà Nội và TP.HCM 11,07 triệu ghế năm 2025 ([VnExpress, 24/12/2025, dẫn OAG](https://e.vnexpress.net/news/business/economy/hanoi-hcmc-remains-world-s-4th-busiest-flight-route-4997830.html)), từ đó ước khoảng 4.600 người đi chơi lần đầu, tự túc mỗi tháng *(tỉ lệ 1% là tự ước tính)*. Kịch bản cơ sở bằng khoảng 43% con số này; kịch bản cao giả định mở sang nơi xuất phát khác.
 - **Giá** (USD / 1 triệu token, vào và ra): `gpt-5-nano` 0,05 và 0,40 · `gpt-5.4-mini` 0,75 và 4,50. [Trang giá OpenAI](https://developers.openai.com/api/docs/pricing), BTC xem 25/11/2026.
 - **Tỉ lệ đạt** dùng để tính: 19/23 (83%), lượt `run-2`.
@@ -32,9 +32,9 @@ Chi phí / task thành công = chi phí trung bình mỗi phiên ÷ tỉ lệ đ
 
 ## 3. So với impact
 
-- Impact / người / tháng (`spec.md` §2): 120 phút tìm và ghép thông tin cho mỗi chuyến *(tự ước tính)*.
+- Impact / người / tháng (`spec.md` §2): 86 phút tìm thông tin cho mỗi chuyến (khảo sát 24 người, phút giữa khoảng *tự ước tính*).
 - Chi phí / người / tháng (cơ sở, `gpt-5-nano`): $0,0011.
-- **Kết luận:** xét riêng tiền model thì đáng làm ($0,0011 so với 120 phút mỗi người), với điều kiện dữ liệu giữ được đúng và người dùng thật thấy lịch dùng được. Hai điều kiện này chưa đo.
+- **Kết luận:** xét riêng tiền model thì đáng làm ($0,0011 so với 86 phút mỗi người), với điều kiện dữ liệu giữ được đúng và người dùng thật thấy lịch dùng được. Hai điều kiện này chưa đo.
 
 ## 4. *(Muốn sâu hơn, không bắt buộc)*
 

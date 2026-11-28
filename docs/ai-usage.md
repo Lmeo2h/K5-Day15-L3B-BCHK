@@ -18,10 +18,12 @@ README của nhóm có mục "Dùng AI vào việc gì" (2–3 dòng, bắt bu�
 | Giao diện web (`codebase/web.py`, `view.py`, `ui/`) | Claude Code | Thiết kế, viết code, tự thử bằng Edge không màn hình | Chờ kiểm | Mai Xuân Khang |
 | Chuẩn bị CP3: đối chiếu trích dẫn, chia nhóm 12 bài, tìm số quy mô, script đếm khảo sát, phiếu chấm tay | Claude Code | Viết script, tải lại 5 thread, đọc 2 trang báo, viết lại pain và bảng impact | Chờ kiểm | Lê Quân Bảo |
 | Video 30 giây CP3 | Claude Code | Viết kịch bản bấm tự động, quay màn hình giao diện gọi model thật theo thời gian thực, thêm phụ đề | Chờ xem lại | Nguyễn Tấn Châu |
+| Slide CP4 (`slides/`, `demo-slides.pdf`) | Claude Code | Soạn 8 trang từ số trong repo, chụp hai kết quả thật, xuất PDF | Chờ kiểm | Nguyễn Tấn Châu |
+| Phân tích khảo sát, viết lại pain và impact theo kết quả | Claude Code | Viết script đếm theo form thật, bỏ cột nhận dạng, cập nhật spec, canvas, slide | Chờ kiểm; nhóm xác nhận 5 dòng gửi dồn là người thật | Lê Quân Bảo |
 | Soạn câu hỏi phỏng vấn | Claude Code | Soạn 6 câu | Chờ kiểm | Lê Quân Bảo |
 | Viết câu thử (benchmark) | Claude Code | Viết 23 câu, gồm 7 câu trích từ bài VOZ | Chờ kiểm; cột `source` ghi nguồn | Mai Xuân Khang |
-| Sinh data `synthetic` (nếu có) | | | Seed __ · kiểm tay __ dòng | |
-| Chấm cột `pass` bằng LLM (nếu có) | Claude Code, hai subagent | Chấm độc lập 23 câu lượt 1, khớp 22/23 | Kiểm tra thủ công __ câu thử, khớp __/__ | Mai Xuân Khang |
+| Sinh data `synthetic` | Không dùng | | | |
+| Chấm cột `pass` bằng LLM (nếu có) | Claude Code, hai subagent | Chấm độc lập 23 câu lượt 1, khớp 22/23 | Chưa người kiểm tay | Mai Xuân Khang |
 | Slide, văn bản | Claude Code | Soạn `spec.md`, `canvas.md`, giả thuyết, tổng hợp bằng chứng | Chờ kiểm | Cả nhóm |
 
 **Không dùng AI để:** tạo người được phỏng vấn, trích dẫn, câu trả lời khảo sát; sửa kết quả các lượt đã chạy (`eval/run-*.csv`, `cost/simulate-*.csv`, `traces/`).
