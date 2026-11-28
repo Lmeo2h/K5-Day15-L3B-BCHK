@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Hà Nội trong ngân sách · Nhóm BCHK</title>
+<style>
+  @page { size: 1280px 720px; margin: 0; }
+  :root { --bg: #ffffff; --panel: #f4f7f6; --dark: #10231e; --ink: #15211d; --ink2: #44534d; --muted: #66736d; --line: #d8e0dd; --brand: #0d6b57; --soft: #e1f1ec; --warn: #7d4a00; --warnbg: #fdf0d3; --faded: #a8cabf; }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: #333; font: 17px/1.42 "Segoe UI", system-ui, sans-serif; color: var(--ink); }
+  .slide { width: 1280px; height: 720px; position: relative; overflow: hidden; background: var(--bg); padding: 34px 48px 0; page-break-after: always; break-after: page; }
+  .slide:last-child { page-break-after: auto; break-after: auto; }
+  @media screen { .slide { margin: 16px auto; } }
+  .slide::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 7px; background: var(--brand); }
+  .kicker { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--brand); }
+  h1 { font-size: 33px; line-height: 1.2; letter-spacing: -.012em; margin: 4px 0 20px; }
+  h2 { font-size: 18px; margin-bottom: 8px; }
+  .foot { position: absolute; left: 48px; right: 48px; bottom: 16px; display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 9px; font-size: 12px; color: var(--muted); }
+  .foot b { color: var(--ink); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; }
+  .row { display: flex; gap: 20px; align-items: stretch; }
+  .muted { color: var(--muted); }
+  .small { font-size: 14px; }
+  .est { color: var(--warn); font-style: italic; }
+  .big { font-size: 76px; font-weight: 800; letter-spacing: -.03em; line-height: 1; color: var(--brand); }
+  .note { background: var(--warnbg); color: #4d2e00; border-radius: 12px; padding: 12px 18px; font-size: 15.5px; }
+  .soft { background: var(--soft); border-radius: 12px; padding: 12px 18px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); padding: 7px 10px; border-bottom: 2px solid var(--line); }
+  td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
+  tr.pick td { background: var(--soft); font-weight: 600; }
+  .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  /* trang 1 */
+  .bars div { display: grid; grid-template-columns: 190px 1fr; align-items: center; gap: 10px; margin: 9px 0; font-size: 15px; }
+  .bars i { display: inline-block; height: 18px; border-radius: 0 4px 4px 0; background: var(--brand); vertical-align: middle; margin-right: 8px; }
+  blockquote { border-left: 4px solid var(--brand); padding: 2px 0 2px 14px; margin-bottom: 16px; font-size: 17px; }
+  blockquote cite { display: block; font-style: normal; font-size: 12.5px; color: var(--muted); margin-top: 3px; }
+  /* trang 3 */
+  .flow { display: grid; grid-template-columns: 1fr 22px 1fr 22px 1.3fr 22px 1.15fr 22px 1.3fr 22px 1fr; align-items: stretch; margin: 6px 0 10px; }
+  .node { border-radius: 12px; padding: 12px 12px; font-size: 14.5px; background: #fff; border: 2px solid var(--line); }
+  .node b { display: block; font-size: 12px; letter-spacing: .07em; text-transform: uppercase; margin-bottom: 4px; color: var(--muted); }
+  .node.ai { background: var(--brand); border-color: var(--brand); color: #fff; }
+  .node.ai b { color: #bfe8dc; }
+  .node.code { border-color: var(--brand); }
+  .node.code b { color: var(--brand); }
+  .arrow { align-self: center; text-align: center; color: var(--muted); font-size: 20px; }
+  .exits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+  .exits div { border: 1px dashed var(--muted); border-radius: 10px; padding: 8px 12px; font-size: 14px; color: var(--ink2); }
+  /* trang 4 */
+  .case { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; border-radius: 999px; padding: 3px 11px; background: var(--brand); color: #fff; margin-right: 8px; }
+  .input { font-size: 15px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 9px 13px; min-height: 64px; }
+  .shot { height: 372px; background: var(--dark); border-radius: 14px; padding: 12px 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+  .shot img { display: block; border-radius: 8px; max-width: 100%; }
+  .mark { align-self: flex-start; display: flex; align-items: center; gap: 9px; color: #fff; font-size: 15.5px; font-weight: 600; }
+  .mark i { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #ffc247; color: #1d1400; font-style: normal; font-weight: 800; font-size: 14px; }
+  /* trang 6, 7, 8 */
+  .verdict td { padding: 13px 12px; font-size: 16px; }
+  .verdict td:first-child { width: 160px; font-weight: 700; }
+  .step { flex: 1; }
+  .step .n { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--brand); color: #fff; font-weight: 800; margin-bottom: 12px; }
+  .step ul { padding-left: 18px; }
+  .step li { margin-bottom: 10px; font-size: 16px; }
+  /* cỡ chữ theo trang */
+  .s1 .soft, .s1 .note { font-size: 19px; padding: 16px 20px; }
+  .s1 .bars div { font-size: 18px; margin: 14px 0; }
+  .s1 .bars i { height: 22px; }
+  .s1 blockquote { font-size: 21px; margin-bottom: 24px; }
+  .s1 blockquote cite { font-size: 14px; }
+  .s1 .small { font-size: 16px; }
+  .s2 table { font-size: 17px; }
+  .s2 .verdictless td { padding: 11px 10px; }
+  .s2 .small { font-size: 15.5px; }
+  .s3 .node { font-size: 16.5px; padding: 18px 12px; }
+  .s3 .exits div { font-size: 15.5px; padding: 12px 14px; }
+  .s3 .small { font-size: 16.5px; }
+  .s3 .soft { font-size: 18px; }
+  .s4 h1 { margin-bottom: 14px; }
+  .s4 .input { font-size: 16.5px; min-height: 66px; }
+  .s4 .case { gap: 9px; }
+  .s4 .small { font-size: 16px; }
+  .s6 table { font-size: 16.5px; }
+  .s6 td { padding: 11px 10px; }
+  .s6 .row > p { font-size: 18px; padding: 18px 22px; }
+  .s6 .card .small { font-size: 15.5px; }
+  .s7 .verdict td { font-size: 18px; padding: 18px 12px; }
+  .s7 .step p { font-size: 19px; }
+  .s8 .step li { font-size: 19px; margin-bottom: 18px; }
+  .s8 .step h2 { font-size: 22px; margin-bottom: 16px; }
+  .s8 .soft { font-size: 19px; }
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section class="slide s1">
+  <p class="kicker">1 · Người dùng và pain</p>
+  <h1>Đi Hà Nội lần đầu: hỏi từng mục trước khi đi, vướng khi đến nơi</h1>
+  <div class="soft" style="margin-bottom:16px"><b>Người dùng:</b> bạn trẻ từ TP.HCM, lần đầu ra Hà Nội, tự đi 1-3 ngày với ngân sách giới hạn. <b>Vướng:</b> phải tự ghép nơi đi, giờ mở cửa, cách đi và giá từ nhiều nguồn.</div>
+  <div class="row">
+    <div class="card" style="flex:1">
+      <h2>Bài công khai trên VOZ</h2>
+      <div class="row" style="align-items:flex-end;gap:14px;margin-bottom:6px"><span class="big">12/98</span><span style="font-size:17px;padding-bottom:8px">bài hỏi đi đâu,<br>đi bằng gì, giá bao nhiêu</span></div>
+      <p class="small muted">Gộp bốn loại lỗi: <b>14/98 (14,3%)</b>, dưới mốc 20%. Trái tuyến 0/98, đóng cửa 0/98.</p>
+      <blockquote style="margin:14px 0 0">"ra đó đi từ NB vào ks kiểu gì ạ?"<cite>VOZ, thread 678405 #1</cite></blockquote>
+    </div>
+    <div class="card" style="flex:1.1">
+      <h2>Khảo sát: 24 người đi từ ngoài Hà Nội</h2>
+      <div class="bars">
+        <div><span>Gặp ít nhất một lỗi</span><span><i style="width:212px"></i>18/24</span></div>
+        <div><span>Đóng cửa, hết giờ</span><span><i style="width:106px"></i>9/24</span></div>
+        <div><span>Đi vòng, quay lại</span><span><i style="width:106px"></i>9/24</span></div>
+        <div><span>Chi cao hơn dự tính</span><span><i style="width:176px"></i>15/24</span></div>
+      </div>
+      <blockquote style="margin:10px 0 0">"Mất gần 3 tiếng plan mà tới noi thì bị đóng cửa ;-;"<cite>Khảo sát, người trả lời đồng ý cho trích</cite></blockquote>
+    </div>
+  </div>
+  <p class="note" style="margin-top:14px"><b>Khảo sát đạt ngưỡng 20 người, VOZ dưới mốc.</b> Khảo sát đưa sẵn lựa chọn; 5/24 câu trả lời chỉ được nhóm xác nhận, bỏ đi còn 16/19. Chưa phỏng vấn. Nhãn VOZ do AI gắn, chưa kiểm tay.</p>
+  <div class="foot"><span>Nguồn: <b>evidence/summary.md</b> · 98 bài trang 1 của 5 thread VOZ (2022-2024) · khảo sát 36 trả lời, 27-28/11/2026, evidence/survey/results.csv</span><span>Nhóm BCHK · Track C · 1/8</span></div>
+</section>
+
+<!-- 2 -->
+<section class="slide s2">
+  <p class="kicker">2 · Vì sao chọn bài này</p>
+  <h1>Trong các hướng đã có số, lịch và dự toán tốn nhiều giờ nhất</h1>
+  <div class="card" style="padding:8px 12px;margin-bottom:20px">
+    <table class="verdictless">
+      <tr><th style="width:360px">Hướng</th><th>Dấu hiệu</th><th>Mỗi lần tốn</th><th class="num">Impact / tháng</th><th>Quyết định</th></tr>
+      <tr class="pick"><td>Lịch tham quan, đi lại, dự toán Hà Nội 1-3 ngày</td><td>12/98 bài; khảo sát 18/24</td><td>86 phút <span class="est">(khảo sát 24 người)</span></td><td class="num">≈ 6.600 giờ</td><td>Chọn</td></tr>
+      <tr><td>Chỉ cách đi và giá từ Nội Bài</td><td>4/98 bài</td><td>15 phút <span class="est">(ước tính)</span></td><td class="num">≈ 1.150 giờ</td><td>Gộp vào hướng trên</td></tr>
+      <tr><td>Cảnh báo bị tính giá cao khi đi xe</td><td>3/98 bài, một sự việc</td><td>350.000 đ một sự việc</td><td class="num">≈ 48 triệu đ</td><td>Loại: thiếu dữ liệu giá</td></tr>
+      <tr><td>Đổi, nâng hạng phòng cho lễ tân</td><td>chưa đào</td><td>chưa có số</td><td class="num">không tính</td><td>Loại: khó hẹn lễ tân</td></tr>
+      <tr><td>Xử lý chuyến bay bị huỷ</td><td>chưa đào</td><td>chưa có số</td><td class="num">không tính</td><td>Loại: ít người từng gặp</td></tr>
+    </table>
+  </div>
+  <div class="row">
+    <div class="card" style="flex:1.55">
+      <h2>Công thức của hướng được chọn</h2>
+      <p style="font-size:21px">461.000 ghế/tháng × <span class="est">1%</span> ≈ <b>4.600 người</b></p>
+      <p style="font-size:21px;margin-top:4px">4.600 người × <span class="est">1 chuyến</span> × <span class="est">86 phút</span> ≈ <b>6.600 giờ / tháng</b></p>
+      <p class="small muted" style="margin-top:10px">461.000 = 11,07 triệu ghế đường bay Hà Nội và TP.HCM năm 2025, chia 12 tháng và chia đôi cho một chiều. Ghế chưa phải hành khách. 86 phút: trung bình giữa khoảng của 24 người trả lời khảo sát.</p>
+    </div>
+    <div class="card" style="flex:1">
+      <h2>Nếu tỉ lệ 1% sai</h2>
+      <table><tr><td>0,5%</td><td class="num">3.300 giờ</td></tr><tr class="pick"><td>1%</td><td class="num">6.600 giờ</td></tr><tr><td>2%</td><td class="num">13.200 giờ</td></tr></table>
+      <p class="small muted" style="margin-top:8px">Chữ nghiêng màu nâu: số ước tính hoặc mẫu nhỏ.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Nguồn: <b>spec.md §2</b> · số ghế: OAG qua VnExpress 24/12/2025 · VOZ và khảo sát: evidence/summary.md</span><span>2/8</span></div>
+</section>
+
+<!-- 3 -->
+<section class="slide s3">
+  <p class="kicker">3 · Giải pháp</p>
+  <h1>AI chọn điểm và thứ tự đi, code quyết giờ và tiền</h1>
+  <p class="soft" style="margin-bottom:22px"><b>Lát cắt:</b> một người từ TP.HCM lần đầu ra Hà Nội 1-3 ngày nhập ngày đi, trần ngân sách, nơi ở, sở thích. AI chọn điểm và thứ tự từ dữ liệu có mã nguồn, hoặc kết luận không xếp được. Người đó nhận lịch theo buổi kèm tổng chi, hoặc biết cần nới điều gì.</p>
+  <div class="flow">
+    <div class="node"><b>Vào</b>Một tin nhắn bằng lời thường</div><div class="arrow">→</div>
+    <div class="node ai"><b>AI · lần gọi 1</b>Đọc yêu cầu thành ràng buộc</div><div class="arrow">→</div>
+    <div class="node code"><b>Code</b>Kiểm phạm vi, thiếu thông tin, tiền tối thiểu; lọc nơi mở kịp từng buổi</div><div class="arrow">→</div>
+    <div class="node ai"><b>AI · lần gọi 2</b>Chọn mã điểm trong schema, chỉ gồm nơi hợp lệ</div><div class="arrow">→</div>
+    <div class="node code"><b>Code</b>Xếp giờ, tính tiền, kiểm vi phạm; vá và cho sửa tối đa 2 vòng</div><div class="arrow">→</div>
+    <div class="node"><b>Người</b>Xem nguồn rồi tự quyết đi theo hay không</div>
+  </div>
+  <p class="small muted" style="margin-bottom:8px">Code dừng sớm hoặc không đưa lịch trong các trường hợp:</p>
+  <div class="exits">
+    <div>Ngoài phạm vi, nhờ đặt vé: từ chối, nói làm được gì</div>
+    <div>Thiếu ngân sách, ngày, số người: hỏi lại một câu</div>
+    <div>Trần dưới mức tối thiểu: báo mức tối thiểu</div>
+    <div>Vẫn còn vi phạm: không đưa lịch, nêu chỗ vướng</div>
+  </div>
+  <div class="row">
+    <div class="card step"><h2>Workflow cố định</h2><p class="small">Các bước luôn theo một thứ tự nên rẻ và dễ đo. Agent hay nhiều vai chỉ thêm lượt gọi model.</p></div>
+    <div class="card step"><h2>Dữ liệu</h2><p class="small">30 điểm tham quan, 20 quán ăn, 8 phương án Nội Bài. <b>31/50 địa điểm và 3/8 phương án chưa kiểm nguồn</b>, giao diện ghi rõ từng mục.</p></div>
+    <div class="card step"><h2>Mức tự động: AI gợi ý</h2><p class="small">Không đặt vé, không thanh toán, không gửi gì ra ngoài. Không làm ngoài Hà Nội hoặc quá 3 ngày.</p></div>
+  </div>
+  <div class="foot"><span>Nguồn: <b>spec.md §4</b> · data/DATA_CARD.md · codebase/agent.py · model gpt-5-nano</span><span>3/8</span></div>
+</section>
+
+<!-- 4 -->
+<section class="slide s4">
+  <p class="kicker">4 · Demo trực tiếp</p>
+  <h1>Một chuyến thường và một chuyến trúng ngày đóng cửa</h1>
+  <div class="row" style="gap:24px">
+    <div class="case">
+      <p><span class="tag">Thường · B21</span><b>Hai người, 2 ngày, 4 triệu</b></p>
+      <p class="input">"2 người đi Hà Nội 2 ngày từ thứ Bảy 05/12, ngân sách 4 triệu cho cả hai, ở phố cổ, thích di tích."</p>
+      <div class="shot">
+        <p class="mark"><i>1</i>Tổng tiền nằm trong trần, tách từng khoản</p>
+        <img src="img/B21-ngansach.jpg" style="width:446px" alt="Ngân sách: tổng 1.714.900 đồng trên trần 4.000.000 đồng, còn 2.285.100 đồng">
+      </div>
+      <p class="small">Lịch 2 ngày cho 2 người, tổng <b>1.714.900 đ</b> trên trần 4.000.000 đ. Câu này <b>đạt 4/4 lượt</b> đánh giá.</p>
+    </div>
+    <div class="case">
+      <p><span class="tag">Khó · B04</span><b>Muốn đi hai nơi đóng cửa thứ Hai</b></p>
+      <p class="input">"3 ngày từ thứ Hai 07/12, 3 triệu, ở phố cổ, nhất định muốn viếng Lăng Bác và đi Bảo tàng Dân tộc học."</p>
+      <div class="shot">
+        <p class="mark"><i>1</i>Báo cả hai nơi đóng cửa thứ Hai</p>
+        <img src="img/B04-canhbao.jpg" style="width:540px" alt="Cảnh báo Lăng Bác và Bảo tàng Dân tộc học đóng cửa thứ Hai">
+        <p class="mark" style="margin-top:6px"><i>2</i>Xếp cả hai vào ngày 3, thứ Tư</p>
+        <img src="img/B04-lang.jpg" style="width:372px" alt="Ngày 3 buổi sáng: Lăng Chủ tịch Hồ Chí Minh">
+        <img src="img/B04-baotang.jpg" style="width:372px" alt="Ngày 3 buổi chiều: Bảo tàng Dân tộc học Việt Nam">
+      </div>
+      <p class="small">Tổng <b>2.240.700 đ</b> trên trần 3.000.000 đ. Câu này <b>đạt 3/4 lượt</b>, trượt lượt 2.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Nguồn: <b>eval/benchmark.csv</b>, eval/run-1.csv đến run-4.csv · ảnh cắt từ giao diện, lần chạy 27/11/2026 với gpt-5-nano, mỗi lần chạy lịch có thể khác · mạng hỏng thì chiếu video dự phòng</span><span>4/8</span></div>
+</section>
+
+<!-- 5 -->
+<section class="slide s5">
+  <p class="kicker">5 · Đánh giá thế nào</p>
+  <h1>Sửa một nhóm lỗi, từ 65% lên 83%, còn dưới chuẩn 85%</h1>
+  <div class="row" style="height:446px">
+    <div class="card" style="width:330px">
+      <h2>Bộ câu thử</h2>
+      <p class="small"><b>23 câu</b>: 4 thường, 14 khó, 5 từ chối (2 câu tấn công). 9/23 lấy từ lời người dùng hoặc data thật.</p>
+      <h2 style="margin-top:14px">4 metric</h2>
+      <p class="small">Code chấm: lịch hợp lệ, ngân sách đúng.<br>AI chấm: đúng hành vi, từ chối an toàn.</p>
+      <h2 style="margin-top:14px">Chuẩn "đạt", chốt ở CP2</h2>
+      <p class="small">"Đạt khi ≥ 85% số câu qua, và 100% câu tu_choi qua, và 0 output có lịch vi phạm giờ mở cửa hoặc vượt trần ngân sách."</p>
+    </div>
+    <div class="card" style="flex:1;padding:12px 14px">
+      <svg viewBox="0 0 470 420" width="100%" height="100%" role="img" aria-label="Tỉ lệ đạt: lượt 1 65 phần trăm, lượt 2 83, lượt 3 87, lượt 4 100; chuẩn đạt 85">
+        <text x="10" y="18" font-size="15" font-weight="700" fill="#15211d">Tỉ lệ câu đạt, cùng 23 câu</text>
+        <line x1="20" y1="340" x2="455" y2="340" stroke="#ddd8cc" stroke-width="2"/>
+        <path d="M40 340V163q0-4 4-4h62q4 0 4 4v177z" fill="#0d6b57"/>
+        <path d="M145 340V114q0-4 4-4h62q4 0 4 4v226z" fill="#0d6b57"/>
+        <path d="M260 340V101q0-4 4-4h62q4 0 4 4v239z" fill="#a8cabf"/>
+        <path d="M365 340V68q0-4 4-4h62q4 0 4 4v272z" fill="#a8cabf"/>
+        <line x1="20" y1="105.4" x2="455" y2="105.4" stroke="#7d4a00" stroke-width="2" stroke-dasharray="7 5"/>
+        <text x="22" y="99" font-size="12.5" fill="#7d4a00">chuẩn 85%</text>
+        <g font-size="17" font-weight="800" fill="#15211d" text-anchor="middle">
+          <text x="75" y="151">65%</text><text x="180" y="134" fill="#ffffff">83%</text><text x="295" y="89">87%</text><text x="400" y="56">100%</text>
+        </g>
+        <g font-size="13.5" fill="#15211d" text-anchor="middle">
+          <text x="75" y="360">Lượt 1 · 15/23</text><text x="180" y="360">Lượt 2 · 19/23</text><text x="295" y="360">Lượt 3 · 20/23</text><text x="400" y="360">Lượt 4 · 23/23</text>
+        </g>
+        <path d="M262 372v7h171v-7" fill="none" stroke="#66736d"/>
+        <text x="347" y="395" font-size="12.5" fill="#66736d" text-anchor="middle">sửa tiếp trên chính bộ này</text>
+        <text x="347" y="412" font-size="12.5" font-weight="700" fill="#7d4a00" text-anchor="middle">bộ giữ riêng 10 câu: 8/10</text>
+      </svg>
+    </div>
+    <div class="card" style="width:350px">
+      <h2>8 câu trượt ở lượt 1</h2>
+      <table>
+        <tr class="pick"><td>Đọc sai phạm vi</td><td class="num">3</td></tr>
+        <tr class="pick"><td>Không nhận câu hỏi từ Nội Bài</td><td class="num">3</td></tr>
+        <tr class="pick"><td>Bỏ sót điểm được yêu cầu</td><td class="num">1</td></tr>
+        <tr><td>Xếp trùng điểm</td><td class="num">1</td></tr>
+      </table>
+      <p class="small" style="margin-top:10px"><b>Ví dụ B15:</b> hỏi lịch Đà Nẵng, bản đầu trả lịch Hà Nội.</p>
+      <p class="small" style="margin-top:10px"><b>Cải tiến:</b> code đối chiếu kết quả đọc của model với tin nhắn. Nhóm ba lỗi tô màu: <b>0/7 lên 5/7</b>. B04 tệ đi.</p>
+      <p class="small" style="margin-top:10px">Lượt 2 còn 2/7 lịch trượt metric ngân sách.</p>
+    </div>
+  </div>
+  <p class="small muted" style="margin-top:10px">Cột đạt do hai phiên AI chấm độc lập (lượt 1 khớp 22/23, lượt 2-4 khớp 23/23). Chưa người kiểm tay.</p>
+  <div class="foot"><span>Nguồn: <b>eval/report.md</b>, eval/README.md · run-1@20261127-171520 · run-2@20261127-183652 · run-3@20261127-184508 · run-4@20261127-184924</span><span>5/8</span></div>
+</section>
+
+<!-- 6 -->
+<section class="slide s6">
+  <p class="kicker">6 · Chi phí khi dùng thật</p>
+  <h1>Tiền model khoảng $0,0013 cho mỗi task thành công</h1>
+  <div class="row" style="margin-bottom:18px">
+    <div class="card" style="width:400px">
+      <span class="big">$0,0013</span>
+      <p style="margin-top:10px">mỗi task thành công, <b>gpt-5-nano</b></p>
+      <p class="soft small" style="margin-top:14px">$0,0011 mỗi phiên ÷ tỉ lệ đạt lượt 2 (19/23)</p>
+      <p class="small muted" style="margin-top:12px">Mô phỏng 50 phiên chạy qua bản chạy thử, seed 42, 0 phiên lỗi, trung bình 11,8 giây mỗi phiên. Token đọc từ API.</p>
+    </div>
+    <div class="card" style="flex:1;padding:10px 14px">
+      <table>
+        <tr><th>Model (giá vào · ra mỗi 1 triệu token)</th><th class="num">Mỗi task đạt</th><th class="num">500 người</th><th class="num">2.000 người</th><th class="num">10.000 người</th></tr>
+        <tr class="pick"><td>gpt-5-nano ($0,05 · $0,40)</td><td class="num">$0,0013</td><td class="num">$0,55</td><td class="num">$2,21</td><td class="num">$11,06</td></tr>
+        <tr><td>gpt-5.4-mini ($0,75 · $4,50)</td><td class="num">$0,0171</td><td class="num">$7,01</td><td class="num">$28,03</td><td class="num">$140,15</td></tr>
+      </table>
+      <p class="small muted" style="margin:8px 10px 12px">Cột người dùng là chi phí mỗi tháng: thấp, cơ sở, cao. Số người dùng <span class="est">tự ước tính</span>; cơ sở bằng khoảng 43% quy mô 4.600 người ở trang 2.</p>
+      <table>
+        <tr><th>Kiểu người dùng <span class="est">(tỉ lệ tự ước tính)</span></th><th class="num">Lượt hỏi</th><th class="num">Token vào</th><th class="num">Token ra</th></tr>
+        <tr><td>Xếp một lần · 60%</td><td class="num">1</td><td class="num">3.689</td><td class="num">785</td></tr>
+        <tr><td>Sửa nhiều lần · 30%</td><td class="num">3</td><td class="num">11.594</td><td class="num">2.505</td></tr>
+        <tr><td>Xếp lại khi đang đi · 10%</td><td class="num">5</td><td class="num">26.685</td><td class="num">4.988</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <p class="soft" style="flex:1"><b>So với impact:</b> $0,0011 mỗi người mỗi tháng so với 86 phút tìm thông tin <span class="est">(khảo sát 24 người)</span>. Riêng tiền model thì đáng làm.</p>
+    <p class="note" style="flex:1"><b>Chưa tính:</b> máy chủ, công cập nhật giờ và giá, công người kiểm, nên chi phí thật sẽ cao hơn.</p>
+  </div>
+  <div class="foot"><span>Nguồn: <b>cost/cost-estimate.md</b>, cost/simulate-1.csv (simulate-1@20261127-184807) · giá: trang giá OpenAI, BTC xem 25/11/2026</span><span>6/8</span></div>
+</section>
+
+<!-- 7 -->
+<section class="slide s7">
+  <p class="kicker">7 · Kết luận</p>
+  <h1>Iterate: làm tiếp, chưa phát hành</h1>
+  <div class="card" style="padding:6px 14px;margin-bottom:22px">
+    <table class="verdict">
+      <tr><th>Câu hỏi</th><th>Số đo được</th><th>Đánh giá</th></tr>
+      <tr><td>Pain có thật?</td><td>VOZ: bốn loại lỗi gộp 14,3%, dưới mốc 20%. Khảo sát: 18/24 gặp ít nhất một việc. Chưa phỏng vấn.</td><td>Có theo khảo sát, VOZ chưa đạt</td></tr>
+      <tr><td>Đủ tốt chưa?</td><td>Lượt 2 đạt 83%, chuẩn 85%. Sau khi sửa tiếp đạt 100% trên bộ cũ nhưng bộ giữ riêng chỉ 8/10.</td><td>Chưa</td></tr>
+      <tr><td>Chi phí chịu được?</td><td>$0,0013 mỗi task thành công; $2,21 mỗi tháng cho 2.000 người.</td><td>Được, xét riêng tiền model</td></tr>
+    </table>
+  </div>
+  <h2>Chuyển sang Go khi đủ cả ba</h2>
+  <div class="row">
+    <div class="card step"><div class="n">1</div><p><b>Phỏng vấn 3 người</b> đúng đối tượng, ít nhất 2 người kể được một lần gặp lỗi.</p></div>
+    <div class="card step"><div class="n">2</div><p>Bộ câu do người ngoài nhóm viết đạt <b>≥ 85%</b>, mọi câu từ chối đều qua, người thật kiểm tay.</p></div>
+    <div class="card step"><div class="n">3</div><p>Kiểm nguồn <b>31 địa điểm</b> và <b>3 phương án Nội Bài</b> còn lại.</p></div>
+  </div>
+  <div class="foot"><span>Nguồn: số ở trang 1, 5, 6 · evidence/summary.md · eval/report.md · cost/cost-estimate.md · mốc khảo sát: evidence/survey/cach-dem.md</span><span>7/8</span></div>
+</section>
+
+<!-- 8 -->
+<section class="slide s8">
+  <p class="kicker">8 · Nếu có thêm một tuần</p>
+  <h1>Đo trên người ngoài nhóm trước, rồi sửa dữ liệu và câu lý do</h1>
+  <div class="row" style="height:430px">
+    <div class="card step"><div class="n">1</div><h2>Đo trên người thật</h2><ul>
+      <li>Bộ giữ riêng hiện <b>8/10</b>, trượt H02 và H08, do người biết code viết. Nhờ người ngoài viết bộ mới.</li>
+      <li>Chưa ghi nhận người dùng thử nào. Cho ít nhất 3 người tự dùng và ghi chỗ kẹt.</li></ul></div>
+    <div class="card step"><div class="n">2</div><h2>Làm dữ liệu đáng tin</h2><ul>
+      <li><b>31/50</b> địa điểm và <b>3/8</b> phương án Nội Bài chưa kiểm nguồn.</li>
+      <li>Mỗi điểm mới có một giá. Múa rối có hạng vé <b>100.000 đến 200.000 đ</b> nên có thể bị báo không xếp được dù hạng rẻ vừa tiền.</li></ul></div>
+    <div class="card step"><div class="n">3</div><h2>Sửa chỗ dễ gây hiểu lầm</h2><ul>
+      <li>Câu giải thích model viết có lúc sai, ví dụ gọi điểm cách <b>5,8 km</b> là "gần". Bỏ hoặc cho code kiểm.</li>
+      <li>Ngày đến chưa tính giờ hạ cánh.</li></ul></div>
+  </div>
+  <p class="soft" style="margin-top:18px">Lỗi nguy hiểm nhất: <b>giá hoặc giờ trong dữ liệu sai mà lịch vẫn qua bộ kiểm.</b> Vì thế mỗi mục đều hiện mã nguồn và trạng thái kiểm để người đi xem lại.</p>
+  <div class="foot"><span>Nguồn: <b>eval/report.md</b> mục 4 · eval/giu_rieng_ket_qua.csv · data/DATA_CARD.md · spec.md §5 · validation/log.md (đang trống)</span><span>8/8</span></div>
+</section>
+
+</body>
+</html>

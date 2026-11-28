@@ -6,7 +6,7 @@ Track: [ ] A · [ ] B · [x] C · [ ] D · [ ] E · bài toán: lịch trình v�
 Data BTC cấp đã dùng: không (Track C không được cấp data)
 
 ## §0. Hiện tại việc này diễn ra thế nào *(guide 1.1)*
-- Luồng hiện tại *(giả thuyết, chưa kiểm bằng phỏng vấn)*: tìm bài viết, video về Hà Nội → hỏi người quen hoặc diễn đàn → tự ghi danh sách điểm → tra giờ, giá từng nơi → ước tổng tiền.
+- Luồng hiện tại *(giả thuyết, chưa kiểm bằng phỏng vấn)*: tìm bài viết, video về Hà Nội → hỏi người quen hoặc diễn đàn → tự ghi danh sách điểm → tra giờ, giá từng nơi → ước tổng tiền. Khảo sát: 12/24 người tìm thông tin từ 1 giờ trở lên.
 - Phần đã thấy trong mẫu công khai: người đến Hà Nội đăng thread hỏi cách đi từ Nội Bài, giá xe, đi đâu, chia ngày thế nào (`evidence/data-mining.md`).
 - Công cụ đang dùng: Grab và đặt phòng qua app được nhắc trong các thread VOZ. Công cụ lập lịch khác: chưa kiểm.
 
@@ -14,24 +14,26 @@ Data BTC cấp đã dùng: không (Track C không được cấp data)
 - Người dùng chính: bạn trẻ từ TP.HCM, lần đầu ra Hà Nội, tự đi 1-3 ngày với ngân sách giới hạn.
 - Việc họ cố làm xong: lập lịch tham quan, ăn uống và dự toán tiền cho chuyến Hà Nội ngắn ngày.
 - Hôm nay họ giải bằng gì: đọc bài hướng dẫn, hỏi diễn đàn, xem giá trên app. Hỏng ở: thông tin rời rạc, phải hỏi từng mục. Vì sao chưa bỏ: chưa biết, sẽ hỏi trong phỏng vấn và khảo sát.
-- Pain: bạn trẻ từ TP.HCM lần đầu ra Hà Nội, khi chuẩn bị chuyến 1-3 ngày hoặc vừa xuống Nội Bài, không biết nên đi đâu, đi từ sân bay bằng gì và hết bao nhiêu vì thông tin nằm rải rác, nên phải đi hỏi từng mục trên diễn đàn và có người trả cao hơn dự kiến.
-- Chưa có bằng chứng cho hai lỗi nhóm nghĩ tới lúc đầu, xếp lịch trái tuyến và đến đúng ngày đóng cửa (0/98). Bản chạy thử vẫn chặn hai lỗi này bằng code, nhưng nhóm không coi là pain đã chứng minh.
-- Bằng chứng: **14/98 bài (14,3%)** trên trang 1 của 5 thread VOZ nêu ít nhất một lỗi: thiếu thông tin 12/98, trả cao hơn dự kiến 3/98, trái tuyến 0/98, đóng cửa 0/98 (một bài có thể mang hai nhãn). Trong 12 bài thiếu thông tin: đi lại và thuê xe 6, đi đâu, chia ngày và tiền 5, giờ mở hàng quán 1. Thấp hơn mức 20% đặt trước nên **giả thuyết phải đổi**. Tối 27/11 tải lại: 98/98 bài còn trên trang, 7/7 trích dẫn khớp nguyên văn (`python evidence/verify_quotes.py`). Nhãn chưa được người kiểm tay. Chi tiết: `evidence/summary.md`.
+- Pain: bạn trẻ từ TP.HCM lần đầu ra Hà Nội, khi tự lên lịch cho chuyến 1-3 ngày, phải ghép nơi đi, giờ mở cửa, cách đi và giá từ nhiều nguồn rời rạc, nên khi đến nơi có người gặp điểm đã đóng cửa, phải đi vòng và chi cao hơn dự tính.
+- Độ chắc: phần phải tự hỏi và ghép thông tin có trong cả hai nguồn. Phần đóng cửa và đi vòng chỉ có ở khảo sát (9/24 mỗi loại), bài VOZ là 0/98. Khảo sát đạt ngưỡng 20 người; điều kiện về bài công khai không đạt và chưa phỏng vấn.
+- Bằng chứng 1, đào bài công khai: **14/98 bài (14,3%)** trên trang 1 của 5 thread VOZ nêu ít nhất một lỗi: thiếu thông tin 12/98, trả cao hơn dự kiến 3/98, trái tuyến 0/98, đóng cửa 0/98 (một bài có thể mang hai nhãn). Thấp hơn mức 20% đặt trước. 7/7 trích dẫn khớp nguyên văn (`python evidence/verify_quotes.py`). Nhãn chưa được người kiểm tay.
+- Bằng chứng 2, khảo sát: 36 câu trả lời, **24 người đúng điều kiện (ngưỡng 20)**. Gặp ít nhất một việc **18/24 (75%)**, đóng cửa hoặc hết giờ 9/24, đi vòng 9/24, chi cao hơn dự tính 15/24 (`evidence/survey/summary.md`). 5 trong 24 dòng chỉ được xác nhận bằng lời của nhóm, bỏ đi còn 16/19 (`evidence/survey/cach-dem.md`). Chi tiết hai nguồn và chỗ lệch: `evidence/summary.md`.
   - "ra đó đi từ NB vào ks kiểu gì ạ?" (VOZ 678405 #1)
   - "Em không biết mình chia từng quận để đi có hợp lí không" (VOZ 1013476 #1)
+  - "Mất gần 3 tiếng plan mà tới noi thì bị đóng cửa ;-;" (khảo sát)
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
 | Hướng | Bao nhiêu người gặp | Bao nhiêu lần / tháng | Mỗi lần tốn gì | Impact / tháng | Làm kịp không | Chọn? |
 |---|---|---|---|---|---|---|
-| H1. Lịch tham quan, đi lại và dự toán Hà Nội 1-3 ngày | VOZ 12/98 bài hỏi đi đâu, đi bằng gì, giá bao nhiêu · quy mô khoảng 4.600 người (công thức dưới) | 1 chuyến *(tự ước tính)* | 120 phút tìm và ghép thông tin *(tự ước tính)* | khoảng 9.200 giờ | Có: 50 điểm và 8 phương án Nội Bài đã dựng | **Chọn** |
+| H1. Lịch tham quan, đi lại và dự toán Hà Nội 1-3 ngày | VOZ 12/98 bài hỏi đi đâu, đi bằng gì, giá bao nhiêu · khảo sát 18/24 gặp ít nhất một việc · quy mô khoảng 4.600 người (công thức dưới) | 1 chuyến *(tự ước tính)* | 86 phút tìm thông tin (khảo sát 24 người, giữa khoảng *tự ước tính*) | khoảng 6.600 giờ | Có: 50 điểm và 8 phương án Nội Bài đã dựng | **Chọn** |
 | H2. Chỉ cách đi và giá từ Nội Bài | VOZ 4/98 bài · cùng quy mô | 1 lần *(tự ước tính)* | 15 phút *(tự ước tính)* | khoảng 1.150 giờ | Có | Không làm riêng, đã nằm trong H1 |
 | H3. Cảnh báo bị tính giá cao khi đi xe | VOZ 3/98 bài, cùng một sự việc · 3% người gặp *(tự ước tính)* | 1 lần *(tự ước tính)* | 350.000 đ (một sự việc, VOZ 866081 #1) | khoảng 48 triệu đồng | Khó: không có dữ liệu giá bị thu thực tế | Loại |
 | H4. Đề xuất đổi, nâng hạng phòng cho lễ tân | chưa đào dữ liệu | không có số | không có số | không tính | Khó: phải hẹn lễ tân | Loại |
 | H5. Xử lý chuyến bay bị huỷ | chưa đào dữ liệu | không có số | không có số | không tính | Khó: ít người từng gặp | Loại |
 
 - **Quy mô:** đường bay Hà Nội và TP.HCM có 11,07 triệu ghế năm 2025 ([VnExpress, 24/12/2025, dẫn OAG](https://e.vnexpress.net/news/business/economy/hanoi-hcmc-remains-world-s-4th-busiest-flight-route-4997830.html)). Chia 12 tháng và chia đôi cho chiều đi Hà Nội *(giả định hai chiều bằng nhau)* được khoảng 461.000 ghế / tháng. Ghế chưa phải hành khách. Lấy 1% là người đi chơi lần đầu và tự túc *(tự ước tính)* được khoảng **4.600 người / tháng**. Để so: Hà Nội đón 25,88 triệu lượt khách nội địa năm 2025 ([VnEconomy, 06/01/2026](https://vneconomy.vn/ha-noi-don-337-trieu-luot-khach-trong-nam-2025.htm)).
-- **Impact / tháng của H1** = 4.600 người × 1 chuyến × 120 phút = **9.200 giờ**. Nếu tỉ lệ 1% thật ra là 0,5% hoặc 2% thì còn 4.600 hoặc tăng lên 18.400 giờ. Số 120 phút sẽ thay bằng câu 4 của khảo sát (`evidence/survey/cach-dem.md`).
+- **Impact / tháng của H1** = 4.600 người × 1 chuyến × 86 phút = **khoảng 6.600 giờ**. Nếu tỉ lệ 1% thật ra là 0,5% hoặc 2% thì còn 3.300 hoặc tăng lên 13.200 giờ. Trước khi có khảo sát nhóm dùng 120 phút tự ước tính (9.200 giờ). Số 86 phút lấy từ 24 người (`evidence/survey/summary.md`).
 - Vì sao chọn H1: impact lớn nhất, gồm luôn H2, và dựng được dữ liệu trong hai ngày. Hướng đã loại: H3 chỉ có một sự việc và không có dữ liệu để cảnh báo đúng; H4 khó đủ 3 người đúng vai trong hai ngày; H5 ít người từng gặp và việc đổi, hoàn vé khó đảo (`tracks/track-c-travel.md` trong repo đề).
 - Số lần / tháng theo kiểu người dùng (cho §8): cả ba kiểu 1 phiên / tháng *(tự ước tính)*, khác nhau ở số lượt hỏi trong phiên (`cost/personas.yaml`).
 
@@ -163,6 +165,8 @@ Mô phỏng 50 phiên (`cost/simulate-1.csv`, seed 42, tỉ lệ đạt lượt 
 | Tối 27/11 | Thêm giao diện web; `python run.py` mở web, bản dòng lệnh chuyển sang `--cli`; `answer()` trả thêm `loai` và `du_lieu`, chữ `output` giữ nguyên | Người dùng đọc lịch theo ngày, thấy nguồn từng mục, và quay video CP3 |
 | Đêm 27/11 | §1 và `canvas.md` dòng 3: pain đổi sang không biết đi đâu, đi bằng gì, giá bao nhiêu; bỏ trái tuyến và đóng cửa khỏi pain đã chứng minh | Mẫu VOZ: 12/98 thiếu thông tin, 0/98 trái tuyến và đóng cửa. Lát cắt không đổi |
 | Đêm 27/11 | §2: quy mô lấy từ nguồn công khai, thêm hai hướng có số từ VOZ, thay các ô để trống | Rubric R2 cần công thức impact có nguồn |
+| Đêm 27/11 | §0-§2, `canvas.md`: đưa đóng cửa và đi vòng trở lại pain, ghi rõ chỉ có ở khảo sát; impact dùng 88 phút thay 120 | Có kết quả khảo sát: 12 người đúng điều kiện, 7/12 đóng cửa, 7/12 đi vòng. Lát cắt không đổi |
+| Sáng 28/11 | §0-§2, `canvas.md`, slide: cập nhật khảo sát lên 24 người đúng điều kiện; impact dùng 86 phút thay 88; đổi câu trích khảo sát | Bản dữ liệu 09:52 đạt ngưỡng 20 người; câu trích cũ nằm trong dòng nhóm đã xoá |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)**
 
