@@ -70,7 +70,7 @@ Làm rõ khi gắn nhãn: chỉ tính chuyện thuộc chuyến đến Hà Nội
 - Chỉ đọc trang 1; thread 866081 còn nhiều trang.
 - Bài cũ (2022-2024), không phải chuyện trong 1 tháng qua.
 - Phần lớn không biết người viết đến từ đâu; thread 866081 tự nói từ Sài Gòn. Có người đi công tác, không phải du lịch.
-- **Nhãn do Claude Code gắn, chưa được người kiểm tay.** TV2 đọc lại 98 bài theo `voz-labels.csv` rồi ghi số dòng khớp: __/98.
+- **Nhãn do Claude Code gắn.** Người kiểm tay 34/98 bài theo phiếu `voz-kiem-tay.csv` (14 bài có nhãn và 20 bài không nhãn), khớp nhãn **34/34**. 64 bài còn lại chưa kiểm tay.
 
 Kiểm lại bằng khảo sát (`evidence/survey/summary.md`, mẫu chính 24 người) và phỏng vấn theo `evidence/interviews/cau-hoi.md`.
 

@@ -16,7 +16,7 @@ Data BTC cấp đã dùng: không (Track C không được cấp data)
 - Hôm nay họ giải bằng gì: đọc bài hướng dẫn, hỏi diễn đàn, xem giá trên app. Hỏng ở: thông tin rời rạc, phải hỏi từng mục. Vì sao chưa bỏ: chưa biết, sẽ hỏi trong phỏng vấn và khảo sát.
 - Pain: bạn trẻ từ TP.HCM lần đầu ra Hà Nội, khi tự lên lịch cho chuyến 1-3 ngày, phải ghép nơi đi, giờ mở cửa, cách đi và giá từ nhiều nguồn rời rạc, nên khi đến nơi có người gặp điểm đã đóng cửa, phải đi vòng và chi cao hơn dự tính.
 - Độ chắc: phần phải tự hỏi và ghép thông tin có trong cả hai nguồn. Phần đóng cửa và đi vòng chỉ có ở khảo sát (9/24 mỗi loại), bài VOZ là 0/98. Khảo sát đạt ngưỡng 20 người; điều kiện về bài công khai không đạt và chưa phỏng vấn.
-- Bằng chứng 1, đào bài công khai: **14/98 bài (14,3%)** trên trang 1 của 5 thread VOZ nêu ít nhất một lỗi: thiếu thông tin 12/98, trả cao hơn dự kiến 3/98, trái tuyến 0/98, đóng cửa 0/98 (một bài có thể mang hai nhãn). Thấp hơn mức 20% đặt trước. 7/7 trích dẫn khớp nguyên văn (`python evidence/verify_quotes.py`). Nhãn chưa được người kiểm tay.
+- Bằng chứng 1, đào bài công khai: **14/98 bài (14,3%)** trên trang 1 của 5 thread VOZ nêu ít nhất một lỗi: thiếu thông tin 12/98, trả cao hơn dự kiến 3/98, trái tuyến 0/98, đóng cửa 0/98 (một bài có thể mang hai nhãn). Thấp hơn mức 20% đặt trước. 7/7 trích dẫn khớp nguyên văn (`python evidence/verify_quotes.py`). Nhãn do AI gắn; người kiểm tay 34/98 bài, khớp 34/34 (`evidence/voz-kiem-tay.csv`).
 - Bằng chứng 2, khảo sát: 36 câu trả lời, **24 người đúng điều kiện (ngưỡng 20)**. Gặp ít nhất một việc **18/24 (75%)**, đóng cửa hoặc hết giờ 9/24, đi vòng 9/24, chi cao hơn dự tính 15/24 (`evidence/survey/summary.md`). 5 trong 24 dòng chỉ được xác nhận bằng lời của nhóm, bỏ đi còn 16/19 (`evidence/survey/cach-dem.md`). Chi tiết hai nguồn và chỗ lệch: `evidence/summary.md`.
   - "ra đó đi từ NB vào ks kiểu gì ạ?" (VOZ 678405 #1)
   - "Em không biết mình chia từng quận để đi có hợp lí không" (VOZ 1013476 #1)
@@ -168,6 +168,7 @@ Mô phỏng 50 phiên (`cost/simulate-1.csv`, seed 42, tỉ lệ đạt lượt 
 | Đêm 27/11 | §0-§2, `canvas.md`: đưa đóng cửa và đi vòng trở lại pain, ghi rõ chỉ có ở khảo sát; impact dùng 88 phút thay 120 | Có kết quả khảo sát: 12 người đúng điều kiện, 7/12 đóng cửa, 7/12 đi vòng. Lát cắt không đổi |
 | Sáng 28/11 | §0-§2, `canvas.md`, slide: cập nhật khảo sát lên 24 người đúng điều kiện; impact dùng 86 phút thay 88; đổi câu trích khảo sát | Bản dữ liệu 09:52 đạt ngưỡng 20 người; câu trích cũ nằm trong dòng nhóm đã xoá |
 | Sáng 28/11 | Câu lý do trên lịch do code dựng từ ràng buộc và dữ liệu, thay câu model viết; nhãn đổi thành "Vì sao xếp"; ảnh slide 4 chụp lại. Prompt, schema và cách chọn điểm giữ nguyên | Câu model viết từng sai về khoảng cách, buổi và nhãn. Lượt 1-4 chạy trước thay đổi này, chưa chạy lại |
+| Trưa 28/11 | `evidence/`, §1, slide 1: ghi kết quả kiểm tay nhãn VOZ, 34/98 bài, khớp 34/34 | Trước đó nhãn do AI gắn chưa ai kiểm |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)**
 
