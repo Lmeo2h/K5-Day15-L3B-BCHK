@@ -6,7 +6,7 @@
 
 | Nguồn | Đạt ngưỡng? | File |
 |---|---|---|
-| Đào data (x/N, %, cách đếm ghi trước, chạy lại được, ≥5 ví dụ) | ☑ đạt · nhãn do AI gắn, **chưa kiểm tay** | `evidence/data-mining.md` |
+| Đào data (x/N, %, cách đếm ghi trước, chạy lại được, ≥5 ví dụ) | ☑ đạt · nhãn do AI gắn, người kiểm tay 34/98 bài, khớp 34/34 (`evidence/voz-kiem-tay.csv`) | `evidence/data-mining.md` |
 | Khảo sát (≥20 người ngoài nhóm, đúng người dùng) | ☑ đạt: 36 câu trả lời, **24 người đúng điều kiện**; 5 trong số đó nhóm tự xác nhận (mục 4) | `evidence/survey/summary.md`, `results.csv`, `cach-dem.md` |
 | Phỏng vấn (≥3 người ngoài nhóm, đúng người dùng) | ☐ chưa phỏng vấn ai | `evidence/interviews/cau-hoi.md` |
 
