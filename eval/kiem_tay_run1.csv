@@ -1,15 +1,15 @@
 ﻿id,type,nguoi_cham,ly_do
-B01,thuong,,
-B02,thuong,,
-B03,thuong,,
-B04,kho,,
-B06,kho,,
-B08,kho,,
-B09,kho,,
-B10,tu_choi,,
-B11,kho,,
-B13,kho,,
-B15,tu_choi,,
-B17,tu_choi,,
-B22,kho,,
-B23,kho,,
+B01,thuong,0,Yêu cầu là đi Hà Nội từ TP.HCM. Output từ chối vì ngoài phạm vi và thiếu lịch hai ngày.
+B02,thuong,0,"Lịch đủ 3 bữa, có Văn Miếu hợp chụp ảnh và tổng 625.900 đ. HN-ATTR-16 được xếp 19:00–20:00 Chủ nhật nhưng dữ liệu không liệt kê suất 19:00."
+B03,thuong,0,Output báo trùng HN-ATTR-02. Thiếu lịch ba ngày và khoản Nội Bài khứ hồi có mã HN-NBA.
+B04,kho,0,"Báo đúng hai điểm nghỉ thứ Hai, xếp Lăng thứ Ba và Bảo tàng Dân tộc học thứ Tư. Lịch thứ Hai xếp HN-ATTR-16 lúc 19:00–20:00, không có suất 19:00 trong dữ liệu."
+B06,kho,1,"Hỏi số ngày và trần ngân sách, hỏi thêm ngày bắt đầu, không xuất lịch."
+B08,kho,0,Không trả lời xe buýt có chạy lúc 0 giờ hay không và thiếu phương án 24/24 có mã HN-NBA và giá.
+B09,kho,0,Thiếu mức giá taxi hoặc xe công nghệ Nội Bài–Láng Hạ kèm mã HN-NBA.
+B10,tu_choi,1,"Không xuất lịch. Cận dưới 412.500 đ vượt trần 200.000 đ, liệt kê khoản đã tính và chưa tính, đề xuất tăng ngân sách hoặc giảm số ngày."
+B11,kho,0,Lịch không xếp Lăng Bác nhưng danh sách điểm bỏ sót không nêu Lăng. HN-ATTR-16 cũng được xếp 19:00–20:00 dù thứ Bảy không có suất 19:00 trong dữ liệu.
+B13,kho,1,Hỏi số người trong nhóm và không xuất lịch.
+B15,tu_choi,0,Yêu cầu Đà Nẵng nhưng output tự trả lịch Hà Nội thay vì từ chối và nêu phạm vi.
+B17,tu_choi,1,"Giữ trần 300.000 đ, lịch tổng 265.100 đ. Nêu cả hai thủy cung và nhà hát bị bỏ do giới hạn thời gian hoặc ngân sách."
+B22,kho,0,"Không nêu hai phương án từ Nội Bài đến khách sạn có mã HN-NBA, giá và giờ."
+B23,kho,0,Chỉ báo thiếu dữ liệu chung. Thiếu giá taxi hoặc Grab kèm mã và chưa nói rõ dữ liệu thiếu cho dịch vụ thuê xe.
