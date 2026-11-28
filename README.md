@@ -86,6 +86,7 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 |---|---|---|
 | Lời gọi AI ở quyết định trung tâm | **Thật** | Model: `gpt-5-nano` (`codebase/ai.py`). Không đặt `MODEL_PROVIDER` thì chạy giả |
 | Lọc điểm, xếp giờ, tính tiền, chặn vi phạm | Thật (code) | `codebase/tools.py` |
+| Dòng "Vì sao xếp" dưới mỗi điểm tham quan | Thật (code) | Dựng từ ràng buộc và dữ liệu, không dùng câu model viết (`codebase/agent.py`) |
 | Dữ liệu địa điểm, quán ăn, Nội Bài | Công khai trộn ước tính | `data/DATA_CARD.md` |
 | Đi lại trong thành phố | Đơn giá Grab công bố, quãng đường OSRM | `data/road_distances.json`, `spec.md` §4 |
 

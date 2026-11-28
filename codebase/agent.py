@@ -255,6 +255,42 @@ def _loi_de_hieu(e):
     return "%s: %s" % (ten.get(code, "chưa đạt ràng buộc"), detail)
 
 
+NHAN_SO_THICH = {"di_tich": ("di tích", {"di_tich", "lich_su", "bao_tang"}),
+                 "chup_anh": ("chụp ảnh", {"chup_anh", "kien_truc"}),
+                 "mua_dac_san": ("mua đặc sản", {"mua_sam", "cho_dem", "lang_nghe"})}
+TEN_BUOI = {"sang": "buổi sáng", "chieu": "buổi chiều", "toi": "buổi tối"}
+
+
+def _ly_do(res, rb, text):
+    """Lý do xếp từng điểm tham quan, dựng từ ràng buộc và dữ liệu đã qua bộ kiểm. Không dùng câu model viết,
+    vì câu đó từng sai về khoảng cách, buổi và nhãn. Sở thích chỉ được nhắc khi tin nhắn nói rõ "thích ...":
+    model đôi khi tự suy ra sở thích từ tên địa điểm."""
+    said = {k for k, pat in kiem_yeu_cau.SO_THICH.items()
+            if re.search(r"(thích|ưu tiên|quan tâm)[^.,;]{0,40}(%s)" % pat, text.lower())}
+    out = {}
+    for day in res["ngay"]:
+        for m in day["muc"]:
+            pid = m["id"]
+            if tools.PLACES[pid]["category"] != "attraction":
+                continue
+            parts = []
+            if pid in (rb.get("diem_muon_di") or []):
+                parts.append("bạn yêu cầu điểm này")
+            tags = set(tools.PLACES[pid]["tags"])
+            liked = [NHAN_SO_THICH[s][0] for s in rb.get("so_thich") or []
+                     if s in said and NHAN_SO_THICH[s][1] & tags]
+            if liked:
+                parts.append("hợp sở thích %s" % ", ".join(liked))
+            shut = [tools.DAY_VI[d] for d in dict.fromkeys(rb["thu"]) if not tools.intervals(pid, d)]
+            if shut:
+                parts.append("đóng cửa %s, xếp vào %s" % (", ".join(shut), tools.DAY_VI[day["thu"]]))
+            else:
+                parts.append("mở cửa kịp %s %s" % (TEN_BUOI[m["o"]], tools.DAY_VI[day["thu"]]))
+            cau = "; ".join(parts)
+            out[pid] = cau[0].upper() + cau[1:] + "."
+    return out
+
+
 def _render(res, rb, reasons, notes):
     out = list(notes)
     out.append("LỊCH %d NGÀY cho %d người, trần %s" % (rb["so_ngay"], rb["so_nguoi"], _money(rb["ngan_sach_vnd"])))
@@ -419,7 +455,7 @@ def answer(text: str) -> dict:
             if skipped:
                 notes.append("Không xếp vừa thời gian hoặc ngân sách: %s." % ", ".join(skipped))
             note("dừng: lịch sạch sau %d lượt xếp" % (attempt + 1))
-            reasons = plan.get("ly_do") or {}
+            reasons = _ly_do(res, rb, text)
             return {"output": head + _render(res, rb, reasons, notes), "loai": "lich",
                     "du_lieu": {"rang_buoc": rb, "lich": res, "ly_do": reasons, "ghi_chu": list(notes)}}
         note("vi phạm lượt %d: %s" % (attempt + 1, "; ".join(res["vi_pham"][:5])))

@@ -387,7 +387,7 @@ function dayPanel(day, index, mapHolder) {
         h("div", { class: "meta" }, h("span", { class: "code" }, m.diem.id), badge(m.diem.kiem),
           link(m.diem.ban_do, "Bản đồ", "pin"),
           m.diem.nguon ? link(m.diem.nguon.url, "Nguồn", "out") : null),
-        m.ly_do ? h("p", { class: "why" }, h("b", {}, "AI gợi ý: "), m.ly_do) : null));
+        m.ly_do ? h("p", { class: "why" }, h("b", {}, "Vì sao xếp: "), m.ly_do) : null));
     row.addEventListener("pointerenter", hot(true));
     row.addEventListener("pointerleave", hot(false));
     items.push(legRow(m.di, ""), row);

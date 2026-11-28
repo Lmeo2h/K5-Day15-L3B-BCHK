@@ -167,6 +167,7 @@ Mô phỏng 50 phiên (`cost/simulate-1.csv`, seed 42, tỉ lệ đạt lượt 
 | Đêm 27/11 | §2: quy mô lấy từ nguồn công khai, thêm hai hướng có số từ VOZ, thay các ô để trống | Rubric R2 cần công thức impact có nguồn |
 | Đêm 27/11 | §0-§2, `canvas.md`: đưa đóng cửa và đi vòng trở lại pain, ghi rõ chỉ có ở khảo sát; impact dùng 88 phút thay 120 | Có kết quả khảo sát: 12 người đúng điều kiện, 7/12 đóng cửa, 7/12 đi vòng. Lát cắt không đổi |
 | Sáng 28/11 | §0-§2, `canvas.md`, slide: cập nhật khảo sát lên 24 người đúng điều kiện; impact dùng 86 phút thay 88; đổi câu trích khảo sát | Bản dữ liệu 09:52 đạt ngưỡng 20 người; câu trích cũ nằm trong dòng nhóm đã xoá |
+| Sáng 28/11 | Câu lý do trên lịch do code dựng từ ràng buộc và dữ liệu, thay câu model viết; nhãn đổi thành "Vì sao xếp"; ảnh slide 4 chụp lại. Prompt, schema và cách chọn điểm giữ nguyên | Câu model viết từng sai về khoảng cách, buổi và nhãn. Lượt 1-4 chạy trước thay đổi này, chưa chạy lại |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)**
 

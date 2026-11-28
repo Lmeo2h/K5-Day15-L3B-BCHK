@@ -52,7 +52,7 @@ Kết quả từng câu: `eval/run-N.csv`. Trace: `traces/run-N.jsonl`.
 
 ## 4. Còn lại
 
-- Câu lý do do model viết có lúc sai (gọi điểm cách 5,8 km là "gần", buổi sáng ghi "buổi chiều"). Nguy hiểm vừa: người đọc có thể tin lý do sai.
+- Câu lý do do model viết có lúc sai (gọi điểm cách 5,8 km là "gần", buổi sáng ghi "buổi chiều"). **Đã sửa sáng 28/11, sau lượt 4:** lịch hiển thị câu do code dựng từ ràng buộc và dữ liệu (`_ly_do` trong `codebase/agent.py`). Lượt 1 đến 4 chạy trước thay đổi này và chưa chạy lại.
 - Nội Bài: code chọn tuyến rẻ nhất **phục vụ khu ở** (19.000 đ) trong khi định nghĩa metric ghi "rẻ nhất"; cần nói rõ khi trình bày.
 - Code chỉ dùng một giá tham khảo cho mỗi điểm. Điểm có nhiều hạng vé (múa rối 100.000 đến 200.000 đ) có thể bị báo không xếp được dù hạng rẻ vừa tiền.
 - Lịch ngày đến không tính giờ hạ cánh; chợ Đồng Xuân có lúc xếp tối dù chợ trong nhà đóng 18:00.

@@ -18,6 +18,8 @@ README của nhóm có mục "Dùng AI vào việc gì" (2–3 dòng, bắt bu�
 | Giao diện web (`codebase/web.py`, `view.py`, `ui/`) | Claude Code | Thiết kế, viết code, tự thử bằng Edge không màn hình | Chờ kiểm | Mai Xuân Khang |
 | Chuẩn bị CP3: đối chiếu trích dẫn, chia nhóm 12 bài, tìm số quy mô, script đếm khảo sát, phiếu chấm tay | Claude Code | Viết script, tải lại 5 thread, đọc 2 trang báo, viết lại pain và bảng impact | Chờ kiểm | Lê Quân Bảo |
 | Video 30 giây CP3 | Claude Code | Viết kịch bản bấm tự động, quay màn hình giao diện gọi model thật theo thời gian thực, thêm phụ đề | Chờ xem lại | Nguyễn Tấn Châu |
+| Thay câu lý do model viết bằng câu code dựng | Claude Code | Viết `_ly_do`, đổi nhãn giao diện, so output 23 câu trước và sau, chạy thử model thật, chụp lại ảnh slide | Chờ kiểm | Mai Xuân Khang |
+| Video demo dự phòng CP4 | Claude Code · giọng đọc `gpt-4o-mini-tts` của OpenAI | Viết lời thuyết minh, tự bấm giao diện gọi model thật, quay hình, ghép giọng đọc và phụ đề; chỉ nhận lượt gọi model có đủ điểm tham quan mỗi ngày, lượt khác bị bỏ | Chờ xem lại | Nguyễn Tấn Châu |
 | Slide CP4 (`slides/`, `demo-slides.pdf`) | Claude Code | Soạn 8 trang từ số trong repo, chụp hai kết quả thật, xuất PDF | Chờ kiểm | Nguyễn Tấn Châu |
 | Phân tích khảo sát, viết lại pain và impact theo kết quả | Claude Code | Viết script đếm theo form thật, bỏ cột nhận dạng, cập nhật spec, canvas, slide | Chờ kiểm; nhóm xác nhận 5 dòng gửi dồn là người thật | Lê Quân Bảo |
 | Soạn câu hỏi phỏng vấn | Claude Code | Soạn 6 câu | Chờ kiểm | Lê Quân Bảo |
